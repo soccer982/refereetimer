@@ -1,22 +1,22 @@
 [
     {
-        "merged": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-merged_res-44:/layout_activity_quick_event.xml.flat",
-        "source": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-main-46:/layout/activity_quick_event.xml"
+        "merged": "com.example.refereetimer.wear-merged_res-44:/layout_activity_main.xml.flat",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-merged_res-44:/layout_activity_main.xml.flat",
-        "source": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-main-46:/layout/activity_main.xml"
+        "merged": "com.example.refereetimer.wear-merged_res-44:/layout_activity_quick_event.xml.flat",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_quick_event.xml"
     },
     {
-        "merged": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-merged_res-44:/layout_activity_injury.xml.flat",
-        "source": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-main-46:/layout/activity_injury.xml"
+        "merged": "com.example.refereetimer.wear-merged_res-44:/layout_activity_injury.xml.flat",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_injury.xml"
     },
     {
         "merged": "com.example.refereetimer.wear-merged_res-44:/drawable_circle_bg.xml.flat",
         "source": "com.example.refereetimer.wear-main-46:/drawable/circle_bg.xml"
     },
     {
-        "merged": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-merged_res-44:/layout_activity_field_setup.xml.flat",
-        "source": "/Users/curtiskleier/.gradle/daemon/8.2/com.example.refereetimer.wear-main-46:/layout/activity_field_setup.xml"
+        "merged": "com.example.refereetimer.wear-merged_res-44:/layout_activity_field_setup.xml.flat",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_field_setup.xml"
     }
 ]

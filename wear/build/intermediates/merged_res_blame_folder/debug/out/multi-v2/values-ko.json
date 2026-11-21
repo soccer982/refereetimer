@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "/Users/curtiskleier/.gradle/caches/transforms-3/7e644953090ceedffd3e7af3aeec4990/transformed/jetified-play-services-basement-18.1.0/res/values-ko/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "116",
+                        "endOffsets": "311"
+                    },
+                    "to": {
+                        "startLines": "56",
+                        "startColumns": "4",
+                        "startOffsets": "5066",
+                        "endColumns": "120",
+                        "endOffsets": "5182"
+                    }
+                },
+                {
                     "source": "/Users/curtiskleier/.gradle/caches/transforms-3/808f25e33273cf777e1c687f415f5885/transformed/core-1.12.0/res/values-ko/values-ko.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -55,24 +72,7 @@
                     }
                 },
                 {
-                    "source": "/Users/curtiskleier/.gradle/caches/transforms-3/e457c158304b48a5d952aed8b7d0eb1e/transformed/jetified-play-services-basement-18.0.0/res/values-ko/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "116",
-                        "endOffsets": "311"
-                    },
-                    "to": {
-                        "startLines": "56",
-                        "startColumns": "4",
-                        "startOffsets": "5066",
-                        "endColumns": "120",
-                        "endOffsets": "5182"
-                    }
-                },
-                {
-                    "source": "/Users/curtiskleier/.gradle/caches/transforms-3/a09d6732d5040b85267b71a78cc02a7b/transformed/jetified-play-services-base-18.0.1/res/values-ko/values.xml",
+                    "source": "/Users/curtiskleier/.gradle/caches/transforms-3/e375502865e73a060ea5c6be83cf7b9e/transformed/jetified-play-services-base-18.1.0/res/values-ko/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

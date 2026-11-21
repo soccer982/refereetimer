@@ -34,6 +34,7 @@
         android:extractNativeLibs="true"
         android:label="Referee Timer"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.RefereeTimer" >
 
         <!-- Match Setup also receives shared game confirmations (screenshots or email text) -->

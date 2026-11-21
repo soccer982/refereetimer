@@ -32,6 +32,7 @@
         android:extractNativeLibs="false"
         android:label="Referee Timer"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.RefereeTimer.Wear" >
         <uses-library
             android:name="com.google.android.wearable"
@@ -89,10 +90,6 @@
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.refereetimer.androidx-startup"
@@ -107,6 +104,10 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
