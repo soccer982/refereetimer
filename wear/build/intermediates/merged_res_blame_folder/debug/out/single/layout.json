@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_main.xml",
+        "source": "com.example.refereetimer.wear-main-39:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_quick_event.xml",
+        "source": "com.example.refereetimer.wear-main-39:/layout/activity_quick_event.xml"
+    },
+    {
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_gps_calibration.xml",
+        "source": "com.example.refereetimer.wear-main-39:/layout/activity_gps_calibration.xml"
+    }
+]

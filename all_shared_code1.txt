@@ -1,0 +1,224 @@
+-e \n\n--- shared/src/main/AndroidManifest.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />
+-e \n\n--- shared/src/main/kotlin/com/example/refereetimer/shared/models/Player.kt ---
+package com.example.refereetimer.shared.models
+
+data class Player(
+    val jerseyNumber: Int,
+    val name: String,
+    val flagged: Boolean = false
+) {
+    companion object {
+        val UNKNOWN = Player(jerseyNumber = 0, name = "Unknown")
+    }
+    override fun toString(): String = "#$jerseyNumber $name"
+}
+-e \n\n--- shared/src/main/kotlin/com/example/refereetimer/shared/models/MatchEvent.kt ---
+package com.example.refereetimer.shared.models
+
+import java.util.UUID
+
+data class GpsPoint(
+    val latitude: Double,
+    val longitude: Double,
+    val accuracy: Float,
+    val corrected: Boolean,
+    val timestamp: Long = System.currentTimeMillis()
+) {
+    var fieldX: Float = 0f
+    var fieldY: Float = 0f
+}
+
+data class MatchEvent(
+    val id: String = UUID.randomUUID().toString(),
+    val type: EventType,
+    val team: Team,
+    val player: Player,                 // Used for Scorer, Fouler, Carded Player, or Player coming ON
+    val playerOff: Player? = null,      // NEW: Used exclusively for the Player going OFF during a sub
+    val assistPlayer: Player? = null,
+    val minute: Int,
+    val period: Int,
+    val elapsedMillis: Long,
+    val foulType: FoulType? = null,
+    val cardType: CardType? = null,
+    val misconductCode: String? = null, // NEW: USSF code (e.g., "UB", "SFP", "DOGSO")
+    val isOwnGoal: Boolean = false,
+    val isPK: Boolean = false,
+    val gpsLocation: GpsPoint? = null,
+    val timestamp: Long = System.currentTimeMillis()
+) {
+    // NEW: Added SUBSTITUTION to the event types
+    enum class EventType { GOAL, FOUL, CARD, SUBSTITUTION }
+    enum class FoulType  { DFK, IFK }
+    enum class CardType  { YELLOW, RED }
+
+    fun toDisplayString(): String = when (type) {
+        EventType.GOAL -> buildString {
+            append("⚽ ${minute}' ")
+            if (isOwnGoal) append("OG ")
+            append("${team.name} #${player.jerseyNumber}")
+            assistPlayer?.let { append(" (Assist: #${it.jerseyNumber})") }
+            if (isPK) append(" [PK]")
+        }
+        EventType.FOUL -> buildString {
+            append("🚩 ${minute}' ")
+            append("${team.name} #${player.jerseyNumber} ")
+            append(foulType?.name ?: "")
+            if (isPK) append(" → PK")
+        }
+        EventType.CARD -> buildString {
+            val icon = if (cardType == CardType.RED) "🟥" else "🟨"
+            append("$icon ${minute}' ")
+            append("${team.name} #${player.jerseyNumber}")
+            // Display the misconduct code if one was logged
+            if (!misconductCode.isNullOrBlank()) {
+                append(" [$misconductCode]")
+            }
+        }
+        // NEW: Formats the substitution log for the phone UI
+        EventType.SUBSTITUTION -> buildString {
+            append("🔄 ${minute}' ")
+            append("${team.name}: IN #${player.jerseyNumber} | OUT #${playerOff?.jerseyNumber ?: "?"}")
+        }
+    }
+}-e \n\n--- shared/src/main/kotlin/com/example/refereetimer/shared/models/MatchConfig.kt ---
+package com.example.refereetimer.shared.models
+
+data class MatchConfig(
+    val homeTeam: Team,
+    val awayTeam: Team,
+    val league: LeagueType,
+    val venue: String = "",
+    val date: Long = System.currentTimeMillis(),
+    val regularPeriodMillis: Long,
+    val regularPeriodsCount: Int,
+    val breakMillis: Long,
+    val hasOvertime: Boolean,
+    val otPeriodMillis: Long = 0L,
+    val calibrationPoints: List<CalibrationPoint> = emptyList(),
+    val homographyMatrix: FloatArray? = null
+) {
+    enum class LeagueType {
+        SJSL, EDP, SJGSL, HIGH_SCHOOL, OTHER
+    }
+
+    fun getTeam(isHome: Boolean): Team =
+        if (isHome) homeTeam else awayTeam
+
+    fun isCalibrated(): Boolean =
+        calibrationPoints.size >= 11 && homographyMatrix != null
+}
+
+data class CalibrationPoint(
+    val pointIndex: Int,
+    val label: String,
+    val watchGps: GpsPoint,
+    val phoneGps: GpsPoint,
+    val weightedGps: GpsPoint,
+    val expectedFieldX: Float,
+    val expectedFieldY: Float
+) {
+    companion object {
+        val EXPECTED_POINTS = listOf(
+            CalibrationPointDef(0,  "Home Left Corner",           0.0f,  0.0f),
+            CalibrationPointDef(1,  "Home Right Corner",          1.0f,  0.0f),
+            CalibrationPointDef(2,  "Home Left Penalty Corner",   0.0f,  0.147f),
+            CalibrationPointDef(3,  "Home Right Penalty Corner",  1.0f,  0.147f),
+            CalibrationPointDef(4,  "Home Left Penalty Top",      0.217f,0.147f),
+            CalibrationPointDef(5,  "Home Right Penalty Top",     0.783f,0.147f),
+            CalibrationPointDef(6,  "Left Midfield Flag",         0.0f,  0.5f),
+            CalibrationPointDef(7,  "Center Spot",                0.5f,  0.5f),
+            CalibrationPointDef(8,  "Right Midfield Flag",        1.0f,  0.5f),
+            CalibrationPointDef(9,  "Away Left Penalty Top",      0.217f,0.853f),
+            CalibrationPointDef(10, "Away Right Penalty Top",     0.783f,0.853f)
+        )
+    }
+}
+
+data class CalibrationPointDef(
+    val index: Int,
+    val label: String,
+    val fieldX: Float,
+    val fieldY: Float
+)
+
+// Re-export LeagueType at top level for OcrProcessor
+typealias LeagueType = MatchConfig.LeagueType
+-e \n\n--- shared/src/main/kotlin/com/example/refereetimer/shared/models/Team.kt ---
+package com.example.refereetimer.shared.models
+
+data class Team(
+    val name: String,
+    val players: List<Player>,
+    val coaches: List<String>,
+    val isHome: Boolean,
+    val jerseyColor: String = ""
+) {
+    val yellowCards: MutableMap<Int, Int> = mutableMapOf()
+    val redCards: MutableSet<Int> = mutableSetOf()
+
+    fun getPlayer(jerseyNumber: Int): Player? =
+        players.find { it.jerseyNumber == jerseyNumber }
+
+    fun addYellowCard(jerseyNumber: Int): CardResult {
+        val current = yellowCards.getOrDefault(jerseyNumber, 0) + 1
+        yellowCards[jerseyNumber] = current
+        return if (current >= 2) CardResult.SECOND_YELLOW_RED
+        else CardResult.YELLOW
+    }
+
+    fun addRedCard(jerseyNumber: Int): CardResult {
+        redCards.add(jerseyNumber)
+        return CardResult.RED
+    }
+
+    fun hasRedCard(jerseyNumber: Int): Boolean =
+        redCards.contains(jerseyNumber) ||
+        (yellowCards.getOrDefault(jerseyNumber, 0) >= 2)
+
+    enum class CardResult {
+        YELLOW,
+        SECOND_YELLOW_RED,
+        RED
+    }
+}
+-e \n\n--- shared/src/main/kotlin/com/example/refereetimer/shared/DataLayerPaths.kt ---
+package com.example.refereetimer.shared
+
+object DataLayerPaths {
+    const val MSG_MATCH_EVENT       = "/match/event"
+    const val MSG_RESET             = "/match/reset"
+    const val MSG_PERIOD_END        = "/match/period_end"
+    const val MSG_MATCH_OVER        = "/match/over"
+    const val MSG_GPS_CORRECTION    = "/gps/correction"
+    const val MSG_CALIBRATE_POINT   = "/gps/calibrate/point"
+    const val MSG_CALIBRATE_DONE    = "/gps/calibrate/done"
+
+    const val DATA_TIMER_STATE      = "/data/timer"
+    const val DATA_MATCH_CONFIG     = "/data/config"
+    const val DATA_ROSTER_HOME      = "/data/roster/home"
+    const val DATA_ROSTER_AWAY      = "/data/roster/away"
+    const val DATA_GPS_BATCH        = "/data/gps/batch"
+    const val DATA_SCORE            = "/data/score"
+
+    const val KEY_PERIOD            = "period"
+    const val KEY_ELAPSED           = "elapsed"
+    const val KEY_REMAINING         = "remaining"
+    const val KEY_STATE             = "state"
+    const val KEY_HOME_SCORE        = "home_score"
+    const val KEY_AWAY_SCORE        = "away_score"
+    const val KEY_HOME_NAME         = "home_name"
+    const val KEY_AWAY_NAME         = "away_name"
+    const val KEY_EVENT_JSON        = "event_json"
+    const val KEY_GPS_LAT           = "gps_lat"
+    const val KEY_GPS_LNG           = "gps_lng"
+    const val KEY_GPS_ACCURACY      = "gps_accuracy"
+    const val KEY_DRIFT_LAT         = "drift_lat"
+    const val KEY_DRIFT_LNG         = "drift_lng"
+    const val KEY_POINT_INDEX       = "point_index"
+    const val KEY_CALIBRATION_JSON  = "calibration_json"
+    const val KEY_ROSTER_JSON       = "roster_json"
+    const val KEY_GPS_BATCH_JSON    = "gps_batch_json"
+    const val KEY_TIMESTAMP         = "timestamp"
+}

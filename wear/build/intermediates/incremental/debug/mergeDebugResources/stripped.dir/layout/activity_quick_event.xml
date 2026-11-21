@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Goal / card entry, laid out for a round display. Turn the crown to change number or code. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quickEventScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:fillViewport="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="30dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="36dp">
+
+        <TextView
+            android:id="@+id/txtTeamLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="HOME"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtStepTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:gravity="center"
+            android:text="GOAL OR CARD?"
+            android:textColor="#9E9E9E"
+            android:textSize="10sp" />
+
+        <!-- STEP 1: goal or card -->
+        <LinearLayout
+            android:id="@+id/layoutType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnTypeGoal"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginBottom="4dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#2E7D32"
+                android:text="⚽ GOAL"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnTypeYellow"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#FFEB3B"
+                    android:text="🟨 YC"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnTypeRed"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#C62828"
+                    android:text="🟥 RC"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- STEP 2: player number (crown or − / +) -->
+        <LinearLayout
+            android:id="@+id/layoutNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtPlayerNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:textSize="38sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtPlayerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Not on roster"
+                android:textColor="#4CAF50"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnNumDown"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="6dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="−"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnNumConfirm"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="6dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#2E7D32"
+                    android:text="✓"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnNumUp"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- STEP 3 (cards only): Law 12 misconduct code (crown or ◀ / ▶) -->
+        <LinearLayout
+            android:id="@+id/layoutCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtCurrentCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UB"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtCodeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="Unsporting behaviour"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCodePrev"
+                    android:layout_width="40dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="4dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="◀"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnCodeConfirm"
+                    android:layout_width="64dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="4dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#2E7D32"
+                    android:text="SAVE"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnCodeNext"
+                    android:layout_width="40dp"
+                    android:layout_height="44dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="▶"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginTop="6dp"
+            android:minHeight="0dp"
+            android:backgroundTint="#212121"
+            android:text="✕ Cancel"
+            android:textColor="#BDBDBD"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+</ScrollView>

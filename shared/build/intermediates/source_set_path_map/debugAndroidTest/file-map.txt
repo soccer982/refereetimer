@@ -1,0 +1,9 @@
+com.example.refereetimer.shared.test.shared-core-1.12.0-0 /Users/curtiskleier/.gradle/caches/transforms-3/808f25e33273cf777e1c687f415f5885/transformed/core-1.12.0/res
+com.example.refereetimer.shared.test.shared-jetified-core-ktx-1.12.0-1 /Users/curtiskleier/.gradle/caches/transforms-3/8abf1d7674e5eaed6d0b9834b7707fa3/transformed/jetified-core-ktx-1.12.0/res
+com.example.refereetimer.shared.test.shared-lifecycle-runtime-2.3.1-2 /Users/curtiskleier/.gradle/caches/transforms-3/8b4edd9ccc46b9093b214c9ee3271d6f/transformed/lifecycle-runtime-2.3.1/res
+com.example.refereetimer.shared.test.shared-jetified-annotation-experimental-1.3.0-3 /Users/curtiskleier/.gradle/caches/transforms-3/c3f13887bc6a65f0910462eed5e3275b/transformed/jetified-annotation-experimental-1.3.0/res
+com.example.refereetimer.shared.test.shared-androidTest-4 /Users/curtiskleier/Documents/RefereeTimer/shared/build/generated/res/resValues/androidTest/debug
+com.example.refereetimer.shared.test.shared-mergeDebugAndroidTestResources-5 /Users/curtiskleier/Documents/RefereeTimer/shared/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.refereetimer.shared.test.shared-mergeDebugAndroidTestResources-6 /Users/curtiskleier/Documents/RefereeTimer/shared/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.refereetimer.shared.test.shared-merged_res-7 /Users/curtiskleier/Documents/RefereeTimer/shared/build/intermediates/merged_res/debugAndroidTest
+com.example.refereetimer.shared.test.shared-packaged_res-8 /Users/curtiskleier/Documents/RefereeTimer/shared/build/intermediates/packaged_res/debug

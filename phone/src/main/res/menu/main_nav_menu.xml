@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Tile 1: Dashboard -->
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Dashboard"
+        android:icon="@android:drawable/ic_menu_agenda" />
+
+    <!-- Tile 2: Match Setup / Rosters -->
+    <item
+        android:id="@+id/nav_setup"
+        android:title="Setup"
+        android:icon="@android:drawable/ic_menu_manage" />
+
+    <!-- Tile 3: PDF Report -->
+    <item
+        android:id="@+id/nav_report"
+        android:title="Report"
+        android:icon="@android:drawable/ic_menu_save" />
+
+
+    <!-- Tile 4: Reset match (phone + watch) -->
+    <item
+        android:id="@+id/nav_reset"
+        android:title="Reset"
+        android:icon="@android:drawable/ic_menu_revert" />
+
+</menu>

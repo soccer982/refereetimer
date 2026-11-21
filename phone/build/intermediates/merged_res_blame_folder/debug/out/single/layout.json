@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.refereetimer.phone-mergeDebugResources-40:/layout/activity_roster_setup.xml",
+        "source": "com.example.refereetimer.phone-main-43:/layout/activity_roster_setup.xml"
+    },
+    {
+        "merged": "com.example.refereetimer.phone-mergeDebugResources-40:/layout/activity_match_config.xml",
+        "source": "com.example.refereetimer.phone-main-43:/layout/activity_match_config.xml"
+    },
+    {
+        "merged": "com.example.refereetimer.phone-mergeDebugResources-40:/layout/activity_phone_main.xml",
+        "source": "com.example.refereetimer.phone-main-43:/layout/activity_phone_main.xml"
+    }
+]

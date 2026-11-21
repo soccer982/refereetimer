@@ -1,0 +1,4 @@
+com.example.refereetimer.test.wear-androidTest-0 /Users/curtiskleier/Documents/RefereeTimer/wear/build/generated/res/resValues/androidTest/debug
+com.example.refereetimer.test.wear-mergeDebugAndroidTestResources-1 /Users/curtiskleier/Documents/RefereeTimer/wear/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.refereetimer.test.wear-mergeDebugAndroidTestResources-2 /Users/curtiskleier/Documents/RefereeTimer/wear/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.refereetimer.test.wear-merged_res-3 /Users/curtiskleier/Documents/RefereeTimer/wear/build/intermediates/merged_res/debugAndroidTest

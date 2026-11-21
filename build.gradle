@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.application'    version '8.2.0' apply false
+    id 'com.android.library'        version '8.2.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+}
+
+allprojects {
+    tasks.register("fixResources") {
+        doLast {
+            rootDir.eachFileRecurse { f ->
+                if (f.isFile() && f.name.startsWith("Icon")) {
+                    println "Deleting invalid file: ${f.absolutePath}"
+                    f.delete()
+                }
+            }
+        }
+    }
+    tasks.register("fixIconIssue") {
+        doLast {
+            // More aggressive search for the "Icon" file that often has a trailing carriage return on macOS
+            fileTree(dir: rootDir).matching {
+                include "**/res/**/Icon*"
+            }.each { f ->
+                println "Deleting: ${f.absolutePath}"
+                f.delete()
+            }
+        }
+    }
+}

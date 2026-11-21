@@ -1,0 +1,1762 @@
+-e \n\n--- phone/src/main/res/drawable/ic_launcher_foreground.xml ---
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startY="49.59793"
+                android:startX="42.9492"
+                android:endY="92.4963"
+                android:endX="85.84757"
+                android:type="linear">
+                <item
+                    android:color="#44000000"
+                    android:offset="0.0" />
+                <item
+                    android:color="#00000000"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:strokeWidth="1"
+        android:strokeColor="#00000000"/>
+</vector>-e \n\n--- phone/src/main/res/drawable/ic_launcher_background.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    android:height="108dp"
+    android:width="108dp"
+    android:viewportHeight="108"
+    android:viewportWidth="108"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#3DDC84"
+          android:pathData="M0,0h108v108h-108z"/>
+    <path android:fillColor="#00000000" android:pathData="M9,0L9,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,0L19,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M29,0L29,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M39,0L39,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M49,0L49,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M59,0L59,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M69,0L69,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M79,0L79,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M89,0L89,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M99,0L99,108"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,9L108,9"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,19L108,19"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,29L108,29"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,39L108,39"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,49L108,49"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,59L108,59"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,69L108,69"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,79L108,79"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,89L108,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M0,99L108,99"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,29L89,29"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,39L89,39"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,49L89,49"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,59L89,59"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,69L89,69"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M19,79L89,79"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M29,19L29,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M39,19L39,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M49,19L49,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M59,19L59,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M69,19L69,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+    <path android:fillColor="#00000000" android:pathData="M79,19L79,89"
+          android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+</vector>
+-e \n\n--- phone/src/main/res/layout/activity_roster_setup.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#121212">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="ROSTER SETUP" android:textColor="@android:color/white"
+            android:textSize="20sp" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="League" android:textColor="#9E9E9E" android:textSize="12sp"/>
+        <Spinner android:id="@+id/spinnerLeague" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Home Team Name" android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/editHomeName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="textCapWords" android:textColor="@android:color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Away Team Name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/editAwayName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="textCapWords" android:textColor="@android:color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSetHomeTeam"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📷 Scan HOME" android:layout_marginEnd="4dp" app:backgroundTint="#1565C0"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSetAwayTeam"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📷 Scan AWAY" app:backgroundTint="#B71C1C"/>
+        </LinearLayout>
+        <TextView android:id="@+id/txtCurrentSide" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Select Home or Away, then scan" android:textColor="#FF9800"
+            android:textSize="12sp" android:gravity="center" android:layout_marginBottom="12dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="12dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnTakePhoto"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📸 Camera" android:layout_marginEnd="4dp" app:backgroundTint="#424242"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnChooseGallery"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🖼 Gallery" app:backgroundTint="#424242"/>
+        </LinearLayout>
+        <ProgressBar android:id="@+id/progressOcr" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone"/>
+        <TextView android:id="@+id/txtOcrStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="" android:textColor="#4CAF50" android:textSize="13sp"
+            android:gravity="center" android:layout_marginBottom="12dp"/>
+        <LinearLayout android:id="@+id/rosterReviewGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone">
+            <TextView android:id="@+id/txtReviewHint" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="" android:textColor="#FF9800" android:textSize="12sp"
+                android:gravity="center" android:layout_marginBottom="8dp" android:visibility="gone"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerRosterReview"
+                android:layout_width="match_parent" android:layout_height="280dp"
+                android:background="#1E1E1E" android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSendToWatch"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="⌚ SEND ROSTERS TO WATCH" android:textSize="14sp"
+            android:enabled="false" app:backgroundTint="#2E7D32"/>
+        <LinearLayout android:id="@+id/manualFallbackGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone" android:layout_marginTop="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Manual Player Entry" android:textColor="@android:color/white"
+                android:textSize="14sp" android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+-e \n\n--- phone/src/main/res/layout/activity_phone_main.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#121212">
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:background="#1B5E20" app:title="Referee Timer" app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1E1E1E" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:id="@+id/txtHomeTeamName" android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Home" android:textColor="#1565C0"
+                            android:textSize="16sp" android:textStyle="bold" android:gravity="start"/>
+                        <TextView android:id="@+id/txtAwayTeamName" android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Away" android:textColor="#B71C1C"
+                            android:textSize="16sp" android:textStyle="bold" android:gravity="end"/>
+                    </LinearLayout>
+                    <TextView android:id="@+id/txtScoreDisplay" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="0 — 0" android:textColor="@android:color/white" android:textSize="52sp"
+                        android:textStyle="bold" android:gravity="center" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center">
+                        <TextView android:id="@+id/txtTimerDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="00:00" android:textColor="#4CAF50" android:textSize="28sp"
+                            android:textStyle="bold" android:layout_marginEnd="16dp"/>
+                        <TextView android:id="@+id/txtPeriodDisplay" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Period 1" android:textColor="#9E9E9E" android:textSize="14sp"/>
+                    </LinearLayout>
+                    <TextView android:id="@+id/txtMatchStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Waiting for watch…" android:textColor="#9E9E9E" android:textSize="12sp"
+                        android:gravity="center" android:paddingTop="4dp"/>
+                    <TextView android:id="@+id/txtGpsStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="GPS: Not calibrated" android:textColor="#FF9800" android:textSize="11sp" android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnRosterSetup"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📋 Rosters" android:textSize="12sp" android:layout_marginEnd="4dp" app:backgroundTint="#1565C0"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnAddGoal"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="⚽ Goal" android:textSize="12sp" android:layout_marginEnd="4dp" app:backgroundTint="#2E7D32"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnAddFoul"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="🚩 Foul" android:textSize="12sp" app:backgroundTint="#E65100"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnGenerateReport"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📄 PDF Report" android:textSize="12sp" android:layout_marginEnd="4dp" app:backgroundTint="#4A148C"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnReset"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="↺ Reset" android:textSize="12sp" app:backgroundTint="#B71C1C"/>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#1E1E1E" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="MATCH EVENTS" android:textColor="#9E9E9E" android:textSize="11sp"
+                        android:textStyle="bold" android:layout_marginBottom="8dp"/>
+                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerEventLog"
+                        android:layout_width="match_parent" android:layout_height="300dp" android:background="#121212"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+-e \n\n--- phone/src/main/res/values/themes.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.RefereeTimer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1B5E20</item>
+        <item name="colorPrimaryVariant">#004D40</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">#4CAF50</item>
+        <item name="colorSecondaryVariant">#388E3C</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+    </style>
+</resources>-e \n\n--- phone/src/main/res/values/strings.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Referee Timer</string>
+</resources>
+-e \n\n--- phone/src/main/res/xml/file_paths.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="documents" path="Documents/"/>
+</paths>
+-e \n\n--- phone/src/main/res/mipmap-anydpi-v26/ic_launcher.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+    <monochrome android:drawable="@drawable/ic_launcher_foreground"/>
+</adaptive-icon>-e \n\n--- phone/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+    <monochrome android:drawable="@drawable/ic_launcher_foreground"/>
+</adaptive-icon>-e \n\n--- phone/src/main/AndroidManifest.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Referee Timer"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RefereeTimer">
+
+        <activity
+            android:name=".PhoneMainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RosterSetupActivity"
+            android:exported="false"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <service
+            android:name=".PhoneDataService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:scheme="wear" android:host="*" android:pathPrefix="/match"/>
+                <data android:scheme="wear" android:host="*" android:pathPrefix="/gps"/>
+                <data android:scheme="wear" android:host="*" android:pathPrefix="/data"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".GpsReferenceService"
+            android:exported="false"
+            android:foregroundServiceType="location"/>
+
+    </application>
+
+</manifest>-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/FieldDiagramRenderer.kt ---
+package com.example.refereetimer.phone
+
+import android.content.Context
+import android.graphics.*
+import com.example.refereetimer.shared.models.MatchEvent
+import com.example.refereetimer.shared.models.MatchEvent.CardType
+import com.example.refereetimer.shared.models.MatchEvent.EventType
+
+class FieldDiagramRenderer(private val context: Context) {
+    private val WIDTH = 1200; private val HEIGHT = 800; private val MARGIN = 60f
+    private val fieldLeft = MARGIN; private val fieldTop = MARGIN
+    private val fieldRight = WIDTH - MARGIN; private val fieldBottom = HEIGHT - MARGIN
+    private val fieldWidth = fieldRight - fieldLeft; private val fieldHeight = fieldBottom - fieldTop
+    private val PA_LENGTH = 16.5f / 105f; private val PA_WIDTH = 40.32f / 68f
+    private val GA_LENGTH = 5.5f / 105f;  private val GA_WIDTH  = 18.32f / 68f
+    private val PERIOD_COLORS = listOf(Color.argb(200,33,150,243), Color.argb(200,76,175,80), Color.argb(200,255,152,0), Color.argb(200,156,39,176))
+
+    fun renderPeriod(period: Int, trackPoints: List<GpsReferenceService.GpsTrackPoint>, events: List<MatchEvent>): Bitmap {
+        val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888); val canvas = Canvas(bitmap)
+        drawBackground(canvas); drawFieldMarkings(canvas)
+        drawHeatmap(canvas, trackPoints, PERIOD_COLORS[(period-1).coerceIn(0, PERIOD_COLORS.size-1)])
+        drawEventPins(canvas, events); drawLabel(canvas, "Period $period"); return bitmap
+    }
+
+    fun renderFullMatch(trackPoints: List<GpsReferenceService.GpsTrackPoint>, events: List<MatchEvent>, totalPeriods: Int): Bitmap {
+        val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888); val canvas = Canvas(bitmap)
+        drawBackground(canvas); drawFieldMarkings(canvas)
+        for (p in 1..totalPeriods) drawHeatmap(canvas, trackPoints.filter { it.period == p }, PERIOD_COLORS[(p-1).coerceIn(0, PERIOD_COLORS.size-1)])
+        drawEventPins(canvas, events); drawLabel(canvas, "Full Match"); return bitmap
+    }
+
+    private fun drawBackground(canvas: Canvas) { canvas.drawColor(Color.parseColor("#1B5E20")) }
+
+    private fun drawFieldMarkings(canvas: Canvas) {
+        val lp = Paint().apply { color = Color.WHITE; strokeWidth = 2f; style = Paint.Style.STROKE; isAntiAlias = true }
+        val sp = Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true }
+        canvas.drawRect(fieldLeft, fieldTop, fieldRight, fieldBottom, lp)
+        val midY = fieldTop + fieldHeight/2f; canvas.drawLine(fieldLeft, midY, fieldRight, midY, lp)
+        val cR = (9.15f/105f) * fieldWidth; canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight/2f, cR, lp)
+        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight/2f, 5f, sp)
+        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-PA_WIDTH)/2f), fieldTop, fieldLeft+fieldWidth*((1+PA_WIDTH)/2f), fieldTop+fieldHeight*PA_LENGTH), lp)
+        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-PA_WIDTH)/2f), fieldBottom-fieldHeight*PA_LENGTH, fieldLeft+fieldWidth*((1+PA_WIDTH)/2f), fieldBottom), lp)
+        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-GA_WIDTH)/2f), fieldTop, fieldLeft+fieldWidth*((1+GA_WIDTH)/2f), fieldTop+fieldHeight*GA_LENGTH), lp)
+        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-GA_WIDTH)/2f), fieldBottom-fieldHeight*GA_LENGTH, fieldLeft+fieldWidth*((1+GA_WIDTH)/2f), fieldBottom), lp)
+        val psDist = 11f/105f
+        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight*psDist, 4f, sp)
+        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldBottom-fieldHeight*psDist, 4f, sp)
+    }
+
+    private fun drawHeatmap(canvas: Canvas, trackPoints: List<GpsReferenceService.GpsTrackPoint>, baseColor: Int) {
+        if (trackPoints.isEmpty()) return
+        val gridW = 50; val gridH = 33; val density = Array(gridW) { IntArray(gridH) }; var maxDensity = 1
+        for (p in trackPoints) {
+            val gx = (p.fieldX*(gridW-1)).toInt().coerceIn(0,gridW-1); val gy = (p.fieldY*(gridH-1)).toInt().coerceIn(0,gridH-1)
+            density[gx][gy]++; if (density[gx][gy] > maxDensity) maxDensity = density[gx][gy]
+        }
+        val cellW = fieldWidth/gridW; val cellH = fieldHeight/gridH
+        val r = Color.red(baseColor); val g = Color.green(baseColor); val b = Color.blue(baseColor)
+        val hp = Paint().apply { style = Paint.Style.FILL; isAntiAlias = true }
+        for (gx in 0 until gridW) for (gy in 0 until gridH) {
+            val d = density[gx][gy]; if (d == 0) continue
+            hp.color = Color.argb((d.toFloat()/maxDensity*180).toInt().coerceIn(20,200), r, g, b)
+            val l = fieldLeft+gx*cellW; val t = fieldTop+gy*cellH
+            canvas.drawRoundRect(RectF(l, t, l+cellW, t+cellH), 4f, 4f, hp)
+        }
+    }
+
+    private fun drawEventPins(canvas: Canvas, events: List<MatchEvent>) {
+        val tp = Paint().apply { textSize = 22f; isAntiAlias = true; typeface = Typeface.DEFAULT_BOLD; textAlign = Paint.Align.CENTER }
+        val lp = Paint().apply { color = Color.WHITE; textSize = 14f; isAntiAlias = true; textAlign = Paint.Align.CENTER; setShadowLayer(3f,1f,1f,Color.BLACK) }
+        val bp = Paint().apply { isAntiAlias = true; style = Paint.Style.FILL }
+        for (event in events) {
+            val gps = event.gpsLocation ?: continue
+            val px = fieldLeft + gps.fieldX * fieldWidth; val py = fieldTop + gps.fieldY * fieldHeight
+            when (event.type) {
+                EventType.GOAL -> { bp.color = if (event.isOwnGoal) Color.parseColor("#FF5722") else Color.parseColor("#4CAF50"); canvas.drawCircle(px,py,14f,bp); tp.color=Color.WHITE; canvas.drawText("⚽",px,py+8f,tp); canvas.drawText("${event.minute}'",px,py+26f,lp) }
+                EventType.FOUL -> { bp.color = if (event.foulType==MatchEvent.FoulType.DFK) Color.parseColor("#FF9800") else Color.parseColor("#9C27B0"); val tri=Path().apply{moveTo(px,py-14f);lineTo(px+12f,py+10f);lineTo(px-12f,py+10f);close()}; canvas.drawPath(tri,bp); canvas.drawText("${event.foulType?.name?:""}",px,py+26f,lp); canvas.drawText("${event.minute}'",px,py+40f,lp) }
+                EventType.CARD -> { bp.color = if (event.cardType==CardType.RED) Color.parseColor("#F44336") else Color.parseColor("#FFEB3B"); canvas.drawRoundRect(RectF(px-8f,py-14f,px+8f,py+14f),3f,3f,bp); lp.color=if(event.cardType==CardType.RED)Color.WHITE else Color.BLACK; canvas.drawText("#${event.player.jerseyNumber}",px,py+5f,lp); lp.color=Color.WHITE; canvas.drawText("${event.minute}'",px,py+30f,lp) }
+                EventType.SUBSTITUTION -> { /* Do nothing on the map for subs */ }
+            }
+        }
+    }
+
+    private fun drawLabel(canvas: Canvas, text: String) {
+        val p = Paint().apply { color=Color.WHITE; textSize=28f; typeface=Typeface.DEFAULT_BOLD; alpha=180; setShadowLayer(4f,2f,2f,Color.BLACK) }
+        canvas.drawText(text, fieldLeft+10f, fieldTop-10f, p)
+    }
+
+    fun applyHomography(lat: Double, lng: Double, matrix: FloatArray): Pair<Float,Float> {
+        val x=lat.toFloat(); val y=lng.toFloat()
+        return Pair((matrix[0]*x+matrix[1]*y+matrix[2]).coerceIn(0f,1f), (matrix[3]*x+matrix[4]*y+matrix[5]).coerceIn(0f,1f))
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/GoalEntryDialogFragment.kt ---
+package com.example.refereetimer.phone
+
+import android.app.AlertDialog
+import android.app.Dialog
+import android.os.Bundle
+import android.widget.*
+import androidx.fragment.app.DialogFragment
+import com.example.refereetimer.shared.models.Team
+import com.google.android.material.textfield.TextInputEditText
+
+class GoalEntryDialogFragment(
+    private val homeTeam: Team, private val awayTeam: Team,
+    private val onGoalConfirmed: (isHome: Boolean, scorer: Int, assist: Int?, isOG: Boolean) -> Unit
+) : DialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val context = requireContext()
+        val layout  = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; setPadding(48, 32, 48, 16) }
+        val teamGroup = RadioGroup(context).apply { orientation = RadioGroup.HORIZONTAL }
+        val homeBtn   = RadioButton(context).apply { text = homeTeam.name; isChecked = true }
+        val awayBtn   = RadioButton(context).apply { text = awayTeam.name }
+        teamGroup.addView(homeBtn); teamGroup.addView(awayBtn)
+        val ogCheck   = CheckBox(context).apply { text = "Own Goal (OG)" }
+        val scorerInput = TextInputEditText(context).apply { hint = "Scorer jersey #"; inputType = android.text.InputType.TYPE_CLASS_NUMBER }
+        val scorerName  = TextView(context).apply { textSize = 11f; setTextColor(android.graphics.Color.parseColor("#4CAF50")) }
+        scorerInput.addTextChangedListener(object: android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: android.text.Editable?) {
+                val num = s.toString().toIntOrNull() ?: return
+                scorerName.text = (if (homeBtn.isChecked) homeTeam else awayTeam).getPlayer(num)?.name ?: "" }
+        })
+        val assistInput = TextInputEditText(context).apply { hint = "Assist jersey # (optional)"; inputType = android.text.InputType.TYPE_CLASS_NUMBER }
+        val assistName  = TextView(context).apply { textSize = 11f; setTextColor(android.graphics.Color.parseColor("#4CAF50")) }
+        assistInput.addTextChangedListener(object: android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: android.text.Editable?) {
+                val num = s.toString().toIntOrNull() ?: run { assistName.text = ""; return }
+                assistName.text = (if (homeBtn.isChecked) homeTeam else awayTeam).getPlayer(num)?.name ?: "" }
+        })
+        layout.addView(TextView(context).apply { text = "Scoring Team" })
+        layout.addView(teamGroup); layout.addView(ogCheck)
+        layout.addView(TextView(context).apply { text = "Scorer #" })
+        layout.addView(scorerInput); layout.addView(scorerName)
+        layout.addView(TextView(context).apply { text = "Assist # (optional)" })
+        layout.addView(assistInput); layout.addView(assistName)
+        return AlertDialog.Builder(context).setTitle("⚽ Log Goal").setView(layout)
+            .setPositiveButton("CONFIRM GOAL") { _, _ ->
+                val scorer = scorerInput.text.toString().toIntOrNull() ?: return@setPositiveButton
+                onGoalConfirmed(homeBtn.isChecked, scorer, assistInput.text.toString().toIntOrNull(), ogCheck.isChecked)
+            }.setNegativeButton("Cancel", null).create()
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/EventLogAdapter.kt ---
+package com.example.refereetimer.phone
+
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+
+class EventLogAdapter : ListAdapter<String, EventLogAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<String>() {
+        override fun areItemsTheSame(a: String, b: String) = a == b
+        override fun areContentsTheSame(a: String, b: String) = a == b
+    }
+) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val text: TextView = view.findViewById(android.R.id.text1)
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(LayoutInflater.from(parent.context)
+            .inflate(android.R.layout.simple_list_item_1, parent, false))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = getItem(position)
+        holder.text.text     = item
+        holder.text.textSize = 13f
+        holder.text.setTextColor(when {
+            item.startsWith("⚽") -> Color.parseColor("#4CAF50")
+            item.startsWith("🟥") -> Color.parseColor("#F44336")
+            item.startsWith("🟨") -> Color.parseColor("#FFC107")
+            item.startsWith("🚩") -> Color.parseColor("#FF9800")
+            else                  -> Color.WHITE
+        })
+        holder.text.setPadding(16, 8, 16, 8)
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/PhoneDataService.kt ---
+package com.example.refereetimer.phone
+
+import android.content.Intent
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.refereetimer.shared.DataLayerPaths
+import com.google.android.gms.location.*
+import com.google.android.gms.wearable.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
+import kotlin.math.*
+
+class PhoneDataService : WearableListenerService() {
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var calibratedLat = 0.0; private var calibratedLng = 0.0
+    private var isCalibrated  = false
+    private var lastKnownLat  = 0.0; private var lastKnownLng  = 0.0
+
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(result: LocationResult) {
+            val location = result.lastLocation ?: return
+            lastKnownLat = location.latitude; lastKnownLng = location.longitude
+            if (isCalibrated) {
+                val driftLat = lastKnownLat - calibratedLat; val driftLng = lastKnownLng - calibratedLng
+                val driftM   = approximateDistanceMeters(calibratedLat, calibratedLng, lastKnownLat, lastKnownLng)
+                if (driftM > 0.5f) sendDriftCorrectionToWatch(driftLat, driftLng)
+            }
+        }
+    }
+
+    override fun onCreate() { super.onCreate(); fusedLocationClient = LocationServices.getFusedLocationProviderClient(this); startLocationUpdates() }
+
+    override fun onDataChanged(dataEvents: DataEventBuffer) {
+        dataEvents.forEach { event ->
+            if (event.type == DataEvent.TYPE_CHANGED) {
+                val path    = event.dataItem.uri.path ?: return@forEach
+                val dataMap = DataMapItem.fromDataItem(event.dataItem).dataMap
+                when (path) {
+                    DataLayerPaths.DATA_TIMER_STATE -> broadcastTimerUpdate(
+                        dataMap.getString(DataLayerPaths.KEY_STATE) ?: return@forEach,
+                        dataMap.getLong(DataLayerPaths.KEY_REMAINING, 0L),
+                        dataMap.getLong(DataLayerPaths.KEY_ELAPSED, 0L),
+                        dataMap.getInt(DataLayerPaths.KEY_PERIOD, 1))
+                    DataLayerPaths.DATA_SCORE -> broadcastScoreUpdate(
+                        dataMap.getInt(DataLayerPaths.KEY_HOME_SCORE, 0),
+                        dataMap.getInt(DataLayerPaths.KEY_AWAY_SCORE, 0))
+                    DataLayerPaths.MSG_MATCH_EVENT -> broadcastEventReceived(
+                        dataMap.getString(DataLayerPaths.KEY_EVENT_JSON) ?: return@forEach)
+                    DataLayerPaths.MSG_CALIBRATE_POINT -> respondWithPhoneGps(
+                        dataMap.getInt(DataLayerPaths.KEY_POINT_INDEX, 0))
+                    DataLayerPaths.MSG_CALIBRATE_DONE -> {
+                        calibratedLat = lastKnownLat; calibratedLng = lastKnownLng; isCalibrated = true
+                        broadcastCalibrationDone(dataMap.getInt("point_count", 0))
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onMessageReceived(messageEvent: MessageEvent) {
+        when (messageEvent.path) {
+            DataLayerPaths.MSG_RESET      -> {
+                isCalibrated = false
+                broadcastReset()
+            }
+            DataLayerPaths.MSG_MATCH_OVER -> {
+                stopLocationUpdates()
+                broadcastMatchOver()
+            }
+            // ADD THIS PATH to handle the timer sync from the watch
+            "/match/sync" -> {
+                val payload = String(messageEvent.data)
+                handleTimerSync(payload)
+            }
+        }
+    }
+
+    private fun handleTimerSync(payload: String) {
+        // Expected format: "STATE=RUNNING|TIME=2700000"
+        val parts = payload.split("|")
+        val state = parts.getOrNull(0)?.substringAfter("STATE=") ?: "IDLE"
+        val time  = parts.getOrNull(1)?.substringAfter("TIME=")?.toLongOrNull() ?: 0L
+
+        // Broadcast the update so the UI and ViewModel can reflect the master watch clock
+        broadcastTimerUpdate(state, time, 0L, 1)
+    }
+
+    private fun respondWithPhoneGps(pointIndex: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val request = PutDataMapRequest.create(DataLayerPaths.MSG_CALIBRATE_POINT).apply {
+                    dataMap.putInt(DataLayerPaths.KEY_POINT_INDEX, pointIndex)
+                    dataMap.putDouble(DataLayerPaths.KEY_GPS_LAT, lastKnownLat)
+                    dataMap.putDouble(DataLayerPaths.KEY_GPS_LNG, lastKnownLng)
+                    dataMap.putFloat(DataLayerPaths.KEY_GPS_ACCURACY, 3f)
+                    dataMap.putLong(DataLayerPaths.KEY_TIMESTAMP, System.currentTimeMillis())
+                }
+                Wearable.getDataClient(this@PhoneDataService).putDataItem(request.asPutDataRequest().setUrgent()).await()
+            } catch (e: Exception) {}
+        }
+    }
+
+    private fun sendDriftCorrectionToWatch(driftLat: Double, driftLng: Double) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val request = PutDataMapRequest.create(DataLayerPaths.DATA_GPS_BATCH).apply {
+                    dataMap.putDouble(DataLayerPaths.KEY_DRIFT_LAT, driftLat)
+                    dataMap.putDouble(DataLayerPaths.KEY_DRIFT_LNG, driftLng)
+                    dataMap.putLong(DataLayerPaths.KEY_TIMESTAMP, System.currentTimeMillis())
+                }
+                Wearable.getDataClient(this@PhoneDataService).putDataItem(request.asPutDataRequest()).await()
+            } catch (e: Exception) {}
+        }
+    }
+
+    private fun startLocationUpdates() {
+        try {
+            val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000L)
+                .setMinUpdateIntervalMillis(5000L).setMaxUpdateDelayMillis(10000L).build()
+            fusedLocationClient.requestLocationUpdates(request, locationCallback, mainLooper)
+        } catch (e: SecurityException) {}
+    }
+    private fun stopLocationUpdates() { fusedLocationClient.removeLocationUpdates(locationCallback) }
+
+    private fun approximateDistanceMeters(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Float {
+        val dLat = Math.toRadians(lat2-lat1); val dLng = Math.toRadians(lng2-lng1)
+        val a = sin(dLat/2)*sin(dLat/2) + cos(Math.toRadians(lat1))*cos(Math.toRadians(lat2))*sin(dLng/2)*sin(dLng/2)
+        return (6371000 * 2 * atan2(sqrt(a), sqrt(1-a))).toFloat()
+    }
+
+    private fun broadcastTimerUpdate(state: String, remaining: Long, elapsed: Long, period: Int) =
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_TIMER_UPDATE).apply {
+            putExtra(EXTRA_TIMER_STATE, state); putExtra(EXTRA_REMAINING, remaining)
+            putExtra(EXTRA_ELAPSED, elapsed); putExtra(EXTRA_PERIOD, period) })
+    private fun broadcastScoreUpdate(home: Int, away: Int) =
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_SCORE_UPDATE).apply {
+            putExtra(EXTRA_HOME_SCORE, home); putExtra(EXTRA_AWAY_SCORE, away) })
+    private fun broadcastEventReceived(json: String) =
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_EVENT_RECEIVED).apply { putExtra(EXTRA_EVENT_JSON, json) })
+    private fun broadcastCalibrationDone(count: Int) =
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_CALIBRATION_DONE).apply { putExtra(EXTRA_POINT_COUNT, count) })
+    private fun broadcastReset() = LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_RESET))
+    private fun broadcastMatchOver() = LocalBroadcastManager.getInstance(this).sendBroadcast(Intent(ACTION_MATCH_OVER))
+
+    override fun onDestroy() { super.onDestroy(); stopLocationUpdates() }
+
+    companion object {
+        const val ACTION_TIMER_UPDATE     = "com.refereetimer.phone.TIMER_UPDATE"
+        const val ACTION_SCORE_UPDATE     = "com.refereetimer.phone.SCORE_UPDATE"
+        const val ACTION_EVENT_RECEIVED   = "com.refereetimer.phone.EVENT_RECEIVED"
+        const val ACTION_CALIBRATION_DONE = "com.refereetimer.phone.CALIBRATION_DONE"
+        const val ACTION_RESET            = "com.refereetimer.phone.RESET"
+        const val ACTION_MATCH_OVER       = "com.refereetimer.phone.MATCH_OVER"
+        const val EXTRA_TIMER_STATE       = "timer_state"
+        const val EXTRA_REMAINING         = "remaining"
+        const val EXTRA_ELAPSED           = "elapsed"
+        const val EXTRA_PERIOD            = "period"
+        const val EXTRA_HOME_SCORE        = "home_score"
+        const val EXTRA_AWAY_SCORE        = "away_score"
+        const val EXTRA_EVENT_JSON        = "event_json"
+        const val EXTRA_POINT_COUNT       = "point_count"
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/OcrProcessor.kt ---
+package com.example.refereetimer.phone
+
+import android.content.Context
+import android.graphics.Bitmap
+import com.example.refereetimer.shared.models.LeagueType
+import com.example.refereetimer.shared.models.Player
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import kotlinx.coroutines.tasks.await
+
+class OcrProcessor(private val context: Context) {
+    private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+    private var currentLeague = LeagueType.SJSL
+
+    data class OcrResult(val players: List<Player>, val coaches: List<String>, val teamName: String, val flaggedCount: Int, val confidence: Float)
+
+    fun setLeague(league: LeagueType) { currentLeague = league }
+
+    suspend fun processGameCard(bitmap: Bitmap, league: LeagueType): OcrResult {
+        val image      = InputImage.fromBitmap(bitmap, 0)
+        val visionText = recognizer.process(image).await()
+        val fullText   = visionText.text
+        return when (league) {
+            LeagueType.SJSL, LeagueType.EDP, LeagueType.SJGSL -> parseGotSportCard(fullText)
+            LeagueType.HIGH_SCHOOL -> parseHighSchoolCard(fullText)
+            else -> parseGenericCard(fullText)
+        }
+    }
+
+    private fun parseGotSportCard(fullText: String): OcrResult {
+        val lines   = fullText.lines().map { it.trim() }.filter { it.isNotBlank() }
+        val players = mutableListOf<Player>(); val coaches = mutableListOf<String>(); var teamName = ""
+        for (line in lines) { if (line.startsWith("H ") || line.startsWith("HOME")) { teamName = extractTeamName(line); break } }
+        for (line in lines) { if (line.contains("Coach", ignoreCase = true)) { val n = extractCoachName(line); if (n.isNotBlank()) coaches.add(n) } }
+        for (line in lines) { if (isGotSportRosterRow(line)) parseGotSportRosterRow(line)?.let { players.add(it) } }
+        val flagged = players.count { it.flagged }
+        val confidence = if (players.isEmpty()) 0f else players.count { !it.flagged }.toFloat() / players.size
+        return OcrResult(players, coaches, teamName, flagged, confidence)
+    }
+
+    private fun isGotSportRosterRow(line: String): Boolean {
+        val parts = line.trim().split("\\s+".toRegex())
+        if (parts.size < 3) return false
+        return parts[0].toIntOrNull()?.let { it in 1..30 } == true && parts[1].length >= 5 && parts[1].all { it.isDigit() }
+    }
+
+    private fun parseGotSportRosterRow(line: String): Player? {
+        val parts = line.trim().split("\\s+".toRegex()); if (parts.size < 4) return null
+        return try {
+            val jerseyStr = parts[2]; val jerseyNum = jerseyStr.filter { it.isDigit() }.toIntOrNull() ?: return null
+            if (jerseyNum !in 1..99) return null
+            val withoutDob = line.replace(Regex("""\d{2}/\d{2,4}$"""), "").trim()
+            val partsNoDob = withoutDob.split("\\s+".toRegex())
+            val name = if (partsNoDob.size > 3) partsNoDob.subList(3, partsNoDob.size).joinToString(" ").trim() else ""
+            if (name.isBlank()) return null
+            Player(jerseyNum, cleanName(name), jerseyStr.contains("/") || name.length < 3 || name.any { it.isDigit() })
+        } catch (e: Exception) { null }
+    }
+
+    private fun parseHighSchoolCard(fullText: String): OcrResult {
+        val lines   = fullText.lines().map { it.trim() }.filter { it.isNotBlank() }
+        val players = mutableListOf<Player>(); val coaches = mutableListOf<String>()
+        val isMapleShadeType = fullText.contains("Position", ignoreCase = true) && fullText.contains("Grade", ignoreCase = true)
+        val teamName = lines.firstOrNull { it.contains("Soccer", ignoreCase = true) || it.contains("Varsity", ignoreCase = true) } ?: ""
+        for (line in lines) { if (line.contains("Coach", ignoreCase = true) || line.contains("Head Coach", ignoreCase = true)) {
+            val name = line.replace(Regex("(Head|Asst\\.?|Assistant)\\s+Coach\\s*[-–]?", RegexOption.IGNORE_CASE), "").trim()
+            if (name.isNotBlank()) coaches.add(name) } }
+        var tableStart = lines.indexOfFirst { it.contains("PLAYER", ignoreCase = true) || (it.contains("NAME", ignoreCase = true) && it.contains("NUMBER", ignoreCase = true)) }
+        if (tableStart < 0) tableStart = 0
+        for (i in tableStart + 1 until lines.size) {
+            val line = lines[i]
+            if (line.isBlank() || line.contains("Coach", ignoreCase = true) || line.contains("Date", ignoreCase = true)) continue
+            val player = if (isMapleShadeType) parseMapleShadeRow(line) else parseMedfordTechRow(line)
+            player?.let { players.add(it) }
+        }
+        val flagged = players.count { it.flagged }
+        val confidence = if (players.isEmpty()) 0f else players.count { !it.flagged }.toFloat() / players.size
+        return OcrResult(players, coaches, teamName, flagged, confidence)
+    }
+
+    private fun parseMedfordTechRow(line: String): Player? {
+        val numbers = Regex("""\b(\d{1,2})\b""").findAll(line).map { it.value.toInt() }.filter { it in 1..99 }.toList()
+        if (numbers.isEmpty()) return null
+        val jerseyNum = numbers.firstOrNull() ?: return null
+        val name = cleanName(line.replace(Regex("^[A-Z]\\s+"), "").replace(jerseyNum.toString(), "").replace(Regex("\\d+"), "").trim())
+        if (name.isBlank() || name.length < 3) return null
+        return Player(jerseyNum, name, name.any { it.isDigit() } || numbers.size > 2)
+    }
+
+    private fun parseMapleShadeRow(line: String): Player? {
+        val parts = line.trim().split("\\s{2,}|\\t".toRegex())
+        if (parts.size < 3) return null
+        val name      = cleanName(parts[0]); if (name.isBlank()) return null
+        val jerseyStr = parts.getOrNull(2) ?: return null
+        val jerseyNum = jerseyStr.filter { it.isDigit() }.toIntOrNull() ?: return null
+        if (jerseyNum !in 1..99) return null
+        return Player(jerseyNum, name, jerseyStr.contains("/") || name.length < 3)
+    }
+
+    private fun parseGenericCard(fullText: String): OcrResult {
+        val lines   = fullText.lines().map { it.trim() }.filter { it.isNotBlank() }
+        val players = mutableListOf<Player>()
+        for (line in lines) {
+            val jerseyNum = Regex("""\b(\d{1,2})\b""").find(line)?.value?.toIntOrNull() ?: continue
+            if (jerseyNum !in 1..99) continue
+            val name = cleanName(line.replace(jerseyNum.toString(), "").replace(Regex("\\d+"), "").trim())
+            if (name.length >= 3) players.add(Player(jerseyNum, name, true))
+        }
+        return OcrResult(players, emptyList(), "", players.size, 0.5f)
+    }
+
+    private fun extractTeamName(line: String) = line.replace(Regex("^[HA]\\s+"), "").replace(Regex("\\d{4}$"), "").trim()
+    private fun extractCoachName(line: String) = line.replace(Regex("Coach\\s*\\([^)]*\\)", RegexOption.IGNORE_CASE), "").replace(Regex("\\d{7,}"), "").trim()
+    private fun cleanName(raw: String) = raw.replace(Regex("[^A-Za-z\\s'\\-]"), "").replace(Regex("\\s+"), " ").trim()
+        .split(" ").joinToString(" ") { it.lowercase().replaceFirstChar { c -> c.uppercase() } }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/RosterSetupActivity.kt ---
+package com.example.refereetimer.phone
+
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Bundle
+import android.provider.MediaStore
+import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.refereetimer.phone.databinding.ActivityRosterSetupBinding
+import com.example.refereetimer.shared.DataLayerPaths
+import com.example.refereetimer.shared.models.LeagueType
+import com.example.refereetimer.shared.models.Player
+import com.example.refereetimer.shared.models.Team
+import com.google.android.gms.wearable.PutDataMapRequest
+import com.google.android.gms.wearable.Wearable
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
+import org.json.JSONArray
+import org.json.JSONObject
+
+class RosterSetupActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRosterSetupBinding
+    private val viewModel: PhoneMatchViewModel by viewModels()
+    private lateinit var ocrProcessor: OcrProcessor
+    private lateinit var rosterAdapter: RosterReviewAdapter
+    private var currentSide    = Side.HOME
+    private var selectedLeague = LeagueType.SJSL
+    private var homeRoster     = mutableListOf<Player>(); private var awayRoster  = mutableListOf<Player>()
+    private var homeCoaches    = mutableListOf<String>(); private var awayCoaches = mutableListOf<String>()
+    private enum class Side { HOME, AWAY }
+
+    private val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) (result.data?.extras?.get("data") as? Bitmap)?.let { processCardImage(it) }
+    }
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let { processCardImage(MediaStore.Images.Media.getBitmap(contentResolver, it)) }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityRosterSetupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ocrProcessor = OcrProcessor(this)
+        setupLeagueSelector()
+        setupTeamNameInputs()
+        setupCameraButtons()
+        setupRosterReview()
+        setupSendButton()
+
+        // CRITICAL FIX: Unlock the send button immediately upon opening the screen
+        binding.btnSendToWatch.isEnabled = true
+    }
+
+    private fun setupLeagueSelector() {
+        binding.spinnerLeague.adapter = android.widget.ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,
+            LeagueType.values().map { it.name })
+        binding.spinnerLeague.onItemSelectedListener = object : android.widget.AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: android.widget.AdapterView<*>?, v: android.view.View?, pos: Int, id: Long) {
+                selectedLeague = LeagueType.values()[pos]; ocrProcessor.setLeague(selectedLeague) }
+            override fun onNothingSelected(p: android.widget.AdapterView<*>?) {}
+        }
+    }
+
+    private fun setupTeamNameInputs() {
+        binding.btnSetHomeTeam.setOnClickListener { currentSide = Side.HOME; updateSideIndicator() }
+        binding.btnSetAwayTeam.setOnClickListener { currentSide = Side.AWAY; updateSideIndicator() }
+    }
+
+    private fun updateSideIndicator() {
+        binding.btnSetHomeTeam.alpha  = if (currentSide == Side.HOME) 1f else 0.5f
+        binding.btnSetAwayTeam.alpha  = if (currentSide == Side.AWAY) 1f else 0.5f
+        binding.txtCurrentSide.text   = "Scanning: ${if (currentSide == Side.HOME) "HOME" else "AWAY"} team"
+    }
+
+    private fun setupCameraButtons() {
+        binding.btnTakePhoto.setOnClickListener    { cameraLauncher.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE)) }
+        binding.btnChooseGallery.setOnClickListener { galleryLauncher.launch("image/*") }
+    }
+
+    private fun processCardImage(bitmap: Bitmap) {
+        binding.progressOcr.visibility = View.VISIBLE; binding.txtOcrStatus.text = "Reading card…"; binding.btnSendToWatch.isEnabled = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val result = ocrProcessor.processGameCard(bitmap, selectedLeague)
+            withContext(Dispatchers.Main) {
+                binding.progressOcr.visibility = View.GONE
+                if (result.players.isEmpty()) { binding.txtOcrStatus.text = "Could not read card. Try again." }
+                else {
+                    binding.txtOcrStatus.text = "Found ${result.players.size} players${if (result.flaggedCount > 0) " (${result.flaggedCount} need review)" else " ✓"}"
+                    if (currentSide == Side.HOME) { homeRoster = result.players.toMutableList(); homeCoaches = result.coaches.toMutableList(); binding.editHomeName.setText(result.teamName) }
+                    else { awayRoster = result.players.toMutableList(); awayCoaches = result.coaches.toMutableList(); binding.editAwayName.setText(result.teamName) }
+                    showRosterReview(result.players, result.flaggedCount)
+                }
+            }
+        }
+    }
+
+    private fun setupRosterReview() {
+        rosterAdapter = RosterReviewAdapter { index, player ->
+            if (currentSide == Side.HOME) { if (index < homeRoster.size) homeRoster[index] = player }
+            else { if (index < awayRoster.size) awayRoster[index] = player }
+            checkAllReviewed()
+        }
+        binding.recyclerRosterReview.apply { layoutManager = LinearLayoutManager(this@RosterSetupActivity); adapter = rosterAdapter }
+    }
+
+    private fun showRosterReview(players: List<Player>, flaggedCount: Int) {
+        binding.rosterReviewGroup.visibility = View.VISIBLE; rosterAdapter.submitList(players)
+        if (flaggedCount > 0) { binding.txtReviewHint.text = "🟡 $flaggedCount entries need review. Tap to edit."; binding.txtReviewHint.visibility = View.VISIBLE }
+        else { binding.txtReviewHint.visibility = View.GONE; binding.btnSendToWatch.isEnabled = homeRoster.isNotEmpty() && awayRoster.isNotEmpty() }
+    }
+
+    private fun checkAllReviewed() {
+        // FIX: Always allow sending! If rosters are empty, it will just send the team names
+        // so the watch can function independently.
+        binding.btnSendToWatch.isEnabled = true
+    }
+
+    private fun setupSendButton() { binding.btnSendToWatch.setOnClickListener { sendRostersToWatch() } }
+
+    private fun sendRostersToWatch() {
+        val homeName = binding.editHomeName.text.toString().ifBlank { "Home" }
+        val awayName = binding.editAwayName.text.toString().ifBlank { "Away" }
+        val homeTeam = Team(homeName, homeRoster, homeCoaches, true)
+        val awayTeam = Team(awayName, awayRoster, awayCoaches, false)
+        viewModel.setTeams(homeTeam, awayTeam)
+        binding.txtOcrStatus.text = "Sending to watch…"; binding.btnSendToWatch.isEnabled = false
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                sendRosterDataItem(homeTeam, DataLayerPaths.DATA_ROSTER_HOME)
+                sendRosterDataItem(awayTeam, DataLayerPaths.DATA_ROSTER_AWAY)
+                withContext(Dispatchers.Main) { binding.txtOcrStatus.text = "✓ Rosters sent to watch"; delay(1500); finish() }
+            } catch (e: Exception) { withContext(Dispatchers.Main) { binding.txtOcrStatus.text = "Watch unavailable. Saved locally."; binding.btnSendToWatch.isEnabled = true } }
+        }
+    }
+
+    private suspend fun sendRosterDataItem(team: Team, path: String) {
+        val json = JSONObject().apply {
+            put("name", team.name); put("isHome", team.isHome); put("coaches", JSONArray(team.coaches))
+            put("players", JSONArray(team.players.map { p -> JSONObject().apply { put("number", p.jerseyNumber); put("name", p.name); put("flagged", p.flagged) } }))
+        }.toString()
+        val request = PutDataMapRequest.create(path).apply {
+            dataMap.putString(DataLayerPaths.KEY_ROSTER_JSON, json)
+            dataMap.putLong(DataLayerPaths.KEY_TIMESTAMP, System.currentTimeMillis())
+        }
+        Wearable.getDataClient(this@RosterSetupActivity).putDataItem(request.asPutDataRequest().setUrgent()).await()
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/PhoneMainActivity.kt ---
+package com.example.refereetimer.phone
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.refereetimer.phone.databinding.ActivityPhoneMainBinding
+import com.example.refereetimer.shared.DataLayerPaths
+import com.example.refereetimer.shared.models.Team // Make sure this is imported
+import com.google.android.gms.wearable.Wearable
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
+
+class PhoneMainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPhoneMainBinding
+    private val viewModel: PhoneMatchViewModel by viewModels()
+    private lateinit var eventLogAdapter: EventLogAdapter
+
+    private val dataReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            when (intent.action) {
+                PhoneDataService.ACTION_TIMER_UPDATE  -> viewModel.updateTimer(
+                    intent.getStringExtra(PhoneDataService.EXTRA_TIMER_STATE) ?: return,
+                    intent.getLongExtra(PhoneDataService.EXTRA_REMAINING, 0L),
+                    intent.getLongExtra(PhoneDataService.EXTRA_ELAPSED, 0L),
+                    intent.getIntExtra(PhoneDataService.EXTRA_PERIOD, 1))
+                PhoneDataService.ACTION_SCORE_UPDATE  -> viewModel.updateScore(
+                    intent.getIntExtra(PhoneDataService.EXTRA_HOME_SCORE, 0),
+                    intent.getIntExtra(PhoneDataService.EXTRA_AWAY_SCORE, 0))
+                PhoneDataService.ACTION_EVENT_RECEIVED -> viewModel.addEventFromJson(
+                    intent.getStringExtra(PhoneDataService.EXTRA_EVENT_JSON) ?: return)
+                PhoneDataService.ACTION_RESET         -> viewModel.reset()
+                PhoneDataService.ACTION_CALIBRATION_DONE -> viewModel.onCalibrationComplete(
+                    intent.getIntExtra(PhoneDataService.EXTRA_POINT_COUNT, 0))
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityPhoneMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupEventLog()
+        setupButtons()
+        observeViewModel()
+        registerReceivers()
+    }
+
+    private fun setupEventLog() {
+        eventLogAdapter = EventLogAdapter()
+        binding.recyclerEventLog.apply {
+            layoutManager = LinearLayoutManager(this@PhoneMainActivity).also { it.stackFromEnd = true }
+            adapter = eventLogAdapter
+        }
+    }
+
+    private fun setupButtons() {
+        // This will eventually become your MatchSetupActivity where you enter names/durations
+        binding.btnRosterSetup.setOnClickListener { startActivity(Intent(this, RosterSetupActivity::class.java)) }
+        binding.btnAddGoal.setOnClickListener     { showGoalEntryDialog() }
+        binding.btnAddFoul.setOnClickListener     { showFoulEntryDialog() }
+        binding.btnGenerateReport.setOnClickListener { generatePdfReport() }
+        binding.btnReset.setOnClickListener       { sendResetToWatch() }
+    }
+
+    private fun observeViewModel() {
+        viewModel.homeScore.observe(this)    { updateScoreDisplay() }
+        viewModel.awayScore.observe(this)    { updateScoreDisplay() }
+        viewModel.homeTeamName.observe(this) { binding.txtHomeTeamName.text = it; updateScoreDisplay() }
+        viewModel.awayTeamName.observe(this) { binding.txtAwayTeamName.text = it; updateScoreDisplay() }
+        viewModel.timerDisplay.observe(this) { binding.txtTimerDisplay.text  = it }
+        viewModel.periodDisplay.observe(this){ binding.txtPeriodDisplay.text = it }
+        viewModel.timerState.observe(this)   { binding.txtMatchStatus.text   = it; updateStatusColor(it) }
+        viewModel.gpsStatus.observe(this)    { binding.txtGpsStatus.text     = it }
+        viewModel.events.observe(this) { events ->
+            eventLogAdapter.submitList(events.map { it.toDisplayString() })
+            if (eventLogAdapter.itemCount > 0) binding.recyclerEventLog.scrollToPosition(eventLogAdapter.itemCount - 1)
+        }
+    }
+
+    private fun updateScoreDisplay() {
+        binding.txtScoreDisplay.text = "${viewModel.homeScore.value ?: 0} — ${viewModel.awayScore.value ?: 0}"
+    }
+
+    private fun updateStatusColor(state: String) {
+        binding.txtMatchStatus.setTextColor(when (state) {
+            "RUNNING"    -> 0xFF4CAF50.toInt() // Green
+            "PAUSED"     -> 0xFFFF9800.toInt() // Orange
+            "TIME_UP"    -> 0xFFFF9800.toInt() // Orange (Waiting for manual end)
+            "BREAK"      -> 0xFFFFEB3B.toInt() // Yellow
+            "EXTRA_TIME" -> 0xFFF44336.toInt() // Red
+            "MATCH_OVER" -> 0xFF9E9E9E.toInt() // Gray
+            else -> 0xFFFFFFFF.toInt()
+        })
+    }
+
+    // ── CRITICAL FIX: BYPASS ROSTER VALIDATION ──
+    private fun seedTeamsIfMissing() {
+        if (viewModel.homeTeam.value == null) {
+            val hName = viewModel.homeTeamName.value.orEmpty().ifBlank { "Home" }
+            val aName = viewModel.awayTeamName.value.orEmpty().ifBlank { "Away" }
+            val dummyHome = Team(hName, emptyList(), emptyList(), true)
+            val dummyAway = Team(aName, emptyList(), emptyList(), false)
+            viewModel.setTeams(dummyHome, dummyAway)
+        }
+    }
+
+    private fun showGoalEntryDialog() {
+        seedTeamsIfMissing() // Ensure we have at least dummy teams so it never crashes
+
+        val homeTeam = viewModel.homeTeam.value!!
+        val awayTeam = viewModel.awayTeam.value!!
+
+        GoalEntryDialogFragment(homeTeam, awayTeam) { isHome, scorer, assist, isOG ->
+            viewModel.addGoal(isHome, scorer, assist, isOG)
+        }.show(supportFragmentManager, "GoalEntry")
+    }
+
+    private fun showFoulEntryDialog() {
+        seedTeamsIfMissing() // Ensure we have at least dummy teams so it never crashes
+
+        val homeTeam = viewModel.homeTeam.value!!
+        val awayTeam = viewModel.awayTeam.value!!
+
+        FoulEntryDialogFragment(homeTeam, awayTeam) { isHome, player, foulType, isPK, cardType ->
+            viewModel.addFoul(isHome, player, foulType, isPK, cardType)
+        }.show(supportFragmentManager, "FoulEntry")
+    }
+
+    private fun generatePdfReport() {
+        val events = viewModel.events.value
+        if (events.isNullOrEmpty()) { binding.txtMatchStatus.text = "No events to report"; return }
+        binding.txtMatchStatus.text = "Generating PDF…"
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val generator = PdfReportGenerator(this@PhoneMainActivity,
+                    viewModel.matchConfig.value, events,
+                    viewModel.gpsTrack.value ?: emptyList(),
+                    viewModel.homeTeamName.value ?: "Home",
+                    viewModel.awayTeamName.value ?: "Away",
+                    viewModel.homeScore.value ?: 0, viewModel.awayScore.value ?: 0)
+                val pdfFile = generator.generate()
+                withContext(Dispatchers.Main) {
+                    binding.txtMatchStatus.text = "PDF ready"
+                    val uri = androidx.core.content.FileProvider.getUriForFile(this@PhoneMainActivity, "${packageName}.fileprovider", pdfFile)
+                    startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).apply { type = "application/pdf"; putExtra(Intent.EXTRA_STREAM, uri); addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) }, "Share Match Report"))
+                }
+            } catch (e: Exception) { withContext(Dispatchers.Main) { binding.txtMatchStatus.text = "PDF generation failed" } }
+        }
+    }
+
+    private fun sendResetToWatch() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                Wearable.getNodeClient(this@PhoneMainActivity).connectedNodes.await().forEach { node ->
+                    Wearable.getMessageClient(this@PhoneMainActivity).sendMessage(node.id, DataLayerPaths.MSG_RESET, ByteArray(0)).await()
+                }
+                withContext(Dispatchers.Main) { viewModel.reset() }
+            } catch (e: Exception) {}
+        }
+    }
+
+    private fun registerReceivers() {
+        LocalBroadcastManager.getInstance(this).registerReceiver(dataReceiver, IntentFilter().apply {
+            addAction(PhoneDataService.ACTION_TIMER_UPDATE)
+            addAction(PhoneDataService.ACTION_SCORE_UPDATE)
+            addAction(PhoneDataService.ACTION_EVENT_RECEIVED)
+            addAction(PhoneDataService.ACTION_RESET)
+            addAction(PhoneDataService.ACTION_CALIBRATION_DONE)
+        })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(dataReceiver)
+    }
+}-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/RosterReviewAdapter.kt ---
+package com.example.refereetimer.phone
+
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.refereetimer.shared.models.Player
+
+class RosterReviewAdapter(
+    private val onPlayerEdited: (Int, Player) -> Unit
+) : ListAdapter<Player, RosterReviewAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<Player>() {
+        override fun areItemsTheSame(a: Player, b: Player) = a.jerseyNumber == b.jerseyNumber
+        override fun areContentsTheSame(a: Player, b: Player) = a == b
+    }
+) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val txtNumber: TextView = view.findViewById(android.R.id.text1)
+        val txtName:   TextView = view.findViewById(android.R.id.text2)
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(LayoutInflater.from(parent.context)
+            .inflate(android.R.layout.simple_list_item_2, parent, false))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val player = getItem(position)
+        holder.txtNumber.text = "#${player.jerseyNumber}"
+        holder.txtName.text   = player.name
+        val color = if (player.flagged) Color.parseColor("#FF9800") else Color.parseColor("#4CAF50")
+        holder.txtNumber.setTextColor(color)
+        holder.txtName.setTextColor(if (player.flagged) Color.parseColor("#FF9800") else Color.parseColor("#212121"))
+        if (player.flagged) {
+            holder.itemView.setOnClickListener { showEditDialog(holder.itemView, position, player) }
+        }
+    }
+    private fun showEditDialog(anchor: View, position: Int, player: Player) {
+        val context    = anchor.context
+        val layout     = android.widget.LinearLayout(context).apply {
+            orientation = android.widget.LinearLayout.VERTICAL; setPadding(48, 32, 48, 16) }
+        val numberEdit = EditText(context).apply { hint = "Jersey Number"; setText(player.jerseyNumber.toString()); inputType = android.text.InputType.TYPE_CLASS_NUMBER }
+        val nameEdit   = EditText(context).apply { hint = "Player Name";   setText(player.name) }
+        layout.addView(numberEdit); layout.addView(nameEdit)
+        android.app.AlertDialog.Builder(context)
+            .setTitle("Edit Player #${player.jerseyNumber}").setView(layout)
+            .setPositiveButton("Save") { _, _ ->
+                val newNum  = numberEdit.text.toString().toIntOrNull() ?: player.jerseyNumber
+                val newName = nameEdit.text.toString().ifBlank { player.name }
+                onPlayerEdited(position, Player(newNum, newName, flagged = false))
+            }.setNegativeButton("Cancel", null).show()
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/PhoneMatchViewModel.kt ---
+package com.example.refereetimer.phone
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.refereetimer.shared.models.*
+import com.example.refereetimer.shared.models.MatchEvent.CardType
+import com.example.refereetimer.shared.models.MatchEvent.EventType
+import com.example.refereetimer.shared.models.MatchEvent.FoulType
+import org.json.JSONObject
+import java.util.UUID
+
+class PhoneMatchViewModel : ViewModel() {
+
+    private val _homeTeam      = MutableLiveData<Team?>()
+    val homeTeam: LiveData<Team?> = _homeTeam
+    private val _awayTeam      = MutableLiveData<Team?>()
+    val awayTeam: LiveData<Team?> = _awayTeam
+    private val _homeTeamName  = MutableLiveData("Home")
+    val homeTeamName: LiveData<String> = _homeTeamName
+    private val _awayTeamName  = MutableLiveData("Away")
+    val awayTeamName: LiveData<String> = _awayTeamName
+    private val _homeScore     = MutableLiveData(0)
+    val homeScore: LiveData<Int> = _homeScore
+    private val _awayScore     = MutableLiveData(0)
+    val awayScore: LiveData<Int> = _awayScore
+    private val _timerDisplay  = MutableLiveData("00:00")
+    val timerDisplay: LiveData<String> = _timerDisplay
+    private val _periodDisplay = MutableLiveData("Period 1")
+    val periodDisplay: LiveData<String> = _periodDisplay
+    private val _timerState    = MutableLiveData("IDLE")
+    val timerState: LiveData<String> = _timerState
+    private val _events        = MutableLiveData<MutableList<MatchEvent>>(mutableListOf())
+    val events: LiveData<MutableList<MatchEvent>> = _events
+    private val _gpsStatus     = MutableLiveData("GPS: Not calibrated")
+    val gpsStatus: LiveData<String> = _gpsStatus
+    private val _gpsTrack      = MutableLiveData<MutableList<GpsReferenceService.GpsTrackPoint>>(mutableListOf())
+    val gpsTrack: LiveData<MutableList<GpsReferenceService.GpsTrackPoint>> = _gpsTrack
+    private val _matchConfig   = MutableLiveData<MatchConfig?>()
+    val matchConfig: LiveData<MatchConfig?> = _matchConfig
+
+    // ── SUBSTITUTION STATE MANAGEMENT ──
+    enum class SubState { PREPARED, ACTIVATED }
+
+    data class PendingSub(
+        val id: String = UUID.randomUUID().toString(),
+        val isHome: Boolean,
+        val playerOn: Player,
+        val playerOff: Player,
+        var state: SubState = SubState.PREPARED
+    )
+
+    private val _pendingSubs = MutableLiveData<List<PendingSub>>(emptyList())
+    val pendingSubs: LiveData<List<PendingSub>> = _pendingSubs
+
+    private val yellowCards    = mutableMapOf<String, Int>()
+    private val redCards       = mutableSetOf<String>()
+    private var currentPeriod  = 1
+    private var currentElapsed = 0L
+
+    fun setTeams(home: Team, away: Team) {
+        _homeTeam.value = home; _awayTeam.value = away
+        _homeTeamName.value = home.name; _awayTeamName.value = away.name
+    }
+
+    fun reset() {
+        _homeScore.value = 0; _awayScore.value = 0
+        _events.value = mutableListOf(); _timerState.value = "IDLE"
+        _timerDisplay.value = "00:00"; _periodDisplay.value = "Period 1"
+        _gpsStatus.value = "GPS: Not calibrated"
+        _pendingSubs.value = emptyList()
+        yellowCards.clear(); redCards.clear()
+    }
+
+    fun updateTimer(state: String, remaining: Long, elapsed: Long, period: Int) {
+        currentPeriod = period; currentElapsed = elapsed
+        _timerState.value   = state
+        _timerDisplay.value = formatMillis(remaining)
+        _periodDisplay.value = when (state) {
+            "RUNNING"    -> "Period $period — Running"
+            "PAUSED"     -> "Period $period — Paused"
+            "TIME_UP"    -> "Period $period — Awaiting Whistle" // NEW: Manual period end support
+            "BREAK"      -> "Halftime Break"
+            "EXTRA_TIME" -> "Period $period — Stoppage"
+            "MATCH_OVER" -> "Match Over"
+            else         -> "Period $period"
+        }
+    }
+
+    fun updateScore(home: Int, away: Int) { _homeScore.value = home; _awayScore.value = away }
+    fun updateGpsStatus(status: String)   { _gpsStatus.value = status }
+    fun onCalibrationComplete(count: Int) { _gpsStatus.value = "GPS: Calibrated ($count points)" }
+
+    fun addTrackPoint(point: GpsReferenceService.GpsTrackPoint) {
+        val current = _gpsTrack.value ?: mutableListOf()
+        current.add(point); _gpsTrack.value = current
+    }
+
+    // ── PHONE-BASED EVENT ENTRY ──
+    fun addGoal(isHome: Boolean, scorerNumber: Int, assistNumber: Int?, isOwnGoal: Boolean): MatchEvent? {
+        val team   = (if (isHome) _homeTeam.value else _awayTeam.value) ?: return null
+        val scorer = team.getPlayer(scorerNumber) ?: Player(scorerNumber, "Unknown")
+        val assist = assistNumber?.let { team.getPlayer(it) ?: Player(it, "Unknown") }
+        val event  = MatchEvent(id = UUID.randomUUID().toString(), type = EventType.GOAL,
+            team = team, player = scorer, assistPlayer = assist,
+            minute = getCurrentMinute(), period = currentPeriod,
+            elapsedMillis = currentElapsed, isOwnGoal = isOwnGoal)
+
+        if (isOwnGoal) { if (isHome) _awayScore.value = (_awayScore.value ?: 0) + 1 else _homeScore.value = (_homeScore.value ?: 0) + 1 }
+        else           { if (isHome) _homeScore.value = (_homeScore.value ?: 0) + 1 else _awayScore.value = (_awayScore.value ?: 0) + 1 }
+        addEvent(event); return event
+    }
+
+    fun addFoul(isHome: Boolean, playerNumber: Int, foulType: FoulType, isPK: Boolean, cardType: CardType?): MatchEvent? {
+        val team   = (if (isHome) _homeTeam.value else _awayTeam.value) ?: return null
+        val player = team.getPlayer(playerNumber) ?: Player(playerNumber, "Unknown")
+        val foulEvent = MatchEvent(id = UUID.randomUUID().toString(), type = EventType.FOUL,
+            team = team, player = player, minute = getCurrentMinute(),
+            period = currentPeriod, elapsedMillis = currentElapsed, foulType = foulType, isPK = isPK)
+        addEvent(foulEvent)
+        cardType?.let {
+            val key = "${team.name}_$playerNumber"
+            val resolved = when (it) {
+                CardType.YELLOW -> { val c = (yellowCards[key] ?: 0) + 1; yellowCards[key] = c; if (c >= 2) CardType.RED else CardType.YELLOW }
+                CardType.RED    -> { redCards.add(key); CardType.RED }
+            }
+            addEvent(MatchEvent(id = UUID.randomUUID().toString(), type = EventType.CARD,
+                team = team, player = player, minute = getCurrentMinute(),
+                period = currentPeriod, elapsedMillis = currentElapsed, cardType = resolved))
+        }
+        return foulEvent
+    }
+
+    // ── TWO-TAP SUBSTITUTION LOGIC ──
+    fun prepareSubstitution(isHome: Boolean, onNum: Int, offNum: Int) {
+        val team = (if (isHome) _homeTeam.value else _awayTeam.value) ?: return
+        val playerOn = team.getPlayer(onNum) ?: Player(onNum, "Unknown")
+        val playerOff = team.getPlayer(offNum) ?: Player(offNum, "Unknown")
+
+        val newSub = PendingSub(isHome = isHome, playerOn = playerOn, playerOff = playerOff)
+        _pendingSubs.value = _pendingSubs.value.orEmpty() + newSub
+    }
+
+    fun onPendingSubClicked(subId: String) {
+        val currentSubs = _pendingSubs.value.orEmpty().toMutableList()
+        val index = currentSubs.indexOfFirst { it.id == subId }
+        if (index == -1) return
+
+        val sub = currentSubs[index]
+        if (sub.state == SubState.PREPARED) {
+            // First tap: Board goes up
+            currentSubs[index] = sub.copy(state = SubState.ACTIVATED)
+            _pendingSubs.value = currentSubs
+        } else {
+            // Second tap: Player crosses touchline. Remove tile and commit event.
+            currentSubs.removeAt(index)
+            _pendingSubs.value = currentSubs
+            commitSubstitution(sub)
+        }
+    }
+
+    private fun commitSubstitution(sub: PendingSub) {
+        val team = (if (sub.isHome) _homeTeam.value else _awayTeam.value) ?: return
+        val event = MatchEvent(
+            id = UUID.randomUUID().toString(),
+            type = EventType.SUBSTITUTION,
+            team = team,
+            player = sub.playerOn,
+            playerOff = sub.playerOff,
+            minute = getCurrentMinute(),
+            period = currentPeriod,
+            elapsedMillis = currentElapsed
+        )
+        addEvent(event)
+    }
+
+    // ── WATCH TELEMETRY PARSING ──
+    fun addEventFromJson(json: String) {
+        try {
+            val obj       = JSONObject(json)
+            val type      = EventType.valueOf(obj.getString("type"))
+            val isHome    = obj.getBoolean("isHome")
+            val team      = (if (isHome) _homeTeam.value else _awayTeam.value) ?: return
+
+            // Uses fallback player names sent from the watch if roster isn't present
+            val playerNum = obj.getInt("playerNumber")
+            val player    = team.getPlayer(playerNum) ?: Player(playerNum, obj.optString("playerName","Unknown"))
+
+            val assistNum = obj.optInt("assistNumber", -1).takeIf { it > 0 }
+            val assist    = assistNum?.let { team.getPlayer(it) ?: Player(it, "Unknown") }
+
+            val event     = MatchEvent(id = obj.optString("id", UUID.randomUUID().toString()),
+                type = type, team = team, player = player, assistPlayer = assist,
+                minute = obj.getInt("minute"), period = obj.getInt("period"),
+                elapsedMillis = obj.getLong("elapsedMillis"),
+                foulType  = obj.optString("foulType","").takeIf { it.isNotBlank() }?.let { FoulType.valueOf(it) },
+                cardType  = obj.optString("cardType","").takeIf { it.isNotBlank() }?.let { CardType.valueOf(it) },
+                misconductCode = obj.optString("misconductCode", "").takeIf { it.isNotBlank() }, // NEW
+                isOwnGoal = obj.optBoolean("isOwnGoal", false),
+                isPK      = obj.optBoolean("isPK", false))
+
+            if (type == EventType.GOAL) {
+                if (event.isOwnGoal) { if (isHome) _awayScore.value = (_awayScore.value ?: 0) + 1 else _homeScore.value = (_homeScore.value ?: 0) + 1 }
+                else                 { if (isHome) _homeScore.value = (_homeScore.value ?: 0) + 1 else _awayScore.value = (_awayScore.value ?: 0) + 1 }
+            }
+            addEvent(event)
+        } catch (e: Exception) {
+            android.util.Log.e("PhoneMatchViewModel", "Failed to parse watch telemetry: $json", e)
+        }
+    }
+
+    fun eventToJson(event: MatchEvent): String = JSONObject().apply {
+        put("id", event.id); put("type", event.type.name); put("isHome", event.team.isHome)
+        put("playerNumber", event.player.jerseyNumber); put("playerName", event.player.name)
+        event.assistPlayer?.let { put("assistNumber", it.jerseyNumber); put("assistName", it.name) }
+        put("minute", event.minute); put("period", event.period); put("elapsedMillis", event.elapsedMillis)
+        event.foulType?.let { put("foulType", it.name) }; event.cardType?.let { put("cardType", it.name) }
+        event.misconductCode?.let { put("misconductCode", it) } // NEW
+        event.playerOff?.let { put("playerOffNum", it.jerseyNumber); put("playerOffName", it.name) } // NEW (Subs)
+        put("isOwnGoal", event.isOwnGoal); put("isPK", event.isPK)
+    }.toString()
+
+    private fun addEvent(event: MatchEvent) {
+        val current = _events.value ?: mutableListOf(); current.add(event); _events.value = current
+    }
+
+    private fun getCurrentMinute() = ((currentElapsed / 1000) / 60).toInt() + 1
+
+    private fun formatMillis(millis: Long): String {
+        val s = (millis / 1000) % 60; val m = (millis / 60000) % 60; val h = millis / 3600000
+        return if (h > 0) String.format("%02d:%02d:%02d", h, m, s) else String.format("%02d:%02d", m, s)
+    }
+
+    fun getYellowCardCount(isHome: Boolean, number: Int): Int {
+        // FIXED: Added parentheses around the if/else block to ensure the Elvis operator (?:) applies to both
+        val team = (if (isHome) _homeTeam.value else _awayTeam.value) ?: return 0
+        return yellowCards["${team.name}_$number"] ?: 0
+    }
+}-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/FoulEntryDialogFragment.kt ---
+package com.example.refereetimer.phone
+
+import android.app.AlertDialog
+import android.app.Dialog
+import android.os.Bundle
+import android.widget.*
+import androidx.fragment.app.DialogFragment
+import com.example.refereetimer.shared.models.MatchEvent.CardType
+import com.example.refereetimer.shared.models.MatchEvent.FoulType
+import com.example.refereetimer.shared.models.Team
+import com.google.android.material.textfield.TextInputEditText
+
+class FoulEntryDialogFragment(
+    private val homeTeam: Team, private val awayTeam: Team,
+    private val onFoulConfirmed: (isHome: Boolean, player: Int, foulType: FoulType, isPK: Boolean, cardType: CardType?) -> Unit
+) : DialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val context    = requireContext()
+        val layout     = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; setPadding(48, 32, 48, 16) }
+        val teamGroup  = RadioGroup(context).apply { orientation = RadioGroup.HORIZONTAL }
+        val homeBtn    = RadioButton(context).apply { text = homeTeam.name; isChecked = true }
+        val awayBtn    = RadioButton(context).apply { text = awayTeam.name }
+        teamGroup.addView(homeBtn); teamGroup.addView(awayBtn)
+        val playerInput = TextInputEditText(context).apply { hint = "Player jersey #"; inputType = android.text.InputType.TYPE_CLASS_NUMBER }
+        val playerName  = TextView(context).apply { textSize = 11f; setTextColor(android.graphics.Color.parseColor("#4CAF50")) }
+        playerInput.addTextChangedListener(object: android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: android.text.Editable?) {
+                val num = s.toString().toIntOrNull() ?: return
+                playerName.text = (if (homeBtn.isChecked) homeTeam else awayTeam).getPlayer(num)?.name ?: "" }
+        })
+        val foulGroup = RadioGroup(context).apply { orientation = RadioGroup.HORIZONTAL }
+        val dfkBtn    = RadioButton(context).apply { text = "DFK"; isChecked = true }
+        val ifkBtn    = RadioButton(context).apply { text = "IFK" }
+        foulGroup.addView(dfkBtn); foulGroup.addView(ifkBtn)
+        val pkCheck   = CheckBox(context).apply { text = "Penalty Kick (PK)" }
+        ifkBtn.setOnCheckedChangeListener { _, checked -> if (checked) { pkCheck.isChecked = false; pkCheck.isEnabled = false } }
+        dfkBtn.setOnCheckedChangeListener { _, checked -> if (checked) pkCheck.isEnabled = true }
+        val cardGroup = RadioGroup(context).apply { orientation = RadioGroup.HORIZONTAL }
+        val noCardBtn = RadioButton(context).apply { text = "None"; isChecked = true }
+        val yellowBtn = RadioButton(context).apply { text = "🟨 Yellow" }
+        val redBtn    = RadioButton(context).apply { text = "🟥 Red" }
+        cardGroup.addView(noCardBtn); cardGroup.addView(yellowBtn); cardGroup.addView(redBtn)
+        layout.addView(TextView(context).apply { text = "Fouling Team" }); layout.addView(teamGroup)
+        layout.addView(TextView(context).apply { text = "Player #" }); layout.addView(playerInput); layout.addView(playerName)
+        layout.addView(TextView(context).apply { text = "Foul Type" }); layout.addView(foulGroup)
+        layout.addView(pkCheck)
+        layout.addView(TextView(context).apply { text = "Card" }); layout.addView(cardGroup)
+        return AlertDialog.Builder(context).setTitle("🚩 Log Foul").setView(layout)
+            .setPositiveButton("CONFIRM FOUL") { _, _ ->
+                val playerNum = playerInput.text.toString().toIntOrNull() ?: return@setPositiveButton
+                onFoulConfirmed(homeBtn.isChecked, playerNum,
+                    if (dfkBtn.isChecked) FoulType.DFK else FoulType.IFK, pkCheck.isChecked,
+                    when { yellowBtn.isChecked -> CardType.YELLOW; redBtn.isChecked -> CardType.RED; else -> null })
+            }.setNegativeButton("Cancel", null).create()
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/GpsReferenceService.kt ---
+package com.example.refereetimer.phone
+
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.Service
+import android.content.Intent
+import android.os.IBinder
+import androidx.core.app.NotificationCompat
+import com.google.android.gms.location.*
+import com.google.android.gms.wearable.PutDataMapRequest
+import com.google.android.gms.wearable.Wearable
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
+
+class GpsReferenceService : Service() {
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private val serviceScope = CoroutineScope(Dispatchers.IO + Job())
+
+    private var calibratedLat = 0.0; private var calibratedLng = 0.0
+    private var isCalibrated  = false
+    private var currentLat    = 0.0; private var currentLng    = 0.0
+    private var currentAccuracy = 99f
+    private var lastCorrectionSentAt = 0L
+    private val CORRECTION_INTERVAL  = 30_000L
+
+    val gpsTrack = mutableListOf<GpsTrackPoint>()
+
+    data class GpsTrackPoint(
+        val lat: Double, val lng: Double,
+        val fieldX: Float, val fieldY: Float,
+        val period: Int, val elapsed: Long,
+        val timestamp: Long = System.currentTimeMillis()
+    )
+
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(result: LocationResult) {
+            val loc = result.lastLocation ?: return
+            currentLat = loc.latitude; currentLng = loc.longitude; currentAccuracy = loc.accuracy
+            if (!isCalibrated) return
+            val driftLat = currentLat - calibratedLat; val driftLng = currentLng - calibratedLng
+            val driftM   = haversineMeters(calibratedLat, calibratedLng, currentLat, currentLng)
+            val now      = System.currentTimeMillis()
+            if (driftM > 0.5f && now - lastCorrectionSentAt > CORRECTION_INTERVAL) {
+                sendDriftCorrection(driftLat, driftLng); lastCorrectionSentAt = now
+            }
+        }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        startForeground(NOTIFICATION_ID, buildNotification())
+        startLocationUpdates()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        when (intent?.action) {
+            ACTION_SET_CALIBRATED_POSITION -> { calibratedLat = currentLat; calibratedLng = currentLng; isCalibrated = true }
+            ACTION_ADD_TRACK_POINT -> gpsTrack.add(GpsTrackPoint(
+                lat = intent.getDoubleExtra(EXTRA_LAT, 0.0), lng = intent.getDoubleExtra(EXTRA_LNG, 0.0),
+                fieldX = intent.getFloatExtra(EXTRA_FIELD_X, 0f), fieldY = intent.getFloatExtra(EXTRA_FIELD_Y, 0f),
+                period = intent.getIntExtra(EXTRA_PERIOD, 1),   elapsed = intent.getLongExtra(EXTRA_ELAPSED, 0L)))
+            ACTION_STOP -> { stopLocationUpdates(); stopSelf() }
+        }
+        return START_STICKY
+    }
+
+    private fun startLocationUpdates() {
+        try {
+            val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5_000L)
+                .setMinUpdateIntervalMillis(5_000L).setMaxUpdateDelayMillis(10_000L).build()
+            fusedLocationClient.requestLocationUpdates(request, locationCallback, mainLooper)
+        } catch (e: SecurityException) {}
+    }
+
+    private fun stopLocationUpdates() { fusedLocationClient.removeLocationUpdates(locationCallback) }
+
+    private fun sendDriftCorrection(driftLat: Double, driftLng: Double) {
+        serviceScope.launch {
+            try {
+                val request = PutDataMapRequest.create("/data/gps/batch").apply {
+                    dataMap.putDouble("drift_lat", driftLat); dataMap.putDouble("drift_lng", driftLng)
+                    dataMap.putFloat("accuracy", currentAccuracy); dataMap.putLong("timestamp", System.currentTimeMillis())
+                }
+                Wearable.getDataClient(this@GpsReferenceService).putDataItem(request.asPutDataRequest()).await()
+            } catch (e: Exception) {}
+        }
+    }
+
+    private fun buildNotification(): Notification {
+        val channelId = "gps_reference"
+        getSystemService(NotificationManager::class.java).createNotificationChannel(
+            NotificationChannel(channelId, "GPS Reference Station", NotificationManager.IMPORTANCE_LOW))
+        return NotificationCompat.Builder(this, channelId)
+            .setContentTitle("Referee Timer").setContentText("GPS reference active")
+            .setSmallIcon(android.R.drawable.ic_menu_mylocation).setOngoing(true).build()
+    }
+
+    private fun haversineMeters(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Float {
+        val dLat = Math.toRadians(lat2 - lat1); val dLng = Math.toRadians(lng2 - lng1)
+        val a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(Math.toRadians(lat1))*Math.cos(Math.toRadians(lat2))*Math.sin(dLng/2)*Math.sin(dLng/2)
+        return (6_371_000.0 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))).toFloat()
+    }
+
+    override fun onBind(intent: Intent?): IBinder? = null
+    override fun onDestroy() { super.onDestroy(); stopLocationUpdates(); serviceScope.coroutineContext[Job]?.cancel() }
+
+    companion object {
+        const val NOTIFICATION_ID = 1001
+        const val ACTION_SET_CALIBRATED_POSITION = "com.refereetimer.SET_CALIBRATED"
+        const val ACTION_ADD_TRACK_POINT = "com.refereetimer.ADD_TRACK_POINT"
+        const val ACTION_STOP = "com.refereetimer.GPS_STOP"
+        const val EXTRA_LAT = "lat"; const val EXTRA_LNG = "lng"
+        const val EXTRA_FIELD_X = "field_x"; const val EXTRA_FIELD_Y = "field_y"
+        const val EXTRA_PERIOD = "period"; const val EXTRA_ELAPSED = "elapsed"
+    }
+}
+-e \n\n--- phone/src/main/kotlin/com/example/refereetimer/phone/PdfReportGenerator.kt ---
+package com.example.refereetimer.phone
+
+import android.content.Context
+import android.graphics.*
+import android.graphics.pdf.PdfDocument
+import android.os.Environment
+import com.example.refereetimer.shared.models.MatchConfig
+import com.example.refereetimer.shared.models.MatchEvent
+import com.example.refereetimer.shared.models.MatchEvent.CardType
+import com.example.refereetimer.shared.models.MatchEvent.EventType
+import java.io.File
+import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
+class PdfReportGenerator(
+    private val context: Context, private val config: MatchConfig?,
+    private val events: List<MatchEvent>, private val gpsTrack: List<GpsReferenceService.GpsTrackPoint>,
+    private val homeName: String, private val awayName: String,
+    private val homeScore: Int, private val awayScore: Int
+) {
+    private val renderer = FieldDiagramRenderer(context)
+    private val PAGE_W = 842; private val PAGE_H = 595
+    private val CLR_BG = Color.WHITE; private val CLR_HEADER = Color.parseColor("#1B5E20")
+    private val CLR_TEXT = Color.parseColor("#212121"); private val CLR_SUBTEXT = Color.parseColor("#757575")
+    private val CLR_DIVIDER = Color.parseColor("#E0E0E0"); private val CLR_HOME = Color.parseColor("#1565C0")
+    private val CLR_AWAY = Color.parseColor("#B71C1C"); private val CLR_YELLOW = Color.parseColor("#F9A825")
+    private val CLR_RED = Color.parseColor("#C62828"); private val CLR_GOAL = Color.parseColor("#2E7D32")
+
+    fun generate(): File {
+        val doc = PdfDocument(); val totalPeriods = config?.regularPeriodsCount ?: 2; var pageNum = 1
+        pageNum = addCoverPage(doc, pageNum); pageNum = addSummaryPage(doc, pageNum)
+        for (period in 1..totalPeriods) pageNum = addFieldDiagramPage(doc, pageNum, period, gpsTrack.filter { it.period==period }, events.filter { it.period==period })
+        addFullMatchDiagramPage(doc, pageNum, totalPeriods)
+        val dateStr  = SimpleDateFormat("yyyy-MM-dd_HH-mm", Locale.US).format(Date())
+        val fileName = "match_report_${homeName}_vs_${awayName}_$dateStr.pdf".replace(" ","_")
+        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName)
+        FileOutputStream(file).use { doc.writeTo(it) }; doc.close(); return file
+    }
+
+    private fun addCoverPage(doc: PdfDocument, pageNum: Int): Int {
+        val page = doc.startPage(PdfDocument.PageInfo.Builder(PAGE_W, PAGE_H, pageNum).create()); val canvas = page.canvas
+        canvas.drawColor(CLR_BG); canvas.drawRect(0f,0f,PAGE_W.toFloat(),120f, Paint().apply{color=CLR_HEADER})
+        drawText(canvas,"MATCH REPORT",PAGE_W/2f,55f,36f,Color.WHITE,true,Paint.Align.CENTER)
+        drawText(canvas,"Official Match Record",PAGE_W/2f,90f,14f,Color.parseColor("#A5D6A7"),false,Paint.Align.CENTER)
+        canvas.drawRoundRect(RectF(PAGE_W/2f-180f,150f,PAGE_W/2f+180f,300f),16f,16f,Paint().apply{color=Color.parseColor("#F5F5F5")})
+        drawText(canvas,homeName.uppercase(),PAGE_W/2f-100f,200f,18f,CLR_HOME,true,Paint.Align.RIGHT)
+        drawText(canvas,"$homeScore  —  $awayScore",PAGE_W/2f,220f,42f,CLR_TEXT,true,Paint.Align.CENTER)
+        drawText(canvas,awayName.uppercase(),PAGE_W/2f+100f,200f,18f,CLR_AWAY,true,Paint.Align.LEFT)
+        drawText(canvas,SimpleDateFormat("MMMM d, yyyy",Locale.US).format(Date()),PAGE_W/2f,330f,14f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        drawText(canvas,config?.league?.name ?: "League",PAGE_W/2f,355f,14f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        val goals=events.count{it.type==EventType.GOAL}; val fouls=events.count{it.type==EventType.FOUL}
+        val yellow=events.count{it.type==EventType.CARD&&it.cardType==CardType.YELLOW}; val red=events.count{it.type==EventType.CARD&&it.cardType==CardType.RED}
+        drawStatBox(canvas,"GOALS",goals.toString(),PAGE_W/2f-240f,440f); drawStatBox(canvas,"FOULS",fouls.toString(),PAGE_W/2f-80f,440f)
+        drawStatBox(canvas,"YELLOW",yellow.toString(),PAGE_W/2f+80f,440f,CLR_YELLOW); drawStatBox(canvas,"RED",red.toString(),PAGE_W/2f+240f,440f,CLR_RED)
+        drawPageFooter(canvas, pageNum); doc.finishPage(page); return pageNum+1
+    }
+
+    private fun addSummaryPage(doc: PdfDocument, pageNum: Int): Int {
+        val page=doc.startPage(PdfDocument.PageInfo.Builder(PAGE_W,PAGE_H,pageNum).create()); val canvas=page.canvas
+        canvas.drawColor(CLR_BG); var y=40f; y=drawSectionHeader(canvas,"MATCH SUMMARY",y); y+=20f
+        val goals=events.filter{it.type==EventType.GOAL}
+        if (goals.isNotEmpty()) {
+            y=drawTableHeader(canvas, listOf("MIN","TEAM","SCORER","ASSIST","TYPE"),y)
+            for (e in goals) { if (y>PAGE_H-80f) break; y=drawTableRow(canvas,listOf("${e.minute}'",e.team.name,"#${e.player.jerseyNumber} ${e.player.name}",e.assistPlayer?.let{"#${it.jerseyNumber} ${it.name}"}?:"—","${if(e.isOwnGoal)"OG " else ""}${if(e.isPK)"PK" else "Open Play"}"),y,if(e.team.isHome)CLR_HOME else CLR_AWAY) }
+            y+=20f
+        }
+        if (y<PAGE_H-150f) {
+            val fouls=events.filter{it.type==EventType.FOUL}
+            if (fouls.isNotEmpty()) {
+                y=drawSectionHeader(canvas,"FOULS",y); y=drawTableHeader(canvas,listOf("MIN","TEAM","PLAYER","TYPE","CARD"),y)
+                for (e in fouls) { if (y>PAGE_H-80f) break; val card=events.find{it.type==EventType.CARD&&it.player==e.player&&it.minute==e.minute}; y=drawTableRow(canvas,listOf("${e.minute}'",e.team.name,"#${e.player.jerseyNumber} ${e.player.name}","${e.foulType?.name?:""}${if(e.isPK)" → PK" else ""}",when(card?.cardType){CardType.YELLOW->"🟨 Yellow";CardType.RED->"🟥 Red";null->"—"}),y,if(e.team.isHome)CLR_HOME else CLR_AWAY) }
+            }
+        }
+        drawPageFooter(canvas, pageNum); doc.finishPage(page); return pageNum+1
+    }
+
+    private fun addFieldDiagramPage(doc: PdfDocument, pageNum: Int, period: Int, track: List<GpsReferenceService.GpsTrackPoint>, periodEvents: List<MatchEvent>): Int {
+        val page=doc.startPage(PdfDocument.PageInfo.Builder(PAGE_W,PAGE_H,pageNum).create()); val canvas=page.canvas
+        canvas.drawColor(CLR_BG)
+        drawText(canvas,"PERIOD $period — FIELD COVERAGE",PAGE_W/2f,30f,18f,CLR_TEXT,true,Paint.Align.CENTER)
+        drawText(canvas,"Goals: ${periodEvents.count{it.type==EventType.GOAL}}   Fouls: ${periodEvents.count{it.type==EventType.FOUL}}   Cards: ${periodEvents.count{it.type==EventType.CARD}}",PAGE_W/2f,52f,12f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        if (track.isNotEmpty() || periodEvents.any{it.gpsLocation!=null}) {
+            val bm=renderer.renderPeriod(period, track, periodEvents)
+            canvas.drawBitmap(bm, null, RectF(30f,65f,PAGE_W-30f,PAGE_H-50f), null)
+        } else drawText(canvas,"No GPS data for this period",PAGE_W/2f,PAGE_H/2f,16f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        drawPageFooter(canvas, pageNum); doc.finishPage(page); return pageNum+1
+    }
+
+    private fun addFullMatchDiagramPage(doc: PdfDocument, pageNum: Int, totalPeriods: Int): Int {
+        val page=doc.startPage(PdfDocument.PageInfo.Builder(PAGE_W,PAGE_H,pageNum).create()); val canvas=page.canvas
+        canvas.drawColor(CLR_BG)
+        drawText(canvas,"FULL MATCH — FIELD COVERAGE",PAGE_W/2f,30f,18f,CLR_TEXT,true,Paint.Align.CENTER)
+        if (gpsTrack.isNotEmpty()) canvas.drawBitmap(renderer.renderFullMatch(gpsTrack,events,totalPeriods), null, RectF(30f,65f,PAGE_W-30f,PAGE_H-50f), null)
+        else drawText(canvas,"No GPS tracking data available",PAGE_W/2f,PAGE_H/2f,16f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        drawPageFooter(canvas, pageNum); doc.finishPage(page); return pageNum+1
+    }
+
+    private fun drawText(canvas: Canvas, text: String, x: Float, y: Float, size: Float, color: Int, bold: Boolean=false, align: Paint.Align=Paint.Align.LEFT) {
+        canvas.drawText(text, x, y, Paint().apply{this.color=color;textSize=size;isAntiAlias=true;typeface=if(bold)Typeface.DEFAULT_BOLD else Typeface.DEFAULT;textAlign=align})
+    }
+    private fun drawSectionHeader(canvas: Canvas, title: String, y: Float): Float {
+        canvas.drawRect(20f,y,PAGE_W-20f,y+28f, Paint().apply{color=CLR_HEADER})
+        drawText(canvas,title,30f,y+20f,13f,Color.WHITE,true); return y+38f
+    }
+    private fun drawTableHeader(canvas: Canvas, headers: List<String>, y: Float): Float {
+        canvas.drawRect(20f,y,PAGE_W-20f,y+22f, Paint().apply{color=Color.parseColor("#EEEEEE")})
+        val colW=(PAGE_W-40f)/headers.size
+        headers.forEachIndexed{i,h->drawText(canvas,h,20f+i*colW+4f,y+15f,10f,CLR_SUBTEXT,true)}
+        canvas.drawLine(20f,y+22f,PAGE_W-20f,y+22f, Paint().apply{color=CLR_DIVIDER;strokeWidth=1f}); return y+26f
+    }
+    private fun drawTableRow(canvas: Canvas, cells: List<String>, y: Float, accentColor: Int=CLR_TEXT): Float {
+        val colW=(PAGE_W-40f)/cells.size
+        cells.forEachIndexed{i,c->drawText(canvas,c,20f+i*colW+4f,y+14f,10f,if(i==1)accentColor else CLR_TEXT)}
+        canvas.drawLine(20f,y+20f,PAGE_W-20f,y+20f, Paint().apply{color=CLR_DIVIDER;strokeWidth=1f}); return y+22f
+    }
+    private fun drawStatBox(canvas: Canvas, label: String, value: String, cx: Float, cy: Float, color: Int=CLR_GOAL) {
+        canvas.drawRoundRect(RectF(cx-60f,cy-30f,cx+60f,cy+30f),8f,8f, Paint().apply{this.color=Color.parseColor("#F5F5F5")})
+        drawText(canvas,value,cx,cy+8f,28f,color,true,Paint.Align.CENTER)
+        drawText(canvas,label,cx,cy+26f,10f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+    }
+    private fun drawPageFooter(canvas: Canvas, pageNum: Int) {
+        canvas.drawLine(20f,PAGE_H-30f,PAGE_W-20f,PAGE_H-30f, Paint().apply{color=CLR_DIVIDER;strokeWidth=1f})
+        drawText(canvas,"Referee Timer Match Report  •  Page $pageNum",PAGE_W/2f,PAGE_H-12f,9f,CLR_SUBTEXT,false,Paint.Align.CENTER)
+        drawText(canvas,"$homeName $homeScore — $awayScore $awayName",PAGE_W-20f,PAGE_H-12f,9f,CLR_SUBTEXT,false,Paint.Align.RIGHT)
+    }
+}

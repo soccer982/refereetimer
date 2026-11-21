@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/black" android:padding="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center">
+        <TextView android:id="@+id/txtCalibrationProgress" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Point 1 of 11" android:textColor="#9E9E9E" android:textSize="11sp" android:layout_marginBottom="4dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="📍" android:textSize="28sp" android:layout_marginBottom="4dp"/>
+        <TextView android:id="@+id/txtCalibrationLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Home Left Corner" android:textColor="@android:color/white"
+            android:textSize="14sp" android:textStyle="bold" android:gravity="center" android:layout_marginBottom="6dp"/>
+        <TextView android:id="@+id/txtCalibrationHint" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Walk to this point\nthen press Crown" android:textColor="#9E9E9E"
+            android:textSize="11sp" android:gravity="center" android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnSkipCalibration" android:layout_width="wrap_content" android:layout_height="32dp"
+            android:text="Skip GPS" android:textSize="10sp" android:backgroundTint="#424242"/>
+    </LinearLayout>
+</androidx.wear.widget.BoxInsetLayout>

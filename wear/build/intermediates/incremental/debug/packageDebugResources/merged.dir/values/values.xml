@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.RefereeTimer.Wear" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">#1B5E20</item>
+        <item name="colorPrimaryDark">#004D40</item>
+        <item name="colorAccent">#4CAF50</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        
+        <item name="android:windowSwipeToDismiss">false</item>
+    </style>
+</resources>

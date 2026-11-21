@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#1B5E20"
+            app:title="Match Setup"
+            app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REQUIRED SETTINGS"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Number of periods (1–8)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPeriods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"
+                    android:text="2"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Length of each period (minutes, 1–120)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"
+                    android:text="45"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="Interval between periods (minutes, 0–60)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"
+                    android:text="10"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- NEW: live summary, e.g. "3 × 25 min with 5 min intervals = 85 min + stoppage" -->
+            <TextView
+                android:id="@+id/txtConfigSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text=""
+                android:textColor="#4CAF50"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#333333"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OPTIONAL SETTINGS"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchDrinkBreak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Drink Breaks (Flash/Vibration)"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="32dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveAndNext"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Save &amp; Continue to Rosters"
+                app:backgroundTint="#4CAF50"
+                app:cornerRadius="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

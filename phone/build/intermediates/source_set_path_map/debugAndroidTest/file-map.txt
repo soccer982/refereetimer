@@ -1,0 +1,4 @@
+com.example.refereetimer.phone.test.phone-androidTest-0 /Users/curtiskleier/Documents/RefereeTimer/phone/build/generated/res/resValues/androidTest/debug
+com.example.refereetimer.phone.test.phone-mergeDebugAndroidTestResources-1 /Users/curtiskleier/Documents/RefereeTimer/phone/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.refereetimer.phone.test.phone-mergeDebugAndroidTestResources-2 /Users/curtiskleier/Documents/RefereeTimer/phone/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.refereetimer.phone.test.phone-merged_res-3 /Users/curtiskleier/Documents/RefereeTimer/phone/build/intermediates/merged_res/debugAndroidTest

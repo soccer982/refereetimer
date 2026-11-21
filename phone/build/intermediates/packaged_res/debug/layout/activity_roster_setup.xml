@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#121212">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="ROSTER SETUP" android:textColor="@android:color/white"
+            android:textSize="20sp" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="League" android:textColor="#9E9E9E" android:textSize="12sp"/>
+        <Spinner android:id="@+id/spinnerLeague" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Home Team Name" android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/editHomeName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="textCapWords" android:textColor="@android:color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Away Team Name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/editAwayName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="textCapWords" android:textColor="@android:color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- NEW MUTUALLY EXCLUSIVE TOGGLE GROUP -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroupSide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            app:checkedButton="@+id/btnSetHomeTeam">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSetHomeTeam"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📷 Scan HOME"
+                app:strokeColor="#1565C0"
+                android:textColor="#1565C0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSetAwayTeam"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📷 Scan AWAY"
+                app:strokeColor="#B71C1C"
+                android:textColor="#B71C1C" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView android:id="@+id/txtCurrentSide" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Select Home or Away, then scan" android:textColor="#FF9800"
+            android:textSize="12sp" android:gravity="center" android:layout_marginBottom="12dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="12dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnTakePhoto"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📸 Camera" android:layout_marginEnd="4dp" app:backgroundTint="#424242"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnChooseGallery"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🖼 Gallery" app:backgroundTint="#424242"/>
+        </LinearLayout>
+        <ProgressBar android:id="@+id/progressOcr" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone"/>
+        <TextView android:id="@+id/txtOcrStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="" android:textColor="#4CAF50" android:textSize="13sp"
+            android:gravity="center" android:layout_marginBottom="12dp"/>
+        <LinearLayout android:id="@+id/rosterReviewGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone">
+            <TextView android:id="@+id/txtReviewHint" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="" android:textColor="#FF9800" android:textSize="12sp"
+                android:gravity="center" android:layout_marginBottom="8dp" android:visibility="gone"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerRosterReview"
+                android:layout_width="match_parent" android:layout_height="280dp"
+                android:background="#1E1E1E" android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSendToWatch"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="⌚ SEND ROSTERS TO WATCH" android:textSize="14sp"
+            android:enabled="false" app:backgroundTint="#2E7D32"/>
+        <LinearLayout android:id="@+id/manualFallbackGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone" android:layout_marginTop="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Manual Player Entry" android:textColor="@android:color/white"
+                android:textSize="14sp" android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
