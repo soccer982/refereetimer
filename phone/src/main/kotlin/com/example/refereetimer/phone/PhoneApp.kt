@@ -18,6 +18,9 @@ class PhoneApp : Application(), ViewModelStoreOwner {
             override fun <T : ViewModel> create(modelClass: Class<T>): T =
                 PhoneMatchViewModel(MatchStateStore(this@PhoneApp)) as T
         }
-        ViewModelProvider(this, factory)[PhoneMatchViewModel::class.java]
+        ViewModelProvider(this, factory)[PhoneMatchViewModel::class.java].also { vm ->
+            // NEW: anything entered on the phone is sent to the watch too
+            vm.onLocalEvents = { events -> WatchLink.sendEvents(this, events) }
+        }
     }
 }

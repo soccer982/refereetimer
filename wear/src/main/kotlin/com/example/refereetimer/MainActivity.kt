@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -14,11 +15,16 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.refereetimer.databinding.ActivityMainBinding
 import com.example.refereetimer.shared.MatchClock
+import com.example.refereetimer.shared.models.TeamTag
 import kotlin.math.abs
 
 /**
- * Watch main screen. The watch does four things: start, stop, goals, cards.
+ * Watch main screen: start, stop, goals, cards.
  *  - Big button: START → STOP ↔ RESUME → END PERIOD → START NEXT PERIOD
+ *  - STOP freezes the countdown and records stoppage.
+ *  - After the period length (real time), the screen goes light red: ADDED TIME counts down.
+ *  - At 0:00: triple buzz.
+ *  - LONG-PRESS STOP = injury (stoppage starts, then team / number / body part)
  *  - Swipe right = HOME event, swipe left = AWAY event
  */
 class MainActivity : AppCompatActivity() {
@@ -31,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-            updateGpsHint()
             syncLocationTracking(timer.currentClock.state)
         }
 
@@ -50,7 +55,11 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
             ))
         }
-        updateGpsHint()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateFieldButton()
     }
 
     private fun setupButtons() {
@@ -62,6 +71,15 @@ class MainActivity : AppCompatActivity() {
             timer.onMainButtonClick()
             vibrate(if (timer.currentClock.state == MatchClock.State.PAUSED) longArrayOf(0, 150, 100, 150) else longArrayOf(0, 200))
         }
+        // NEW: LONG-PRESS STOP = injury. Starts stoppage (if not already) and asks team / number / body part.
+        binding.btnStartStop.setOnLongClickListener {
+            val state = timer.currentClock.state
+            if (state != MatchClock.State.RUNNING && state != MatchClock.State.PAUSED) return@setOnLongClickListener false
+            if (state == MatchClock.State.RUNNING) timer.onMainButtonClick()     // → stoppage
+            vibrate(longArrayOf(0, 80, 60, 80, 60, 80))
+            startActivity(Intent(this, InjuryActivity::class.java))
+            true
+        }
         // Hold (not tap) to reset, so it can't happen by accident
         binding.btnReset.setOnLongClickListener {
             timer.resetMatch()
@@ -69,6 +87,14 @@ class MainActivity : AppCompatActivity() {
             vibrate(longArrayOf(0, 100, 50, 100))
             true
         }
+        binding.btnFieldSetup.setOnClickListener {
+            startActivity(Intent(this, FieldSetupActivity::class.java))
+        }
+    }
+
+    private fun updateFieldButton() {
+        val cal = app.fieldCalibration
+        binding.btnFieldSetup.text = if (cal != null) "📍 Field ${cal.describe()} ✓" else "📍 FIELD SETUP"
     }
 
     private fun setupGestures() {
@@ -102,14 +128,12 @@ class MainActivity : AppCompatActivity() {
         timer.mainDisplay.observe(this) { binding.mainTimerTextView.text = it }
         timer.elapsedDisplay.observe(this) { binding.elapsedTimerTextView.text = it }
         timer.stoppageDisplay.observe(this) { binding.stoppageTimerTextView.text = it }
+        timer.phaseLabel.observe(this) { binding.txtPhaseLabel.text = it }
         timer.periodDisplay.observe(this) {
             binding.periodTextView.text = it
             binding.txtReadyInfo.text = it
         }
-        timer.addedTimeComplete.observe(this) { complete ->
-            // In added time, the owed-stoppage text turns bold once it's been played
-            binding.periodTextView.setTypeface(null, if (complete) android.graphics.Typeface.BOLD else android.graphics.Typeface.NORMAL)
-        }
+        timer.inAddedTime.observe(this) { applyColours() }
         events.homeScore.observe(this) { updateScore() }
         events.awayScore.observe(this) { updateScore() }
 
@@ -134,58 +158,58 @@ class MainActivity : AppCompatActivity() {
             binding.btnStartStop.text = text
             binding.btnStartStop.backgroundTintList = ColorStateList.valueOf(Color.parseColor(color))
         }
-        var timerColor = Color.WHITE
         when (state) {
             MatchClock.State.RUNNING -> button("STOP", "#C62828")
             MatchClock.State.PAUSED  -> button("RESUME", "#1976D2")
             MatchClock.State.TIME_UP -> {
                 button(if (timer.currentClock.isFinalPeriod) "END MATCH" else "END PERIOD", "#B71C1C")
-                timerColor = Color.parseColor("#B71C1C")
+                // Triple buzz: the period's time (including added time) is up
                 if (withVibration) vibrate(longArrayOf(0, 500, 200, 500, 200, 500))
             }
             MatchClock.State.BREAK -> {
-                button("START P${timer.currentClock.period + 1}", "#2E7D32"); timerColor = Color.YELLOW
+                button("START P${timer.currentClock.period + 1}", "#2E7D32")
                 if (withVibration) vibrate(longArrayOf(0, 1000, 500, 1000))
             }
-            MatchClock.State.MATCH_OVER -> {
-                timerColor = Color.GRAY
-                if (withVibration) vibrate(longArrayOf(0, 1500, 500, 1500, 500, 1500))
-            }
-            MatchClock.State.READY -> {}
+            MatchClock.State.MATCH_OVER -> if (withVibration) vibrate(longArrayOf(0, 1500, 500, 1500, 500, 1500))
+            MatchClock.State.READY -> updateFieldButton()
         }
-        binding.mainTimerTextView.setTextColor(timerColor)
-        applyAddedTimeTheme(state == MatchClock.State.TIME_UP)
-        // While recording stoppage, the stoppage timer is highlighted
-        binding.stoppageTimerTextView.setTypeface(null,
-            if (state == MatchClock.State.PAUSED) android.graphics.Typeface.BOLD else android.graphics.Typeface.NORMAL)
+        applyColours()
     }
 
-    /** Added time: light red screen with dark text, so it's obvious at a glance. */
-    private fun applyAddedTimeTheme(addedTime: Boolean) {
-        val bg = if (addedTime) Color.parseColor("#FFCDD2") else Color.BLACK
-        val text = if (addedTime) Color.parseColor("#4A0000") else Color.WHITE
-        binding.timerLayout.setBackgroundColor(bg)
-        binding.scoreTextView.setTextColor(text)
-        binding.periodTextView.setTextColor(if (addedTime) text else Color.parseColor("#9E9E9E"))
-        binding.elapsedTimerTextView.setTextColor(if (addedTime) Color.parseColor("#1B5E20") else Color.parseColor("#4CAF50"))
-        binding.stoppageTimerTextView.setTextColor(if (addedTime) Color.parseColor("#B71C1C") else Color.parseColor("#F44336"))
+    /** Light red screen with dark text during added time; normal black screen otherwise. */
+    private fun applyColours() {
+        val state = timer.currentClock.state
+        val red = timer.inAddedTime.value == true
+        binding.timerLayout.setBackgroundColor(if (red) Color.parseColor("#FFCDD2") else Color.BLACK)
+
+        val timerColour = when {
+            red -> Color.parseColor("#B71C1C")
+            state == MatchClock.State.PAUSED -> Color.parseColor("#FF9800")   // frozen during stoppage
+            state == MatchClock.State.BREAK -> Color.YELLOW
+            state == MatchClock.State.MATCH_OVER -> Color.GRAY
+            else -> Color.WHITE
+        }
+        binding.mainTimerTextView.setTextColor(timerColour)
+        binding.txtPhaseLabel.setTextColor(if (red) Color.parseColor("#B71C1C") else
+            if (state == MatchClock.State.PAUSED) Color.parseColor("#FF9800") else Color.WHITE)
+        binding.scoreTextView.setTextColor(if (red) Color.parseColor("#4A0000") else Color.WHITE)
+        binding.periodTextView.setTextColor(if (red) Color.parseColor("#4A0000") else Color.parseColor("#9E9E9E"))
+        binding.elapsedTimerTextView.setTextColor(if (red) Color.parseColor("#1B5E20") else Color.parseColor("#4CAF50"))
+        binding.stoppageTimerTextView.setTextColor(if (red) Color.parseColor("#B71C1C") else Color.parseColor("#F44336"))
+        binding.stoppageTimerTextView.setTypeface(null, if (state == MatchClock.State.PAUSED) Typeface.BOLD else Typeface.NORMAL)
     }
 
-    /** Keep GPS warm while the match is live so card tags are instant. */
+    /** Keep GPS on while the match is live: instant card tags + movement track for the heatmap. */
     private fun syncLocationTracking(state: MatchClock.State) {
         val live = state == MatchClock.State.RUNNING || state == MatchClock.State.PAUSED ||
             state == MatchClock.State.TIME_UP || state == MatchClock.State.BREAK
         if (live) app.locationTagger.start() else app.locationTagger.stop()
     }
 
-    private fun updateGpsHint() {
-        binding.txtGpsHint.text = if (app.locationTagger.hasPermission()) "📍 Cards will be GPS-tagged"
-            else "📍 Allow location for card GPS tags"
-    }
-
     private fun updateReadyTeams() {
         val c = timer.currentClock
-        binding.txtReadyTeams.text = "${c.homeName} vs ${c.awayName}"
+        binding.txtReadyHome.text = TeamTag.label(c.homeName, true)
+        binding.txtReadyAway.text = TeamTag.label(c.awayName, false)
     }
 
     private fun updateScore() {

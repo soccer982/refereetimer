@@ -43,9 +43,13 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
     private val _awayTeamName = MutableLiveData(clock.awayName)
     val awayTeamName: LiveData<String> = _awayTeamName
 
-    /** True once the added time played has reached the stoppage owed (ref can blow the whistle). */
-    private val _addedTimeComplete = MutableLiveData(false)
-    val addedTimeComplete: LiveData<Boolean> = _addedTimeComplete
+    /** True from the moment real period time passes the period length (screen goes light red). */
+    private val _inAddedTime = MutableLiveData(false)
+    val inAddedTime: LiveData<Boolean> = _inAddedTime
+
+    /** Big label shown ABOVE the countdown: "ADDED TIME", "STOPPAGE", "TIME UP"... */
+    private val _phaseLabel = MutableLiveData("")
+    val phaseLabel: LiveData<String> = _phaseLabel
 
     private val handler = Handler(Looper.getMainLooper())
     private val ticker = object : Runnable {
@@ -68,8 +72,9 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
     // ── Buttons ──
 
     /**
-     * The one main button: START → STOP (record stoppage) ↔ RESUME → END PERIOD/MATCH → START NEXT.
-     * The countdown never stops; STOP only records stoppage to be added at the end of the period.
+     * The one main button: START → STOP ↔ RESUME → END PERIOD/MATCH → START NEXT.
+     * STOP freezes the countdown and records stoppage; that stoppage is the added time
+     * the countdown runs into after the period length has passed.
      */
     fun onMainButtonClick() {
         val now = System.currentTimeMillis()
@@ -83,7 +88,10 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    fun resetMatch() = update(clock.reset(System.currentTimeMillis()))
+    fun resetMatch() {
+        getApplication<WearApp>().trackRecorder.clear()
+        update(clock.reset(System.currentTimeMillis()))
+    }
 
     /** From the phone's Match Setup. Lengths only change before kickoff. */
     fun configure(periods: Int, periodMins: Int, breakMins: Int, home: String, away: String) =
@@ -101,6 +109,8 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun update(newClock: MatchClock) {
         if (newClock == clock) return
+        // Period just ended: send its full movement track to the phone
+        if (clock.isLive && !newClock.isLive) getApplication<WearApp>().trackRecorder.sendPeriod(clock.period)
         clock = newClock
         saveClock()
         publish(System.currentTimeMillis())
@@ -119,32 +129,38 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         set(_homeTeamName, c.homeName)
         set(_awayTeamName, c.awayName)
         val breakLeft = c.breakRemainingMs(now)
+        val addedTime = c.isAddedTime(now)
         set(_mainDisplay, when (c.state) {
             MatchClock.State.READY      -> MatchClock.format(c.periodMillis)
-            MatchClock.State.TIME_UP    -> "+" + MatchClock.format(c.overtimeMs(now))   // added-time count-up
+            MatchClock.State.TIME_UP    -> "+" + MatchClock.format(c.overtimeMs(now))   // past 0:00, until END PERIOD
             MatchClock.State.BREAK      -> if (breakLeft >= 0) MatchClock.format(breakLeft) else "+" + MatchClock.format(-breakLeft)
             MatchClock.State.MATCH_OVER -> "FT"
-            else                        -> MatchClock.format(c.remainingMs(now))
+            else                        -> MatchClock.format(c.remainingMs(now))        // frozen during stoppage
         })
         // E = total real time since kickoff (intervals included); keeps running until END MATCH
         set(_elapsedDisplay, "E " + MatchClock.format(c.elapsedMs(now)))
-        // S = stoppage recorded this period (= added time owed); whole match at full time
+        // S = stoppage recorded this period; whole match at full time
         set(_stoppageDisplay, "S " + MatchClock.format(
             if (c.state == MatchClock.State.MATCH_OVER) c.totalStoppageMs(now) else c.stoppageMs(now)))
+        set(_phaseLabel, when {
+            c.state == MatchClock.State.TIME_UP  -> if (c.isFinalPeriod) "TIME UP · END MATCH" else "TIME UP · END PERIOD"
+            c.state == MatchClock.State.PAUSED && addedTime -> "ADDED TIME · ⏱ STOPPAGE"
+            c.state == MatchClock.State.PAUSED   -> "⏱ STOPPAGE"
+            addedTime                            -> "ADDED TIME"
+            c.state == MatchClock.State.BREAK    -> if (breakLeft >= 0) "INTERVAL" else "INTERVAL OVER"
+            c.state == MatchClock.State.MATCH_OVER -> "FULL TIME"
+            c.state == MatchClock.State.RUNNING  -> "PERIOD ${c.period} OF ${c.regularPeriods}"
+            else -> ""
+        })
         set(_periodDisplay, when (c.state) {
             MatchClock.State.READY      -> c.formatDescription()
-            MatchClock.State.RUNNING    -> "P${c.period}/${c.regularPeriods}  ·  swipe for events"
-            MatchClock.State.PAUSED     -> "P${c.period}  ·  ⏱ RECORDING STOPPAGE"
-            MatchClock.State.TIME_UP    -> "ADDED TIME  ·  owed +" + MatchClock.format(c.stoppageMs(now))
-            MatchClock.State.BREAK      -> if (breakLeft >= 0) "Interval  ·  P${c.period + 1} next" else "Interval over  ·  start P${c.period + 1}"
-            MatchClock.State.MATCH_OVER -> "Full time"
+            MatchClock.State.BREAK      -> "P${c.period + 1} next"
+            MatchClock.State.MATCH_OVER -> "Total stoppage " + MatchClock.format(c.totalStoppageMs(now))
+            else                        -> "swipe ← away · home →"
         })
-        val complete = c.addedTimeComplete(now)
-        if (complete && _addedTimeComplete.value != true) {
-            // Owed stoppage has been played: double buzz so the ref knows it's whistle time
-            if (c.stoppageMs(now) > 0) buzz(longArrayOf(0, 250, 120, 250))
-        }
-        set(_addedTimeComplete, complete)
+        // Entering added time: one long buzz (the triple buzz comes at 0:00)
+        if (addedTime && _inAddedTime.value == false && c.state != MatchClock.State.TIME_UP) buzz(longArrayOf(0, 700))
+        set(_inAddedTime, addedTime || c.state == MatchClock.State.TIME_UP)
     }
 
     @Suppress("DEPRECATION")

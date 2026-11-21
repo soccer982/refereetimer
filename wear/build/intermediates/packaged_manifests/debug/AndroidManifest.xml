@@ -30,10 +30,8 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@mipmap/ic_launcher"
         android:label="Referee Timer"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.RefereeTimer.Wear" >
         <uses-library
             android:name="com.google.android.wearable"
@@ -56,6 +54,12 @@
         </activity>
         <activity
             android:name="com.example.refereetimer.QuickEventActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.refereetimer.FieldSetupActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.refereetimer.InjuryActivity"
             android:exported="false" />
 
         <service
@@ -85,6 +89,10 @@
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.refereetimer.androidx-startup"
@@ -99,10 +107,6 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

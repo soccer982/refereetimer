@@ -25,7 +25,7 @@ class FoulEntryDialogFragment(
 
         // Header indicating which team is selected
         layout.addView(TextView(context).apply {
-            text = "Logging foul for: ${team.name}"
+            text = "Logging foul for: ${team.label}"
             textSize = 14f
             setPadding(0, 0, 0, 16)
         })

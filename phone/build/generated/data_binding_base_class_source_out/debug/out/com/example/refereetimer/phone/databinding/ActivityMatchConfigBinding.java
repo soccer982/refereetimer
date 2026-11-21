@@ -4,6 +4,10 @@ package com.example.refereetimer.phone.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -24,19 +29,124 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final MaterialButton btnFieldSetup;
+
+  @NonNull
+  public final MaterialButton btnImportGame;
+
+  @NonNull
   public final MaterialButton btnSaveAndNext;
+
+  @NonNull
+  public final CheckBox checkIntervalsFree;
+
+  @NonNull
+  public final LinearLayout groupSubRules;
+
+  @NonNull
+  public final TextInputEditText inputAr1;
+
+  @NonNull
+  public final TextInputEditText inputAr1Grade;
+
+  @NonNull
+  public final TextInputEditText inputAr2;
+
+  @NonNull
+  public final TextInputEditText inputAr2Grade;
 
   @NonNull
   public final TextInputEditText inputBreak;
 
   @NonNull
+  public final TextInputEditText inputCompetition;
+
+  @NonNull
+  public final TextInputEditText inputDivision;
+
+  @NonNull
   public final TextInputEditText inputDuration;
+
+  @NonNull
+  public final TextInputEditText inputEmail;
+
+  @NonNull
+  public final TextInputEditText inputFourth;
+
+  @NonNull
+  public final TextInputEditText inputFourthGrade;
+
+  @NonNull
+  public final TextInputEditText inputGameDate;
+
+  @NonNull
+  public final TextInputEditText inputGameNumber;
+
+  @NonNull
+  public final TextInputEditText inputKickoff;
+
+  @NonNull
+  public final TextInputEditText inputMaxMoments;
+
+  @NonNull
+  public final TextInputLayout inputMaxMomentsLayout;
+
+  @NonNull
+  public final TextInputEditText inputMaxSubs;
+
+  @NonNull
+  public final TextInputLayout inputMaxSubsLayout;
 
   @NonNull
   public final TextInputEditText inputPeriods;
 
   @NonNull
+  public final TextInputEditText inputPhone;
+
+  @NonNull
+  public final TextInputEditText inputReferee;
+
+  @NonNull
+  public final TextInputEditText inputRefereeGrade;
+
+  @NonNull
+  public final TextInputEditText inputRefereeId;
+
+  @NonNull
+  public final TextInputEditText inputVenue;
+
+  @NonNull
+  public final TextInputEditText inputYourName;
+
+  @NonNull
+  public final RadioGroup radioReEntry;
+
+  @NonNull
+  public final RadioButton radioReEntryAllowed;
+
+  @NonNull
+  public final RadioButton radioReEntryNever;
+
+  @NonNull
+  public final RadioButton radioReEntryPeriod;
+
+  @NonNull
+  public final RadioGroup radioSubLimit;
+
+  @NonNull
+  public final RadioButton radioSubsLimited;
+
+  @NonNull
+  public final RadioButton radioSubsUnlimited;
+
+  @NonNull
   public final SwitchMaterial switchDrinkBreak;
+
+  @NonNull
+  public final SwitchMaterial switchTrackMoments;
+
+  @NonNull
+  public final SwitchMaterial switchTrackSubs;
 
   @NonNull
   public final MaterialToolbar toolbar;
@@ -45,16 +155,68 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
   public final TextView txtConfigSummary;
 
   private ActivityMatchConfigBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull MaterialButton btnSaveAndNext, @NonNull TextInputEditText inputBreak,
-      @NonNull TextInputEditText inputDuration, @NonNull TextInputEditText inputPeriods,
-      @NonNull SwitchMaterial switchDrinkBreak, @NonNull MaterialToolbar toolbar,
-      @NonNull TextView txtConfigSummary) {
+      @NonNull MaterialButton btnFieldSetup, @NonNull MaterialButton btnImportGame,
+      @NonNull MaterialButton btnSaveAndNext, @NonNull CheckBox checkIntervalsFree,
+      @NonNull LinearLayout groupSubRules, @NonNull TextInputEditText inputAr1,
+      @NonNull TextInputEditText inputAr1Grade, @NonNull TextInputEditText inputAr2,
+      @NonNull TextInputEditText inputAr2Grade, @NonNull TextInputEditText inputBreak,
+      @NonNull TextInputEditText inputCompetition, @NonNull TextInputEditText inputDivision,
+      @NonNull TextInputEditText inputDuration, @NonNull TextInputEditText inputEmail,
+      @NonNull TextInputEditText inputFourth, @NonNull TextInputEditText inputFourthGrade,
+      @NonNull TextInputEditText inputGameDate, @NonNull TextInputEditText inputGameNumber,
+      @NonNull TextInputEditText inputKickoff, @NonNull TextInputEditText inputMaxMoments,
+      @NonNull TextInputLayout inputMaxMomentsLayout, @NonNull TextInputEditText inputMaxSubs,
+      @NonNull TextInputLayout inputMaxSubsLayout, @NonNull TextInputEditText inputPeriods,
+      @NonNull TextInputEditText inputPhone, @NonNull TextInputEditText inputReferee,
+      @NonNull TextInputEditText inputRefereeGrade, @NonNull TextInputEditText inputRefereeId,
+      @NonNull TextInputEditText inputVenue, @NonNull TextInputEditText inputYourName,
+      @NonNull RadioGroup radioReEntry, @NonNull RadioButton radioReEntryAllowed,
+      @NonNull RadioButton radioReEntryNever, @NonNull RadioButton radioReEntryPeriod,
+      @NonNull RadioGroup radioSubLimit, @NonNull RadioButton radioSubsLimited,
+      @NonNull RadioButton radioSubsUnlimited, @NonNull SwitchMaterial switchDrinkBreak,
+      @NonNull SwitchMaterial switchTrackMoments, @NonNull SwitchMaterial switchTrackSubs,
+      @NonNull MaterialToolbar toolbar, @NonNull TextView txtConfigSummary) {
     this.rootView = rootView;
+    this.btnFieldSetup = btnFieldSetup;
+    this.btnImportGame = btnImportGame;
     this.btnSaveAndNext = btnSaveAndNext;
+    this.checkIntervalsFree = checkIntervalsFree;
+    this.groupSubRules = groupSubRules;
+    this.inputAr1 = inputAr1;
+    this.inputAr1Grade = inputAr1Grade;
+    this.inputAr2 = inputAr2;
+    this.inputAr2Grade = inputAr2Grade;
     this.inputBreak = inputBreak;
+    this.inputCompetition = inputCompetition;
+    this.inputDivision = inputDivision;
     this.inputDuration = inputDuration;
+    this.inputEmail = inputEmail;
+    this.inputFourth = inputFourth;
+    this.inputFourthGrade = inputFourthGrade;
+    this.inputGameDate = inputGameDate;
+    this.inputGameNumber = inputGameNumber;
+    this.inputKickoff = inputKickoff;
+    this.inputMaxMoments = inputMaxMoments;
+    this.inputMaxMomentsLayout = inputMaxMomentsLayout;
+    this.inputMaxSubs = inputMaxSubs;
+    this.inputMaxSubsLayout = inputMaxSubsLayout;
     this.inputPeriods = inputPeriods;
+    this.inputPhone = inputPhone;
+    this.inputReferee = inputReferee;
+    this.inputRefereeGrade = inputRefereeGrade;
+    this.inputRefereeId = inputRefereeId;
+    this.inputVenue = inputVenue;
+    this.inputYourName = inputYourName;
+    this.radioReEntry = radioReEntry;
+    this.radioReEntryAllowed = radioReEntryAllowed;
+    this.radioReEntryNever = radioReEntryNever;
+    this.radioReEntryPeriod = radioReEntryPeriod;
+    this.radioSubLimit = radioSubLimit;
+    this.radioSubsLimited = radioSubsLimited;
+    this.radioSubsUnlimited = radioSubsUnlimited;
     this.switchDrinkBreak = switchDrinkBreak;
+    this.switchTrackMoments = switchTrackMoments;
+    this.switchTrackSubs = switchTrackSubs;
     this.toolbar = toolbar;
     this.txtConfigSummary = txtConfigSummary;
   }
@@ -86,9 +248,57 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnFieldSetup;
+      MaterialButton btnFieldSetup = ViewBindings.findChildViewById(rootView, id);
+      if (btnFieldSetup == null) {
+        break missingId;
+      }
+
+      id = R.id.btnImportGame;
+      MaterialButton btnImportGame = ViewBindings.findChildViewById(rootView, id);
+      if (btnImportGame == null) {
+        break missingId;
+      }
+
       id = R.id.btnSaveAndNext;
       MaterialButton btnSaveAndNext = ViewBindings.findChildViewById(rootView, id);
       if (btnSaveAndNext == null) {
+        break missingId;
+      }
+
+      id = R.id.checkIntervalsFree;
+      CheckBox checkIntervalsFree = ViewBindings.findChildViewById(rootView, id);
+      if (checkIntervalsFree == null) {
+        break missingId;
+      }
+
+      id = R.id.groupSubRules;
+      LinearLayout groupSubRules = ViewBindings.findChildViewById(rootView, id);
+      if (groupSubRules == null) {
+        break missingId;
+      }
+
+      id = R.id.inputAr1;
+      TextInputEditText inputAr1 = ViewBindings.findChildViewById(rootView, id);
+      if (inputAr1 == null) {
+        break missingId;
+      }
+
+      id = R.id.inputAr1Grade;
+      TextInputEditText inputAr1Grade = ViewBindings.findChildViewById(rootView, id);
+      if (inputAr1Grade == null) {
+        break missingId;
+      }
+
+      id = R.id.inputAr2;
+      TextInputEditText inputAr2 = ViewBindings.findChildViewById(rootView, id);
+      if (inputAr2 == null) {
+        break missingId;
+      }
+
+      id = R.id.inputAr2Grade;
+      TextInputEditText inputAr2Grade = ViewBindings.findChildViewById(rootView, id);
+      if (inputAr2Grade == null) {
         break missingId;
       }
 
@@ -98,9 +308,81 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.inputCompetition;
+      TextInputEditText inputCompetition = ViewBindings.findChildViewById(rootView, id);
+      if (inputCompetition == null) {
+        break missingId;
+      }
+
+      id = R.id.inputDivision;
+      TextInputEditText inputDivision = ViewBindings.findChildViewById(rootView, id);
+      if (inputDivision == null) {
+        break missingId;
+      }
+
       id = R.id.inputDuration;
       TextInputEditText inputDuration = ViewBindings.findChildViewById(rootView, id);
       if (inputDuration == null) {
+        break missingId;
+      }
+
+      id = R.id.inputEmail;
+      TextInputEditText inputEmail = ViewBindings.findChildViewById(rootView, id);
+      if (inputEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.inputFourth;
+      TextInputEditText inputFourth = ViewBindings.findChildViewById(rootView, id);
+      if (inputFourth == null) {
+        break missingId;
+      }
+
+      id = R.id.inputFourthGrade;
+      TextInputEditText inputFourthGrade = ViewBindings.findChildViewById(rootView, id);
+      if (inputFourthGrade == null) {
+        break missingId;
+      }
+
+      id = R.id.inputGameDate;
+      TextInputEditText inputGameDate = ViewBindings.findChildViewById(rootView, id);
+      if (inputGameDate == null) {
+        break missingId;
+      }
+
+      id = R.id.inputGameNumber;
+      TextInputEditText inputGameNumber = ViewBindings.findChildViewById(rootView, id);
+      if (inputGameNumber == null) {
+        break missingId;
+      }
+
+      id = R.id.inputKickoff;
+      TextInputEditText inputKickoff = ViewBindings.findChildViewById(rootView, id);
+      if (inputKickoff == null) {
+        break missingId;
+      }
+
+      id = R.id.inputMaxMoments;
+      TextInputEditText inputMaxMoments = ViewBindings.findChildViewById(rootView, id);
+      if (inputMaxMoments == null) {
+        break missingId;
+      }
+
+      id = R.id.inputMaxMomentsLayout;
+      TextInputLayout inputMaxMomentsLayout = ViewBindings.findChildViewById(rootView, id);
+      if (inputMaxMomentsLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.inputMaxSubs;
+      TextInputEditText inputMaxSubs = ViewBindings.findChildViewById(rootView, id);
+      if (inputMaxSubs == null) {
+        break missingId;
+      }
+
+      id = R.id.inputMaxSubsLayout;
+      TextInputLayout inputMaxSubsLayout = ViewBindings.findChildViewById(rootView, id);
+      if (inputMaxSubsLayout == null) {
         break missingId;
       }
 
@@ -110,9 +392,99 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.inputPhone;
+      TextInputEditText inputPhone = ViewBindings.findChildViewById(rootView, id);
+      if (inputPhone == null) {
+        break missingId;
+      }
+
+      id = R.id.inputReferee;
+      TextInputEditText inputReferee = ViewBindings.findChildViewById(rootView, id);
+      if (inputReferee == null) {
+        break missingId;
+      }
+
+      id = R.id.inputRefereeGrade;
+      TextInputEditText inputRefereeGrade = ViewBindings.findChildViewById(rootView, id);
+      if (inputRefereeGrade == null) {
+        break missingId;
+      }
+
+      id = R.id.inputRefereeId;
+      TextInputEditText inputRefereeId = ViewBindings.findChildViewById(rootView, id);
+      if (inputRefereeId == null) {
+        break missingId;
+      }
+
+      id = R.id.inputVenue;
+      TextInputEditText inputVenue = ViewBindings.findChildViewById(rootView, id);
+      if (inputVenue == null) {
+        break missingId;
+      }
+
+      id = R.id.inputYourName;
+      TextInputEditText inputYourName = ViewBindings.findChildViewById(rootView, id);
+      if (inputYourName == null) {
+        break missingId;
+      }
+
+      id = R.id.radioReEntry;
+      RadioGroup radioReEntry = ViewBindings.findChildViewById(rootView, id);
+      if (radioReEntry == null) {
+        break missingId;
+      }
+
+      id = R.id.radioReEntryAllowed;
+      RadioButton radioReEntryAllowed = ViewBindings.findChildViewById(rootView, id);
+      if (radioReEntryAllowed == null) {
+        break missingId;
+      }
+
+      id = R.id.radioReEntryNever;
+      RadioButton radioReEntryNever = ViewBindings.findChildViewById(rootView, id);
+      if (radioReEntryNever == null) {
+        break missingId;
+      }
+
+      id = R.id.radioReEntryPeriod;
+      RadioButton radioReEntryPeriod = ViewBindings.findChildViewById(rootView, id);
+      if (radioReEntryPeriod == null) {
+        break missingId;
+      }
+
+      id = R.id.radioSubLimit;
+      RadioGroup radioSubLimit = ViewBindings.findChildViewById(rootView, id);
+      if (radioSubLimit == null) {
+        break missingId;
+      }
+
+      id = R.id.radioSubsLimited;
+      RadioButton radioSubsLimited = ViewBindings.findChildViewById(rootView, id);
+      if (radioSubsLimited == null) {
+        break missingId;
+      }
+
+      id = R.id.radioSubsUnlimited;
+      RadioButton radioSubsUnlimited = ViewBindings.findChildViewById(rootView, id);
+      if (radioSubsUnlimited == null) {
+        break missingId;
+      }
+
       id = R.id.switchDrinkBreak;
       SwitchMaterial switchDrinkBreak = ViewBindings.findChildViewById(rootView, id);
       if (switchDrinkBreak == null) {
+        break missingId;
+      }
+
+      id = R.id.switchTrackMoments;
+      SwitchMaterial switchTrackMoments = ViewBindings.findChildViewById(rootView, id);
+      if (switchTrackMoments == null) {
+        break missingId;
+      }
+
+      id = R.id.switchTrackSubs;
+      SwitchMaterial switchTrackSubs = ViewBindings.findChildViewById(rootView, id);
+      if (switchTrackSubs == null) {
         break missingId;
       }
 
@@ -128,8 +500,15 @@ public final class ActivityMatchConfigBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMatchConfigBinding((CoordinatorLayout) rootView, btnSaveAndNext,
-          inputBreak, inputDuration, inputPeriods, switchDrinkBreak, toolbar, txtConfigSummary);
+      return new ActivityMatchConfigBinding((CoordinatorLayout) rootView, btnFieldSetup,
+          btnImportGame, btnSaveAndNext, checkIntervalsFree, groupSubRules, inputAr1, inputAr1Grade,
+          inputAr2, inputAr2Grade, inputBreak, inputCompetition, inputDivision, inputDuration,
+          inputEmail, inputFourth, inputFourthGrade, inputGameDate, inputGameNumber, inputKickoff,
+          inputMaxMoments, inputMaxMomentsLayout, inputMaxSubs, inputMaxSubsLayout, inputPeriods,
+          inputPhone, inputReferee, inputRefereeGrade, inputRefereeId, inputVenue, inputYourName,
+          radioReEntry, radioReEntryAllowed, radioReEntryNever, radioReEntryPeriod, radioSubLimit,
+          radioSubsLimited, radioSubsUnlimited, switchDrinkBreak, switchTrackMoments,
+          switchTrackSubs, toolbar, txtConfigSummary);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

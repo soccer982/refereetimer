@@ -22,6 +22,8 @@ class PhoneDataService : WearableListenerService() {
 
     override fun onDataChanged(dataEvents: DataEventBuffer) {
         var clockJson: String? = null
+        var calibrationJson: String? = null
+        val tracks = mutableListOf<Pair<Int, String>>()
         val received = mutableListOf<Pair<Uri, String>>()
 
         for (event in dataEvents) {
@@ -32,15 +34,25 @@ class PhoneDataService : WearableListenerService() {
             when {
                 path == DataLayerPaths.PATH_MATCH_CLOCK ->
                     clockJson = map.getString(DataLayerPaths.KEY_CLOCK_JSON) ?: clockJson
+                path == DataLayerPaths.PATH_FIELD_CALIBRATION ->
+                    calibrationJson = map.getString(DataLayerPaths.KEY_CALIBRATION_JSON) ?: calibrationJson
+                path.startsWith(DataLayerPaths.PATH_MATCH_TRACK + "/") -> {
+                    val period = path.substringAfterLast('/').toIntOrNull()
+                    val json = map.getString(DataLayerPaths.KEY_TRACK_JSON)
+                    if (period != null && json != null) tracks.add(period to json)
+                }
                 path.startsWith(DataLayerPaths.PATH_MATCH_EVENT + "/") ->
                     map.getString(DataLayerPaths.KEY_EVENT_JSON)?.let { received.add(item.uri to it) }
             }
         }
 
         val clock = clockJson
-        if (clock != null || received.isNotEmpty()) {
+        val calibration = calibrationJson
+        if (clock != null || calibration != null || tracks.isNotEmpty() || received.isNotEmpty()) {
             main.post {
                 clock?.let { vm.applyWatchClock(it) }
+                calibration?.let { vm.applyCalibration(it) }
+                tracks.forEach { (period, json) -> vm.applyTrack(period, json) }
                 received.forEach { vm.addEventFromJson(it.second) }  // saved to storage here
             }
         }

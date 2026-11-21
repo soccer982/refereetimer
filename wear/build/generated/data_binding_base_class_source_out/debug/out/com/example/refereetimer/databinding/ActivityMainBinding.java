@@ -23,6 +23,9 @@ public final class ActivityMainBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final Button btnFieldSetup;
+
+  @NonNull
   public final Button btnReset;
 
   @NonNull
@@ -56,23 +59,27 @@ public final class ActivityMainBinding implements ViewBinding {
   public final LinearLayout topRow;
 
   @NonNull
-  public final TextView txtGpsHint;
+  public final TextView txtPhaseLabel;
+
+  @NonNull
+  public final TextView txtReadyAway;
+
+  @NonNull
+  public final TextView txtReadyHome;
 
   @NonNull
   public final TextView txtReadyInfo;
 
-  @NonNull
-  public final TextView txtReadyTeams;
-
-  private ActivityMainBinding(@NonNull FrameLayout rootView, @NonNull Button btnReset,
-      @NonNull Button btnStartMatch, @NonNull Button btnStartStop,
+  private ActivityMainBinding(@NonNull FrameLayout rootView, @NonNull Button btnFieldSetup,
+      @NonNull Button btnReset, @NonNull Button btnStartMatch, @NonNull Button btnStartStop,
       @NonNull TextView elapsedTimerTextView, @NonNull TextView mainTimerTextView,
       @NonNull TextView periodTextView, @NonNull LinearLayout readyLayout,
       @NonNull TextView scoreTextView, @NonNull TextView stoppageTimerTextView,
       @NonNull ConstraintLayout timerLayout, @NonNull LinearLayout topRow,
-      @NonNull TextView txtGpsHint, @NonNull TextView txtReadyInfo,
-      @NonNull TextView txtReadyTeams) {
+      @NonNull TextView txtPhaseLabel, @NonNull TextView txtReadyAway,
+      @NonNull TextView txtReadyHome, @NonNull TextView txtReadyInfo) {
     this.rootView = rootView;
+    this.btnFieldSetup = btnFieldSetup;
     this.btnReset = btnReset;
     this.btnStartMatch = btnStartMatch;
     this.btnStartStop = btnStartStop;
@@ -84,9 +91,10 @@ public final class ActivityMainBinding implements ViewBinding {
     this.stoppageTimerTextView = stoppageTimerTextView;
     this.timerLayout = timerLayout;
     this.topRow = topRow;
-    this.txtGpsHint = txtGpsHint;
+    this.txtPhaseLabel = txtPhaseLabel;
+    this.txtReadyAway = txtReadyAway;
+    this.txtReadyHome = txtReadyHome;
     this.txtReadyInfo = txtReadyInfo;
-    this.txtReadyTeams = txtReadyTeams;
   }
 
   @Override
@@ -116,6 +124,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnFieldSetup;
+      Button btnFieldSetup = ViewBindings.findChildViewById(rootView, id);
+      if (btnFieldSetup == null) {
+        break missingId;
+      }
+
       id = R.id.btnReset;
       Button btnReset = ViewBindings.findChildViewById(rootView, id);
       if (btnReset == null) {
@@ -182,9 +196,21 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txtGpsHint;
-      TextView txtGpsHint = ViewBindings.findChildViewById(rootView, id);
-      if (txtGpsHint == null) {
+      id = R.id.txtPhaseLabel;
+      TextView txtPhaseLabel = ViewBindings.findChildViewById(rootView, id);
+      if (txtPhaseLabel == null) {
+        break missingId;
+      }
+
+      id = R.id.txtReadyAway;
+      TextView txtReadyAway = ViewBindings.findChildViewById(rootView, id);
+      if (txtReadyAway == null) {
+        break missingId;
+      }
+
+      id = R.id.txtReadyHome;
+      TextView txtReadyHome = ViewBindings.findChildViewById(rootView, id);
+      if (txtReadyHome == null) {
         break missingId;
       }
 
@@ -194,15 +220,10 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txtReadyTeams;
-      TextView txtReadyTeams = ViewBindings.findChildViewById(rootView, id);
-      if (txtReadyTeams == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((FrameLayout) rootView, btnReset, btnStartMatch, btnStartStop,
-          elapsedTimerTextView, mainTimerTextView, periodTextView, readyLayout, scoreTextView,
-          stoppageTimerTextView, timerLayout, topRow, txtGpsHint, txtReadyInfo, txtReadyTeams);
+      return new ActivityMainBinding((FrameLayout) rootView, btnFieldSetup, btnReset, btnStartMatch,
+          btnStartStop, elapsedTimerTextView, mainTimerTextView, periodTextView, readyLayout,
+          scoreTextView, stoppageTimerTextView, timerLayout, topRow, txtPhaseLabel, txtReadyAway,
+          txtReadyHome, txtReadyInfo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

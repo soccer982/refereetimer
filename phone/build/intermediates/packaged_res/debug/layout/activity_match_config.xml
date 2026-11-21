@@ -29,6 +29,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- NEW: import from an assigning app confirmation -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnImportGame"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="#1565C0"
+                android:text="📷  IMPORT GAME CONFIRMATION"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="20dp"
+                android:text="Pick screenshot(s) of the game from your assigning app, or share them (or a confirmation email) to this app. Teams, officials, field, date and game # are filled in for you to check."
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFieldSetup"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="20dp"
+                android:text="📍  FIELD SETUP · SAVED FIELDS"
+                android:textColor="#A5D6A7"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,6 +134,433 @@
                 android:textColor="#9E9E9E"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- NEW: SUBSTITUTION RULES (tracked on the phone only) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUBSTITUTIONS"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchTrackSubs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Track substitutions"
+                android:textColor="@android:color/white"/>
+
+            <LinearLayout
+                android:id="@+id/groupSubRules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Number of substitutions"
+                android:textColor="#BDBDBD"
+                android:textSize="13sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioSubLimit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioSubsUnlimited"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unlimited substitutions"
+                    android:textColor="@android:color/white"/>
+                <RadioButton
+                    android:id="@+id/radioSubsLimited"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Limited substitutions"
+                    android:textColor="@android:color/white"/>
+            </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputMaxSubsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Max substitutions per team"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputMaxSubs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchTrackMoments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Track substitution moments"
+                android:textColor="@android:color/white"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputMaxMomentsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Max moments per team (blank = tally only)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputMaxMoments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkIntervalsFree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:checked="true"
+                android:text="Subs during intervals (e.g. half-time) don't use a moment"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Re-entry"
+                android:textColor="#BDBDBD"
+                android:textSize="13sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioReEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioReEntryAllowed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unlimited re-entry"
+                    android:textColor="@android:color/white"/>
+                <RadioButton
+                    android:id="@+id/radioReEntryPeriod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No re-entry during the same half / period"
+                    android:textColor="@android:color/white"/>
+                <RadioButton
+                    android:id="@+id/radioReEntryNever"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No re-entry for the remainder of the game"
+                    android:textColor="@android:color/white"/>
+            </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#333333"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="US SOCCER REPORT DETAILS"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Association / League"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCompetition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapSentences"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Division / Age Group"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputDivision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapSentences"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Game number"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputGameNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Game date (MM/DD/YYYY)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputGameDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Kickoff"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputKickoff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Venue / field"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputVenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Referee"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputReferee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Grade"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputRefereeGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Assistant Referee 1"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAr1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Grade"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAr1Grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Assistant Referee 2"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Grade"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAr2Grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Fourth Official"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputFourth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Grade"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputFourthGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Your name (signs the reports)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputYourName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textPersonName|textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Your USSF ID number"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputRefereeId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Your phone number"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Your email address"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#333333"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp"/>
 
             <com.google.android.material.switchmaterial.SwitchMaterial

@@ -38,6 +38,29 @@ object PhoneLink {
         }
     }
 
+    /** One period's movement track (replaces the previous copy for that period). */
+    fun sendTrack(context: Context, period: Int, trackJson: String) =
+        putItem(context, "${DataLayerPaths.PATH_MATCH_TRACK}/$period", DataLayerPaths.KEY_TRACK_JSON, trackJson)
+
+    /** The 4-corner field calibration. */
+    fun sendCalibration(context: Context, calibrationJson: String) =
+        putItem(context, DataLayerPaths.PATH_FIELD_CALIBRATION, DataLayerPaths.KEY_CALIBRATION_JSON, calibrationJson)
+
+    private fun putItem(context: Context, path: String, key: String, value: String) {
+        val app = context.applicationContext
+        scope.launch {
+            try {
+                val request = PutDataMapRequest.create(path).apply {
+                    dataMap.putString(key, value)
+                    dataMap.putLong(DataLayerPaths.KEY_TIMESTAMP, System.currentTimeMillis())
+                }
+                Wearable.getDataClient(app).putDataItem(request.asPutDataRequest().setUrgent()).await()
+            } catch (ex: Exception) {
+                android.util.Log.e("PHONE_LINK", "Send failed: $path", ex)
+            }
+        }
+    }
+
     /** One clock item, always replaced by the newest: the phone computes time from it. */
     fun sendClock(context: Context, clock: MatchClock) {
         val app = context.applicationContext

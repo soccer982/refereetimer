@@ -20,6 +20,12 @@
         android:icon="@android:drawable/ic_menu_save" />
 
 
+    <!-- NEW: Substitutions (shown only when substitution tracking is on) -->
+    <item
+        android:id="@+id/nav_subs"
+        android:title="Subs"
+        android:icon="@android:drawable/ic_menu_rotate" />
+
     <!-- Tile 4: Reset match (phone + watch) -->
     <item
         android:id="@+id/nav_reset"

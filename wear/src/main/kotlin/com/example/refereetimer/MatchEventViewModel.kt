@@ -55,15 +55,43 @@ class MatchEventViewModel(application: Application) : AndroidViewModel(applicati
         save()
     }
 
-    fun addGoal(isHome: Boolean, number: Int, minute: Int, added: Int, period: Int, elapsed: Long): MatchEvent {
+    /**
+     * [isHome] = team of the player who scored. For an OWN GOAL that's the defender's team
+     * (the goal counts for the other side) and the assist is an OPPOSING player.
+     */
+    fun addGoal(
+        isHome: Boolean, number: Int, assistNumber: Int?,
+        minute: Int, added: Int, period: Int, elapsed: Long,
+        isPK: Boolean = false, isOwnGoal: Boolean = false
+    ): MatchEvent {
         val team = team(isHome)
+        val assistRoster = if (isOwnGoal) team(!isHome) else team
         val event = MatchEvent(
             type = EventType.GOAL, team = team,
             player = team.getPlayer(number) ?: Player(number, "Unknown"),
-            minute = minute, addedTime = added, period = period, elapsedMillis = elapsed
+            assistPlayer = assistNumber?.let { assistRoster.getPlayer(it) ?: Player(it, "Unknown") },
+            minute = minute, addedTime = added, period = period, elapsedMillis = elapsed,
+            isPK = isPK, isOwnGoal = isOwnGoal
         )
         events.add(event)
         recalculate(); save()
+        return event
+    }
+
+    /** NEW: foul with free-kick type (PK = DFK inside the penalty area), GPS-tagged. */
+    fun addFoul(
+        isHome: Boolean, number: Int, foulType: MatchEvent.FoulType, isPK: Boolean,
+        minute: Int, added: Int, period: Int, elapsed: Long, gps: GpsPoint?
+    ): MatchEvent {
+        val team = team(isHome)
+        val event = MatchEvent(
+            type = EventType.FOUL, team = team,
+            player = team.getPlayer(number) ?: Player(number, "Unknown"),
+            minute = minute, addedTime = added, period = period, elapsedMillis = elapsed,
+            foulType = foulType, isPK = isPK, gpsLocation = gps
+        )
+        events.add(event)
+        save()
         return event
     }
 
@@ -76,7 +104,8 @@ class MatchEventViewModel(application: Application) : AndroidViewModel(applicati
         minute: Int, added: Int, period: Int, elapsed: Long, gps: GpsPoint?
     ): List<MatchEvent> {
         val team = team(isHome)
-        val player = team.getPlayer(number) ?: Player(number, "Unknown")
+        val player = if (number == Player.TEAM_OFFICIAL_NUMBER) Player.teamOfficial()
+            else team.getPlayer(number) ?: Player(number, "Unknown")
         val created = mutableListOf<MatchEvent>()
 
         fun card(type: CardType, misconduct: String) = MatchEvent(
@@ -88,13 +117,40 @@ class MatchEventViewModel(application: Application) : AndroidViewModel(applicati
         if (cardType == CardType.YELLOW) {
             val previousYellows = yellowCount(isHome, number)
             created.add(card(CardType.YELLOW, code))
-            if (previousYellows >= 1) created.add(card(CardType.RED, MisconductCodes.SECOND_CAUTION.code))
+            if (previousYellows >= 1) created.add(card(CardType.RED,
+                if (player.isTeamOfficial) MisconductCodes.TEAM_OFFICIAL_SECOND_CAUTION.code else MisconductCodes.SECOND_CAUTION.code))
         } else {
             created.add(card(CardType.RED, code))
         }
         events.addAll(created)
         save()
         return created
+    }
+
+    /** NEW: injury logged after a long-press on STOP. */
+    fun addInjury(
+        isHome: Boolean, number: Int, bodyPart: String,
+        minute: Int, added: Int, period: Int, elapsed: Long, gps: GpsPoint?, timestamp: Long
+    ): MatchEvent {
+        val team = team(isHome)
+        val event = MatchEvent(
+            type = EventType.INJURY, team = team,
+            player = team.getPlayer(number) ?: Player(number, "Unknown"),
+            minute = minute, addedTime = added, period = period, elapsedMillis = elapsed,
+            gpsLocation = gps, bodyPart = bodyPart, timestamp = timestamp
+        )
+        events.add(event)
+        save()
+        return event
+    }
+
+    /** NEW: events entered on the phone (goals, fouls, cards, subs). Updates the score; ignores repeats. */
+    fun addFromPhone(incoming: List<MatchEvent>) {
+        val fresh = incoming.filter { e -> events.none { it.id == e.id } }
+        if (fresh.isEmpty()) return
+        events.addAll(fresh)
+        events.sortBy { it.timestamp }
+        recalculate(); save()
     }
 
     fun yellowCount(isHome: Boolean, number: Int): Int = events.count {

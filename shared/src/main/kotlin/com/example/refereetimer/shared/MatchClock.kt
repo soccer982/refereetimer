@@ -5,13 +5,13 @@ import org.json.JSONObject
 /**
  * The match clock, stored as timestamps so it survives the app closing.
  *
- * RUNNING-CLOCK model (FIFA style):
- *  - The period countdown never stops once a period starts.
- *  - STOP records stoppage (injuries, etc.) while the countdown keeps going.
- *  - At 0:00 the period goes into ADDED TIME: a count-up timer shows added time played,
- *    against the stoppage recorded ("owed"). The referee ends the period.
+ *  - STOP freezes the countdown and records stoppage (S counts up).
+ *  - Once REAL time in the period reaches the period length (e.g. 25:00), the period is in
+ *    ADDED TIME: the countdown that is left is exactly the stoppage owed, and keeps counting down.
+ *  - When the countdown reaches 0:00 the period's time is up (TIME_UP): triple buzz.
+ *    After that it counts up (+00:05...) until the referee ends the period.
  *  - Total ELAPSED is real time since kickoff, including the intervals between periods,
- *    and keeps running through the final added time until the referee ends the match.
+ *    and keeps running until the referee ends the match.
  *
  * Every function takes `now` (System.currentTimeMillis()) and returns a NEW clock.
  */
@@ -25,7 +25,7 @@ data class MatchClock(
     val periodStartedAt: Long = 0L,       // start of the current period
     val stoppageBeforeMs: Long = 0L,      // stoppage recorded this period, closed segments
     val stoppageStartedAt: Long = 0L,     // start of an open stoppage (state PAUSED)
-    val periodEndedPlayedMs: Long = 0L,   // length of the period just ended (shown during interval)
+    val periodEndedPlayedMs: Long = 0L,   // REAL length of the period just ended (shown during interval)
     val breakStartedAt: Long = 0L,
     val endedAt: Long = 0L,               // final whistle (freezes total elapsed)
     val earlierStoppageMs: Long = 0L,     // stoppage from previous periods
@@ -33,18 +33,21 @@ data class MatchClock(
     val awayName: String = "Away",
     val updatedAt: Long = 0L
 ) {
-    /** PAUSED = stoppage being recorded (the countdown keeps running). */
+    /** PAUSED = stoppage being recorded (countdown frozen). TIME_UP = countdown reached 0:00. */
     enum class State { READY, RUNNING, PAUSED, TIME_UP, BREAK, MATCH_OVER }
 
     val isLive: Boolean get() = state == State.RUNNING || state == State.PAUSED || state == State.TIME_UP
     val isFinalPeriod: Boolean get() = period >= regularPeriods
 
-    /** Time since the current period kicked off. */
-    fun playedMs(now: Long): Long = when (state) {
+    /** REAL time since the current period kicked off (stoppage included). */
+    fun realPeriodMs(now: Long): Long = when (state) {
         State.RUNNING, State.PAUSED, State.TIME_UP -> (now - periodStartedAt).coerceAtLeast(0)
         State.BREAK, State.MATCH_OVER -> periodEndedPlayedMs
         State.READY -> 0L
     }
+
+    /** Countdown time used: real time minus stoppage (frozen while stoppage is recorded). */
+    fun playedMs(now: Long): Long = (realPeriodMs(now) - stoppageMs(now)).coerceAtLeast(0)
 
     /** Stoppage recorded this period = added time owed. */
     fun stoppageMs(now: Long): Long =
@@ -54,11 +57,12 @@ data class MatchClock(
 
     fun remainingMs(now: Long): Long = (periodMillis - playedMs(now)).coerceAtLeast(0)
 
-    /** The count-up shown in added time. */
+    /** Count-up shown after the countdown has reached 0:00. */
     fun overtimeMs(now: Long): Long = (playedMs(now) - periodMillis).coerceAtLeast(0)
 
-    /** True once the added time played has reached the stoppage owed. */
-    fun addedTimeComplete(now: Long): Boolean = state == State.TIME_UP && overtimeMs(now) >= stoppageMs(now)
+    /** True once real time has passed the period length: the remaining countdown is the added time. */
+    fun isAddedTime(now: Long): Boolean =
+        (state == State.RUNNING || state == State.PAUSED || state == State.TIME_UP) && realPeriodMs(now) >= periodMillis
 
     /** Interval remaining (negative once the interval has run over). */
     fun breakRemainingMs(now: Long): Long = if (state == State.BREAK) breakMillis - (now - breakStartedAt) else 0L
@@ -70,14 +74,14 @@ data class MatchClock(
         else -> (now - kickoffAt).coerceAtLeast(0)
     }
 
-    /** Game clock, e.g. 30:10 in the 2nd of 3 × 25-minute periods. */
-    fun matchClockMs(now: Long): Long = (period - 1) * periodMillis + playedMs(now)
+    /** Game clock, e.g. 30:10 in the 2nd of 3 × 25-minute periods (real time, as referees count it). */
+    fun matchClockMs(now: Long): Long = (period - 1) * periodMillis + realPeriodMs(now)
 
-    /** The minute a referee writes down, as (minute, addedTime): "23'" or "25+2'". */
+    /** The minute a referee writes down, as (minute, addedTime): "23'" or "25+2'". Based on real time. */
     fun minuteAt(now: Long): Pair<Int, Int> {
         val periodMins = (periodMillis / 60_000L).toInt()
         val base = (period - 1) * periodMins
-        val played = playedMs(now)
+        val played = realPeriodMs(now)
         return if (played < periodMillis) Pair(base + (played / 60_000L).toInt() + 1, 0)
         else Pair(base + periodMins, ((played - periodMillis) / 60_000L).toInt() + 1)
     }
@@ -106,7 +110,7 @@ data class MatchClock(
         breakStartedAt = 0, endedAt = 0, earlierStoppageMs = 0, updatedAt = now
     )
 
-    /** STOP: start recording stoppage. The countdown keeps running. */
+    /** STOP: freeze the countdown and record stoppage. */
     fun startStoppage(now: Long): MatchClock = if (state != State.RUNNING) this
         else copy(state = State.PAUSED, stoppageStartedAt = now, updatedAt = now)
 
@@ -116,20 +120,12 @@ data class MatchClock(
     ).checkTimeUp(now)
 
     /**
-     * Call regularly. When the countdown reaches 0 the period goes into added time.
-     * Uses the exact moment time ran out (not "now"), so it's correct even if the
-     * app was closed when it happened.
+     * Call regularly. When the countdown (which is frozen during stoppage) reaches 0:00,
+     * the period's time is up. Can only happen while RUNNING, since the countdown doesn't
+     * move during stoppage. Correct even if the app was closed when it happened.
      */
-    fun checkTimeUp(now: Long): MatchClock {
-        if ((state != State.RUNNING && state != State.PAUSED) || playedMs(now) < periodMillis) return this
-        val timeUpAt = periodStartedAt + periodMillis
-        return copy(
-            state = State.TIME_UP,
-            stoppageBeforeMs = if (state == State.PAUSED) stoppageMs(timeUpAt) else stoppageBeforeMs,
-            stoppageStartedAt = 0,
-            updatedAt = now
-        )
-    }
+    fun checkTimeUp(now: Long): MatchClock =
+        if (state == State.RUNNING && playedMs(now) >= periodMillis) copy(state = State.TIME_UP, updatedAt = now) else this
 
     /** END PERIOD / END MATCH. */
     fun endPeriod(now: Long): MatchClock {
@@ -137,7 +133,7 @@ data class MatchClock(
         val c = checkTimeUp(now)
         val frozen = c.copy(
             stoppageBeforeMs = c.stoppageMs(now), stoppageStartedAt = 0,
-            periodEndedPlayedMs = c.playedMs(now)
+            periodEndedPlayedMs = c.realPeriodMs(now)
         )
         return if (!isFinalPeriod) frozen.copy(state = State.BREAK, breakStartedAt = now, updatedAt = now)
         else frozen.copy(state = State.MATCH_OVER, endedAt = now, updatedAt = now)
@@ -158,7 +154,7 @@ data class MatchClock(
     // ── Saving / sending ──
 
     fun toJson(): JSONObject = JSONObject().apply {
-        put("v", 3)
+        put("v", 4)
         put("state", state.name); put("period", period); put("regularPeriods", regularPeriods)
         put("periodMillis", periodMillis); put("breakMillis", breakMillis)
         put("kickoffAt", kickoffAt); put("periodStartedAt", periodStartedAt)
@@ -179,7 +175,7 @@ data class MatchClock(
                 updatedAt = j.optLong("updatedAt", 0L)
             )
             // A save from the older stop-clock version can't be converted reliably: keep settings only.
-            if (j.optInt("v", 0) < 3) return base
+            if (j.optInt("v", 0) < 4) return base
             return base.copy(
                 state = runCatching { State.valueOf(j.optString("state")) }.getOrDefault(State.READY),
                 period = j.optInt("period", 1),

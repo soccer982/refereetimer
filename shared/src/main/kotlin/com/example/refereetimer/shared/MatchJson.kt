@@ -59,6 +59,12 @@ object MatchJson {
         e.kftmResult?.let { put("kftmResult", it.name) }
         e.gpsLocation?.let { put("gps", gpsToJson(it)) }
         put("timestamp", e.timestamp)
+        e.bodyPart?.let { put("bodyPart", it) }
+        put("seriousInjury", e.seriousInjury)
+        e.reportText?.let { put("reportText", it) }
+        e.groupId?.let { put("groupId", it) }
+        put("momentCounted", e.momentCounted)
+        e.flag?.let { put("flag", it) }
     }
 
     /**
@@ -70,11 +76,13 @@ object MatchJson {
         val team = teamFor(isHome)
             ?: Team(j.optString("teamName", if (isHome) "Home" else "Away"), emptyList(), emptyList(), isHome)
 
-        fun playerFrom(numberKey: String, nameKey: String): Player? {
+        fun playerFrom(numberKey: String, nameKey: String, roster: Team? = team): Player? {
             if (!j.has(numberKey)) return null
             val n = j.getInt(numberKey)
-            return team.getPlayer(n) ?: Player(n, j.optString(nameKey, "Unknown"))
+            return roster?.getPlayer(n) ?: Player(n, j.optString(nameKey, "Unknown"))
         }
+        // In an own goal the assist is an opposing player, so look the name up on the other roster
+        val ownGoal = j.optBoolean("isOwnGoal", false)
         fun text(key: String): String? = j.optString(key, "").takeIf { it.isNotEmpty() && it != "null" }
 
         return MatchEvent(
@@ -83,7 +91,7 @@ object MatchJson {
             team = team,
             player = playerFrom("playerNumber", "playerName") ?: Player.UNKNOWN,
             playerOff = playerFrom("offNumber", "offName"),
-            assistPlayer = playerFrom("assistNumber", "assistName"),
+            assistPlayer = playerFrom("assistNumber", "assistName", if (ownGoal) teamFor(!isHome) else team),
             minute = j.optInt("minute", 0),
             addedTime = j.optInt("addedTime", 0),
             period = j.optInt("period", 1),
@@ -95,7 +103,13 @@ object MatchJson {
             isPK = j.optBoolean("isPK", false),
             kftmResult = text("kftmResult")?.let { MatchEvent.KftmResult.valueOf(it) },
             gpsLocation = j.optJSONObject("gps")?.let { gpsFromJson(it) },
-            timestamp = j.optLong("timestamp", System.currentTimeMillis())
+            timestamp = j.optLong("timestamp", System.currentTimeMillis()),
+            bodyPart = text("bodyPart"),
+            seriousInjury = j.optBoolean("seriousInjury", false),
+            reportText = text("reportText"),
+            groupId = text("groupId"),
+            momentCounted = j.optBoolean("momentCounted", false),
+            flag = text("flag")
         )
     }
 

@@ -5,24 +5,24 @@ plugins {
 }
 
 allprojects {
-    tasks.register("fixResources") {
+    // Task to remove invalid 'Icon' files created by macOS
+    tasks.register("fixMacOsResources") {
         doLast {
-            rootDir.eachFileRecurse { f ->
-                if (f.isFile() && f.name.startsWith("Icon")) {
-                    println "Deleting invalid file: ${f.absolutePath}"
+            projectDir.eachFileRecurse { f ->
+                // Match "Icon" or names starting with "Icon" followed by special characters (like \r)
+                if (f.name.startsWith("Icon")) {
+                    println "Deleting invalid resource file: ${f.absolutePath}"
                     f.delete()
                 }
             }
         }
     }
-    tasks.register("fixIconIssue") {
-        doLast {
-            // More aggressive search for the "Icon" file that often has a trailing carriage return on macOS
-            fileTree(dir: rootDir).matching {
-                include "**/res/**/Icon*"
-            }.each { f ->
-                println "Deleting: ${f.absolutePath}"
-                f.delete()
+
+    // Ensure the cleanup task runs before every build
+    afterEvaluate { project ->
+        if (project.tasks.findByName('preBuild')) {
+            project.tasks.named('preBuild').configure {
+                dependsOn 'fixMacOsResources'
             }
         }
     }

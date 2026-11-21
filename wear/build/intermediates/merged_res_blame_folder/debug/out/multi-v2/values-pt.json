@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.refereetimer.wear-mergeDebugResources-35:/values-pt/values-pt.xml",
+            "outputFile": "com.example.refereetimer.wear-mergeDebugResources-42:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "/Users/curtiskleier/.gradle/caches/transforms-3/8891375a1bc91bb710ffef89177105ad/transformed/appcompat-1.6.1/res/values-pt/values-pt.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.refereetimer.wear-mergeDebugResources-35:/values-sw210dp-v13/values-sw210dp-v13.xml",
+            "outputFile": "com.example.refereetimer.wear-mergeDebugResources-42:/values-sw210dp-v13/values-sw210dp-v13.xml",
             "map": [
                 {
                     "source": "/Users/curtiskleier/.gradle/caches/transforms-3/dd7f08f51887254fd2159a35d971fb40/transformed/wear-1.3.0/res/values-sw210dp-v13/values-sw210dp-v13.xml",

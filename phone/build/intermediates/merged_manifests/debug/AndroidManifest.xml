@@ -32,13 +32,42 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="Referee Timer"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.RefereeTimer" >
+
+        <!-- Match Setup also receives shared game confirmations (screenshots or email text) -->
         <activity
             android:name="com.example.refereetimer.phone.MatchConfigActivity"
+            android:exported="true"
+            android:label="Import game (Referee)" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.refereetimer.phone.SubstitutionActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.refereetimer.phone.FieldSetupActivity"
             android:exported="false" />
         <activity
             android:name="com.example.refereetimer.phone.PhoneMainActivity"

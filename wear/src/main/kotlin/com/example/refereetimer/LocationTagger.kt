@@ -19,7 +19,10 @@ import com.google.android.gms.tasks.CancellationTokenSource
  * Keeps a fresh GPS fix while the match is live, so a card can be tagged
  * with the referee's position instantly (no waiting for GPS at the moment of the card).
  */
-class LocationTagger(private val context: Context) {
+class LocationTagger(
+    private val context: Context,
+    private val onFix: (GpsPoint) -> Unit = {}     // NEW: every fix also goes to the track recorder
+) {
 
     private val client = LocationServices.getFusedLocationProviderClient(context)
     private var active = false
@@ -35,7 +38,9 @@ class LocationTagger(private val context: Context) {
     }
 
     private fun store(loc: Location) {
-        latest = GpsPoint(loc.latitude, loc.longitude, loc.accuracy, false, System.currentTimeMillis())
+        val point = GpsPoint(loc.latitude, loc.longitude, loc.accuracy, false, System.currentTimeMillis())
+        latest = point
+        onFix(point)
     }
 
     fun hasPermission(): Boolean =

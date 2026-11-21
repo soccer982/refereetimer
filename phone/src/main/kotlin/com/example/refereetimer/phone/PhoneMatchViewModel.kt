@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.refereetimer.shared.FieldCalibration
 import com.example.refereetimer.shared.MatchClock
 import com.example.refereetimer.shared.MatchJson
+import com.example.refereetimer.shared.MisconductCodes
 import com.example.refereetimer.shared.models.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -66,7 +68,17 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
     /** The watch's clock, mirrored. Phone time is calculated from it, so both screens agree. */
     private var clock = MatchClock()
 
+    /** NEW: field calibration from the watch (4 corner flags). Kept across matches until redone. */
+    var fieldCalibration: FieldCalibration? = null
+        private set
+
+    /** NEW: referee movement per period, raw GPS: period -> list of (time, lat, lng). */
+    private val tracks = mutableMapOf<Int, List<Triple<Long, Double, Double>>>()
+
     val regularPeriods: Int get() = clock.regularPeriods
+
+    /** NEW: called with events created ON THE PHONE, so they can be sent to the watch (set by PhoneApp). */
+    var onLocalEvents: ((List<MatchEvent>) -> Unit)? = null
 
     /** True if a match is under way (period lengths can't change until reset). */
     val isMatchInProgress: Boolean get() = clock.state != MatchClock.State.READY && clock.state != MatchClock.State.MATCH_OVER
@@ -77,6 +89,7 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
         val parts = mutableListOf(clock.formatDescription())
         if (clock.kickoffAt > 0) parts.add("Total elapsed ${MatchClock.format(clock.elapsedMs(now))}")
         parts.add("Stoppage ${MatchClock.format(clock.totalStoppageMs(now))}")
+        fieldCalibration?.let { parts.add("Field ${it.describe()}") }
         return parts.joinToString("  ·  ")
     }
 
@@ -170,37 +183,68 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
         }
     }
 
-    fun addGoal(isHome: Boolean, scorerNumber: Int, assistNumber: Int?, isOwnGoal: Boolean) {
+    /** [isHome] = team of the scorer; for an own goal the goal counts for the other side and the assist is an opponent. */
+    fun addGoal(isHome: Boolean, scorerNumber: Int, assistNumber: Int?, isOwnGoal: Boolean, isPK: Boolean = false) {
         val now = System.currentTimeMillis()
         val (minute, added) = clock.minuteAt(now)
         val team = teamFor(isHome) ?: Team(if (isHome) "Home" else "Away", emptyList(), emptyList(), isHome)
-        addEvent(MatchEvent(
+        addLocal(MatchEvent(
             type = MatchEvent.EventType.GOAL,
             team = team,
             player = team.getPlayer(scorerNumber) ?: Player(scorerNumber, "Unknown"),
-            assistPlayer = assistNumber?.let { team.getPlayer(it) ?: Player(it, "Unknown") },
+            assistPlayer = assistNumber?.let { n ->
+                val roster = if (isOwnGoal) teamFor(!isHome) else team
+                roster?.getPlayer(n) ?: Player(n, "Unknown")
+            },
             minute = minute, addedTime = added,
             period = clock.period,
             elapsedMillis = clock.matchClockMs(now),
-            isOwnGoal = isOwnGoal
+            isOwnGoal = isOwnGoal,
+            isPK = isPK
         ))
     }
 
-    fun addFoul(isHome: Boolean, playerNumber: Int, foulType: MatchEvent.FoulType, isPK: Boolean, cardType: MatchEvent.CardType?) {
+    fun addFoul(
+        isHome: Boolean, playerNumber: Int, foulType: MatchEvent.FoulType, isPK: Boolean,
+        cardType: MatchEvent.CardType?, misconductCode: String? = null
+    ) {
         val now = System.currentTimeMillis()
         val (minute, added) = clock.minuteAt(now)
         val team = teamFor(isHome) ?: Team(if (isHome) "Home" else "Away", emptyList(), emptyList(), isHome)
-        addEvent(MatchEvent(
-            type = if (cardType != null) MatchEvent.EventType.CARD else MatchEvent.EventType.FOUL,
-            team = team,
-            player = team.getPlayer(playerNumber) ?: Player(playerNumber, "Unknown"),
-            minute = minute, addedTime = added,
-            period = clock.period,
+        val player = if (playerNumber == Player.TEAM_OFFICIAL_NUMBER) Player.teamOfficial()
+            else team.getPlayer(playerNumber) ?: Player(playerNumber, "Unknown")
+        fun event(type: MatchEvent.CardType?, code: String?, offset: Long) = MatchEvent(
+            type = if (type != null) MatchEvent.EventType.CARD else MatchEvent.EventType.FOUL,
+            team = team, player = player,
+            minute = minute, addedTime = added, period = clock.period,
             elapsedMillis = clock.matchClockMs(now),
-            foulType = foulType,
-            isPK = isPK,
-            cardType = cardType
-        ))
+            foulType = foulType, isPK = isPK, cardType = type, misconductCode = code,
+            timestamp = now + offset
+        )
+        val created = mutableListOf(event(cardType, misconductCode, 0))
+        // Same rule as the watch: a second yellow adds the send-off automatically (2CT / SOTO7)
+        if (cardType == MatchEvent.CardType.YELLOW) {
+            val earlier = _events.value.orEmpty().count {
+                it.type == MatchEvent.EventType.CARD && it.cardType == MatchEvent.CardType.YELLOW &&
+                    it.team.isHome == isHome && it.player.jerseyNumber == playerNumber
+            }
+            if (earlier >= 1) created.add(event(MatchEvent.CardType.RED,
+                if (player.isTeamOfficial) MisconductCodes.TEAM_OFFICIAL_SECOND_CAUTION.code else MisconductCodes.SECOND_CAUTION.code, 1))
+        }
+        created.forEach { addEvent(it) }
+        onLocalEvents?.invoke(created)
+    }
+
+    /** Adds an event created on the phone and passes it on to the watch. */
+    private fun addLocal(event: MatchEvent) {
+        addEvent(event)
+        onLocalEvents?.invoke(listOf(event))
+    }
+
+    /** True if this player already has a yellow (used to warn on the phone). */
+    fun hasYellow(isHome: Boolean, number: Int): Boolean = _events.value.orEmpty().any {
+        it.type == MatchEvent.EventType.CARD && it.cardType == MatchEvent.CardType.YELLOW &&
+            it.team.isHome == isHome && it.player.jerseyNumber == number
     }
 
     /** Scores are always counted from the event list, so they can never drift out of sync. */
@@ -214,13 +258,133 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
         setIfChanged(_homeScore, home)
         setIfChanged(_awayScore, away)
 
-        val cards = events.filter { it.type == MatchEvent.EventType.CARD }
+        updateGpsStatus()
+    }
+
+    private fun updateGpsStatus() {
+        val cards = _events.value.orEmpty().filter { it.type == MatchEvent.EventType.CARD }
         val tagged = cards.count { it.gpsLocation != null }
-        setIfChanged(_gpsStatus, if (cards.isEmpty()) "GPS: no cards yet" else "GPS: $tagged of ${cards.size} cards tagged 📍")
+        val field = fieldCalibration?.let { "Field ${it.describe()} ✓" } ?: "Field not calibrated"
+        val points = tracks.values.sumOf { it.size }
+        val cardText = if (cards.isEmpty()) "no cards" else "$tagged/${cards.size} cards 📍"
+        setIfChanged(_gpsStatus, "GPS: $field  ·  $cardText  ·  $points track pts")
+    }
+
+    // ── Substitutions (phone only) ──
+
+    /** Where substitutions made right now belong. */
+    data class SubContext(val minute: Int, val added: Int, val period: Int, val duringInterval: Boolean, val label: String)
+
+    fun subContext(): SubContext {
+        val now = System.currentTimeMillis()
+        val c = clock
+        return when (c.state) {
+            // Subs at an interval belong to the NEXT period (so re-entry rules apply to that half)
+            MatchClock.State.BREAK -> {
+                val minute = c.period * (c.periodMillis / 60_000L).toInt()
+                SubContext(minute, 0, c.period + 1, true, "Interval before period ${c.period + 1}")
+            }
+            MatchClock.State.READY -> SubContext(0, 0, 1, true, "Before kickoff")
+            else -> {
+                val (m, a) = c.minuteAt(now)
+                SubContext(m, a, c.period, false, "${if (a > 0) "$m+$a" else "$m"}' · period ${c.period}")
+            }
+        }
+    }
+
+    /**
+     * Records one batch of substitutions for a team, made at the same stoppage.
+     * [pairs] = (player ON, player OFF, flag or null). Returns how many were recorded.
+     */
+    fun addSubstitutions(isHome: Boolean, pairs: List<Triple<Int, Int, String?>>, usesMoment: Boolean): Int {
+        if (pairs.isEmpty()) return 0
+        val ctx = subContext()
+        val team = teamFor(isHome) ?: Team(if (isHome) "Home" else "Away", emptyList(), emptyList(), isHome)
+        val group = java.util.UUID.randomUUID().toString()
+        val now = System.currentTimeMillis()
+        val list = _events.value ?: mutableListOf()
+        pairs.forEachIndexed { i, (on, off, flag) ->
+            list.add(MatchEvent(
+                type = MatchEvent.EventType.SUBSTITUTION, team = team,
+                player = team.getPlayer(on) ?: Player(on, "Unknown"),
+                playerOff = team.getPlayer(off) ?: Player(off, "Unknown"),
+                minute = ctx.minute, addedTime = ctx.added, period = ctx.period,
+                elapsedMillis = clock.matchClockMs(now),
+                groupId = group, momentCounted = usesMoment, flag = flag,
+                timestamp = now + i     // keeps the order they were entered
+            ))
+        }
+        list.sortBy { it.timestamp }
+        _events.value = list
+        persist()
+        onLocalEvents?.invoke(list.filter { it.groupId == group })
+        return pairs.size
+    }
+
+    // ── Report answers (injury severity/description, red-card narrative) ──
+
+    fun eventById(id: String): MatchEvent? = _events.value?.firstOrNull { it.id == id }
+
+    /** Saves what the referee entered while preparing the report (kept for next time). */
+    fun updateEventReport(id: String, serious: Boolean, text: String?) {
+        val list = _events.value ?: return
+        val i = list.indexOfFirst { it.id == id }
+        if (i < 0) return
+        list[i] = list[i].copy(seriousInjury = serious, reportText = text)
+        _events.value = list
+        recalculate()
+        persist()
+    }
+
+    /** The clock as it stands (for kickoff time, elapsed and stoppage in the reports). */
+    val currentClock: MatchClock get() = clock
+
+    // ── Field calibration + movement tracks (from the watch) ──
+
+    fun applyCalibration(json: String) {
+        fieldCalibration = FieldCalibration.fromJson(JSONObject(json)) ?: return
+        persist(); updateGpsStatus()
+    }
+
+    fun applyTrack(period: Int, json: String) {
+        try {
+            val arr = JSONArray(json)
+            tracks[period] = (0 until arr.length()).map {
+                val p = arr.getJSONArray(it); Triple(p.getLong(0), p.getDouble(1), p.getDouble(2))
+            }
+            persist(); updateGpsStatus()
+        } catch (e: Exception) {
+            android.util.Log.e("PHONE_VM", "Bad track data", e)
+        }
+    }
+
+    /** Movement track placed on the field, for the report heatmaps (empty if not calibrated). */
+    fun reportTrack(): List<GpsReferenceService.GpsTrackPoint> {
+        val cal = fieldCalibration ?: return emptyList()
+        return tracks.flatMap { (period, pts) ->
+            pts.map { (t, lat, lng) ->
+                val (x, y) = cal.toField(lat, lng)
+                GpsReferenceService.GpsTrackPoint(lat, lng, x, y, period, t - clock.kickoffAt, t)
+            }
+        }
+    }
+
+    /** Events with their GPS tags placed on the field (positions left unset if not calibrated). */
+    fun reportEvents(): List<MatchEvent> {
+        val cal = fieldCalibration
+        return _events.value.orEmpty().map { e ->
+            val g = e.gpsLocation
+            if (cal == null || g == null) e
+            else e.copy(gpsLocation = g.copy().also {
+                val (x, y) = cal.toField(g.latitude, g.longitude)
+                it.fieldX = x; it.fieldY = y
+            })
+        }
     }
 
     /** New match: clears score and events, keeps rosters. */
     fun reset() {
+        tracks.clear()
         _events.value = mutableListOf()
         clock = clock.reset(System.currentTimeMillis())
         _kftmWinner.value = null
@@ -237,6 +401,12 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
             _awayTeam.value?.let { put("away", MatchJson.teamToJson(it)) }
             put("clock", clock.toJson())
             put("events", MatchJson.eventsToJson(_events.value.orEmpty()))
+            fieldCalibration?.let { put("field", it.toJson()) }
+            put("tracks", JSONObject().apply {
+                tracks.forEach { (period, pts) ->
+                    put(period.toString(), JSONArray().apply { pts.forEach { (t, la, ln) -> put(JSONArray().put(t).put(la).put(ln)) } })
+                }
+            })
             put("savedAt", System.currentTimeMillis())
         }
         store.save(state)
@@ -248,11 +418,21 @@ class PhoneMatchViewModel(private val store: MatchStateStore) : ViewModel() {
             s.optJSONObject("home")?.let { val t = MatchJson.teamFromJson(it); _homeTeam.value = t; _homeTeamName.value = t.name }
             s.optJSONObject("away")?.let { val t = MatchJson.teamFromJson(it); _awayTeam.value = t; _awayTeamName.value = t.name }
             s.optJSONObject("clock")?.let { clock = MatchClock.fromJson(it) }
+            s.optJSONObject("field")?.let { fieldCalibration = FieldCalibration.fromJson(it) }
+            s.optJSONObject("tracks")?.let { tj ->
+                tj.keys().forEach { k -> k.toIntOrNull()?.let { applyTrackSilently(it, tj.getJSONArray(k)) } }
+            }
             val restored = MatchJson.eventsFromJson(s.optJSONArray("events") ?: JSONArray(), ::teamFor)
             _events.value = restored.toMutableList()
             recalculate()
         } catch (e: Exception) {
             android.util.Log.e("PHONE_VM", "Could not restore saved match", e)
+        }
+    }
+
+    private fun applyTrackSilently(period: Int, arr: JSONArray) {
+        tracks[period] = (0 until arr.length()).map {
+            val p = arr.getJSONArray(it); Triple(p.getLong(0), p.getDouble(1), p.getDouble(2))
         }
     }
 

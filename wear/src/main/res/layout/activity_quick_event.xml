@@ -94,9 +94,65 @@
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <!-- NEW: foul (IFK / DFK / PK) -->
+            <Button
+                    android:id="@+id/btnTypeFoul"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_margin="2dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#6A1B9A"
+                    android:text="🚩 FOUL"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- STEP 2: player number (crown or − / +) -->
+        <!-- STEP 1b (goals): open play, penalty kick or own goal -->
+        <LinearLayout
+            android:id="@+id/layoutGoalType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <Button
+                android:id="@+id/btnGoalOpen"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="3dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#2E7D32"
+                android:text="⚽ GOAL"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnGoalPk"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="3dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#1B5E20"
+                android:text="⚽ PK (penalty kick)"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnGoalOg"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="3dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#5D4037"
+                android:text="OG (own goal)"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- STEP 2: player number (keypad or crown) -->
         <LinearLayout
             android:id="@+id/layoutNumber"
             android:layout_width="match_parent"
@@ -109,10 +165,35 @@
                 android:id="@+id/txtPlayerNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="—"
                 android:textColor="@android:color/white"
-                android:textSize="38sp"
+                android:textSize="34sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnNoAssist"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginBottom="2dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#424242"
+                android:text="NO ASSIST · SAVE GOAL"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone" />
+
+            <!-- NEW: card a coach / team official instead of a player -->
+            <Button
+                android:id="@+id/btnTeamOfficial"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginBottom="2dp"
+                android:minHeight="0dp"
+                android:backgroundTint="#37474F"
+                android:text="TEAM OFFICIAL / COACH"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtPlayerName"
@@ -126,47 +207,258 @@
                 android:textColor="#4CAF50"
                 android:textSize="11sp" />
 
+            <!-- NEW: number keypad (tap digits; crown also works) -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/keypad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <Button
-                    android:id="@+id/btnNumDown"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
-                    android:layout_marginEnd="6dp"
+                    android:id="@+id/btnDigit1"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:padding="0dp"
                     android:backgroundTint="#424242"
-                    android:text="−"
+                    android:text="1"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit2"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="2"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit3"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="3"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnDigit4"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="4"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit5"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="5"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit6"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="6"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnDigit7"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="7"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit8"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="8"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit9"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="9"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnBackspace"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#616161"
+                    android:text="⌫"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnDigit0"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:backgroundTint="#424242"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
                 <Button
                     android:id="@+id/btnNumConfirm"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:padding="0dp"
                     android:backgroundTint="#2E7D32"
                     android:text="✓"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
+            </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
+        <!-- STEP 3 (fouls only): free kick type -->
+        <LinearLayout
+            android:id="@+id/layoutFoulType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <Button
-                    android:id="@+id/btnNumUp"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:id="@+id/btnFoulDfk"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
-                    android:backgroundTint="#424242"
-                    android:text="+"
+                    android:backgroundTint="#E65100"
+                    android:text="DFK"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnFoulIfk"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#6A1B9A"
+                    android:text="IFK"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+                <Button
+                    android:id="@+id/btnFoulPk"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="2dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:backgroundTint="#B71C1C"
+                    android:text="PK (DFK in penalty area)"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
         </LinearLayout>
 
         <!-- STEP 3 (cards only): Law 12 misconduct code (crown or ◀ / ▶) -->

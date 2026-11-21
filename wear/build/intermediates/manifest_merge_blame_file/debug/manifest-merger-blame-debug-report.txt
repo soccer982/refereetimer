@@ -46,94 +46,95 @@
 25-->[androidx.core:core:1.12.0] /Users/curtiskleier/.gradle/caches/transforms-3/808f25e33273cf777e1c687f415f5885/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
 26
 27    <application
-27-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:14:5-55:19
+27-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:13:5-55:19
 28        android:name="com.example.refereetimer.WearApp"
-28-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:15:9-32
+28-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:14:9-32
 29        android:allowBackup="true"
-29-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:16:9-35
+29-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:15:9-35
 30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 30-->[androidx.core:core:1.12.0] /Users/curtiskleier/.gradle/caches/transforms-3/808f25e33273cf777e1c687f415f5885/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 31        android:debuggable="true"
 32        android:extractNativeLibs="false"
-33        android:icon="@mipmap/ic_launcher"
-33-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:17:9-43
-34        android:label="Referee Timer"
-34-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:18:9-38
-35        android:supportsRtl="true"
-35-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:19:9-35
-36        android:testOnly="true"
-37        android:theme="@style/Theme.RefereeTimer.Wear" >
-37-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:20:9-55
-38        <uses-library
-38-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:22:9-24:38
-39            android:name="com.google.android.wearable"
-39-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:23:13-55
-40            android:required="true" />
-40-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:24:13-36
-41
-42        <meta-data
-42-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:26:9-28:36
-43            android:name="com.google.android.wearable.standalone"
-43-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:27:13-66
-44            android:value="false" />
-44-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:28:13-34
-45
-46        <activity
-46-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:30:9-39:20
-47            android:name="com.example.refereetimer.MainActivity"
-47-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:31:13-41
-48            android:excludeFromRecents="true"
-48-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:34:13-46
-49            android:exported="true"
-49-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:32:13-36
-50            android:taskAffinity="" >
-50-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:33:13-36
-51            <intent-filter>
-51-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:35:13-38:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:36:17-68
-52-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:36:25-66
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:37:17-76
-54-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:37:27-74
-55            </intent-filter>
-56        </activity>
-57        <activity
-57-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:9-80
-58            android:name="com.example.refereetimer.QuickEventActivity"
-58-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:19-53
-59            android:exported="false" />
-59-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:54-78
-60
-61        <service
-61-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:43:9-53:19
-62            android:name="com.example.refereetimer.WearDataService"
-62-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:44:13-44
-63            android:exported="true" >
-63-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:45:13-36
-64            <intent-filter>
-64-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:46:13-52:29
-65                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
-65-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:47:17-86
-65-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:47:25-84
-66                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
-66-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:48:17-90
-66-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:48:25-88
-67
-68                <data
-68-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:17-91
-69                    android:host="*"
-69-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:45-61
-70                    android:pathPrefix="/match"
-70-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:62-89
-71                    android:scheme="wear" />
-71-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:23-44
+33        android:label="Referee Timer"
+33-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:16:9-38
+34        android:supportsRtl="true"
+34-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:17:9-35
+35        android:theme="@style/Theme.RefereeTimer.Wear" >
+35-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:18:9-55
+36        <uses-library
+36-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:20:9-22:38
+37            android:name="com.google.android.wearable"
+37-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:21:13-55
+38            android:required="true" />
+38-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:22:13-36
+39
+40        <meta-data
+40-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:24:9-26:36
+41            android:name="com.google.android.wearable.standalone"
+41-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:25:13-66
+42            android:value="false" />
+42-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:26:13-34
+43
+44        <activity
+44-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:28:9-37:20
+45            android:name="com.example.refereetimer.MainActivity"
+45-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:29:13-41
+46            android:excludeFromRecents="true"
+46-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:32:13-46
+47            android:exported="true"
+47-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:30:13-36
+48            android:taskAffinity="" >
+48-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:31:13-36
+49            <intent-filter>
+49-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:33:13-36:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:34:17-68
+50-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:34:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:35:17-76
+52-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:35:27-74
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:39:9-80
+56            android:name="com.example.refereetimer.QuickEventActivity"
+56-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:39:19-53
+57            android:exported="false" />
+57-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:39:54-78
+58        <activity
+58-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:40:9-80
+59            android:name="com.example.refereetimer.FieldSetupActivity"
+59-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:40:19-53
+60            android:exported="false" />
+60-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:40:54-78
+61        <activity
+61-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:9-76
+62            android:name="com.example.refereetimer.InjuryActivity"
+62-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:19-49
+63            android:exported="false" />
+63-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:41:50-74
+64
+65        <service
+65-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:43:9-53:19
+66            android:name="com.example.refereetimer.WearDataService"
+66-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:44:13-44
+67            android:exported="true" >
+67-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:45:13-36
+68            <intent-filter>
+68-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:46:13-52:29
+69                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+69-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:47:17-86
+69-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:47:25-84
+70                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+70-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:48:17-90
+70-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:48:25-88
+71
 72                <data
 72-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:17-91
 73                    android:host="*"
 73-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:45-61
-74                    android:pathPrefix="/gps"
+74                    android:pathPrefix="/match"
 74-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:62-89
 75                    android:scheme="wear" />
 75-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:23-44
@@ -141,94 +142,102 @@
 76-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:17-91
 77                    android:host="*"
 77-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:45-61
-78                    android:pathPrefix="/data"
+78                    android:pathPrefix="/gps"
 78-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:62-89
 79                    android:scheme="wear" />
 79-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:23-44
-80            </intent-filter>
-81        </service>
-82
-83        <activity
-83-->[com.google.android.gms:play-services-base:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/e375502865e73a060ea5c6be83cf7b9e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-84            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-84-->[com.google.android.gms:play-services-base:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/e375502865e73a060ea5c6be83cf7b9e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-85            android:exported="false"
-85-->[com.google.android.gms:play-services-base:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/e375502865e73a060ea5c6be83cf7b9e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-86            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-86-->[com.google.android.gms:play-services-base:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/e375502865e73a060ea5c6be83cf7b9e/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-87
-88        <provider
-88-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-89            android:name="androidx.startup.InitializationProvider"
-89-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-90            android:authorities="com.example.refereetimer.androidx-startup"
-90-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-91            android:exported="false" >
-91-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-92            <meta-data
-92-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-93                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-93-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-94                android:value="androidx.startup" />
-94-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-95            <meta-data
-95-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
-96                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-96-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
-97                android:value="androidx.startup" />
-97-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
-98            <meta-data
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-99                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-99-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-100                android:value="androidx.startup" />
-100-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-101        </provider>
-102
-103        <meta-data
-103-->[com.google.android.gms:play-services-basement:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/7e644953090ceedffd3e7af3aeec4990/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
-104            android:name="com.google.android.gms.version"
-104-->[com.google.android.gms:play-services-basement:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/7e644953090ceedffd3e7af3aeec4990/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
-105            android:value="@integer/google_play_services_version" />
-105-->[com.google.android.gms:play-services-basement:18.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/7e644953090ceedffd3e7af3aeec4990/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
-106
-107        <receiver
-107-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-108            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-108-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-109            android:directBootAware="false"
-109-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-110            android:enabled="true"
-110-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-111            android:exported="true"
-111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-112            android:permission="android.permission.DUMP" >
-112-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-113            <intent-filter>
-113-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-114                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-115            </intent-filter>
-116            <intent-filter>
-116-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-117                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-118            </intent-filter>
-119            <intent-filter>
-119-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-120                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-120-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-120-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-121            </intent-filter>
-122            <intent-filter>
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-123                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-124            </intent-filter>
-125        </receiver>
-126    </application>
-127
-128</manifest>
+80                <data
+80-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:17-91
+81                    android:host="*"
+81-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:45-61
+82                    android:pathPrefix="/data"
+82-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:62-89
+83                    android:scheme="wear" />
+83-->/Users/curtiskleier/Documents/RefereeTimer/wear/src/main/AndroidManifest.xml:49:23-44
+84            </intent-filter>
+85        </service>
+86
+87        <activity
+87-->[com.google.android.gms:play-services-base:18.0.1] /Users/curtiskleier/.gradle/caches/transforms-3/a09d6732d5040b85267b71a78cc02a7b/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+88            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+88-->[com.google.android.gms:play-services-base:18.0.1] /Users/curtiskleier/.gradle/caches/transforms-3/a09d6732d5040b85267b71a78cc02a7b/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+89            android:exported="false"
+89-->[com.google.android.gms:play-services-base:18.0.1] /Users/curtiskleier/.gradle/caches/transforms-3/a09d6732d5040b85267b71a78cc02a7b/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+90            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+90-->[com.google.android.gms:play-services-base:18.0.1] /Users/curtiskleier/.gradle/caches/transforms-3/a09d6732d5040b85267b71a78cc02a7b/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+91
+92        <meta-data
+92-->[com.google.android.gms:play-services-basement:18.0.0] /Users/curtiskleier/.gradle/caches/transforms-3/e457c158304b48a5d952aed8b7d0eb1e/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+93            android:name="com.google.android.gms.version"
+93-->[com.google.android.gms:play-services-basement:18.0.0] /Users/curtiskleier/.gradle/caches/transforms-3/e457c158304b48a5d952aed8b7d0eb1e/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+94            android:value="@integer/google_play_services_version" />
+94-->[com.google.android.gms:play-services-basement:18.0.0] /Users/curtiskleier/.gradle/caches/transforms-3/e457c158304b48a5d952aed8b7d0eb1e/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+95
+96        <provider
+96-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+97            android:name="androidx.startup.InitializationProvider"
+97-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+98            android:authorities="com.example.refereetimer.androidx-startup"
+98-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+99            android:exported="false" >
+99-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+100            <meta-data
+100-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+101                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+101-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+102                android:value="androidx.startup" />
+102-->[androidx.emoji2:emoji2:1.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/8262367a11bda1b4b9cedc24dd567015/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+103            <meta-data
+103-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+104                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+104-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+105                android:value="androidx.startup" />
+105-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/curtiskleier/.gradle/caches/transforms-3/26f82cc556b85edf093ffa444eb9b396/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+106            <meta-data
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+107                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+108                android:value="androidx.startup" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+109        </provider>
+110
+111        <receiver
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+112            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+112-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+113            android:directBootAware="false"
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+114            android:enabled="true"
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+115            android:exported="true"
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+116            android:permission="android.permission.DUMP" >
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+118                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+121                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+122            </intent-filter>
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+124                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+127                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/curtiskleier/.gradle/caches/transforms-3/20fdc5f449a51857d21c008767a0c843/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+128            </intent-filter>
+129        </receiver>
+130    </application>
+131
+132</manifest>

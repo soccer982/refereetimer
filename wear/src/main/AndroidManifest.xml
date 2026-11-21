@@ -10,11 +10,9 @@
     <uses-feature android:name="android.hardware.type.watch"/>
     <uses-feature android:name="android.hardware.location.gps"/>
     <uses-feature android:name="android.hardware.microphone"/>
-
     <application
         android:name=".WearApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="Referee Timer"
         android:supportsRtl="true"
         android:theme="@style/Theme.RefereeTimer.Wear">
@@ -39,6 +37,8 @@
         </activity>
 
         <activity android:name=".QuickEventActivity" android:exported="false"/>
+        <activity android:name=".FieldSetupActivity" android:exported="false"/>
+        <activity android:name=".InjuryActivity" android:exported="false"/>
 
         <service
             android:name=".WearDataService"

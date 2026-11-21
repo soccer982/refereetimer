@@ -3,98 +3,171 @@ package com.example.refereetimer.phone
 import android.content.Context
 import android.graphics.*
 import com.example.refereetimer.shared.models.MatchEvent
-import com.example.refereetimer.shared.models.MatchEvent.CardType
-import com.example.refereetimer.shared.models.MatchEvent.EventType
 
-class FieldDiagramRenderer(private val context: Context) {
-    private val WIDTH = 1200; private val HEIGHT = 800; private val MARGIN = 60f
-    private val fieldLeft = MARGIN; private val fieldTop = MARGIN
-    private val fieldRight = WIDTH - MARGIN; private val fieldBottom = HEIGHT - MARGIN
-    private val fieldWidth = fieldRight - fieldLeft; private val fieldHeight = fieldBottom - fieldTop
-    private val PA_LENGTH = 16.5f / 105f; private val PA_WIDTH = 40.32f / 68f
-    private val GA_LENGTH = 5.5f / 105f;  private val GA_WIDTH  = 18.32f / 68f
-    private val PERIOD_COLORS = listOf(Color.argb(200,33,150,243), Color.argb(200,76,175,80), Color.argb(200,255,152,0), Color.argb(200,156,39,176))
+/**
+ * Draws the field with the referee's heatmap and event symbols, PORTRAIT (for US Letter pages).
+ *
+ * The field stands upright, the same way as on the US Soccer Supplemental Report:
+ *   TOP goal line    = corners 1–2        BOTTOM goal line = corners 3–4
+ *   LEFT touchline   = corners 1–4        RIGHT touchline  = corners 2–3
+ * Field coordinates from the watch's calibration: x = 0..1 along the length (top → bottom),
+ * y = 0..1 across the width (left → right). Drawn to the real measured proportions.
+ *
+ * Image: 1000 × 1200 px; field on top, symbol key (and period colours) underneath.
+ */
+class FieldDiagramRenderer(
+    private val context: Context,
+    private val lengthM: Double = 105.0,
+    private val widthM: Double = 68.0,
+    private val allEvents: List<MatchEvent> = emptyList()   // whole match, for the 2nd-caution star/slash
+) {
+    companion object {
+        const val WIDTH = 1000
+        const val HEIGHT = 1200
+    }
+
+    private val SIDE = 70f; private val TOP = 70f; private val BOTTOM_SPACE = 210f
+
+    // Fit the real field (upright) into the image
+    private val scale = minOf((WIDTH - 2 * SIDE) / widthM.toFloat(), (HEIGHT - TOP - BOTTOM_SPACE) / lengthM.toFloat())
+    private val fieldW = widthM.toFloat() * scale          // pixels across (touchline to touchline)
+    private val fieldH = lengthM.toFloat() * scale         // pixels down (goal line to goal line)
+    private val fieldLeft = (WIDTH - fieldW) / 2f
+    private val fieldTop = TOP + ((HEIGHT - TOP - BOTTOM_SPACE) - fieldH) / 2f
+    private val fieldRight = fieldLeft + fieldW
+    private val fieldBottom = fieldTop + fieldH
+
+    private val PERIOD_COLORS = listOf(
+        Color.argb(200, 33, 150, 243), Color.argb(200, 255, 235, 59), Color.argb(200, 255, 152, 0),
+        Color.argb(200, 156, 39, 176), Color.argb(200, 0, 188, 212), Color.argb(200, 233, 30, 99)
+    )
+
+    /** Screen position for field coordinates (x along the length, y across the width). */
+    private fun sx(fieldY: Float) = fieldLeft + fieldY.coerceIn(-0.05f, 1.05f) * fieldW
+    private fun sy(fieldX: Float) = fieldTop + fieldX.coerceIn(-0.05f, 1.05f) * fieldH
+    private fun m(metres: Float) = metres * scale
 
     fun renderPeriod(period: Int, trackPoints: List<GpsReferenceService.GpsTrackPoint>, events: List<MatchEvent>): Bitmap {
         val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888); val canvas = Canvas(bitmap)
         drawBackground(canvas); drawFieldMarkings(canvas)
-        drawHeatmap(canvas, trackPoints, PERIOD_COLORS[(period-1).coerceIn(0, PERIOD_COLORS.size-1)])
-        drawEventPins(canvas, events); drawLabel(canvas, "Period $period"); return bitmap
+        drawHeatmap(canvas, trackPoints, PERIOD_COLORS[(period - 1).coerceIn(0, PERIOD_COLORS.size - 1)])
+        drawEventPins(canvas, events); drawLabel(canvas, "Period $period"); drawCornerLabels(canvas)
+        return bitmap
     }
 
     fun renderFullMatch(trackPoints: List<GpsReferenceService.GpsTrackPoint>, events: List<MatchEvent>, totalPeriods: Int): Bitmap {
         val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888); val canvas = Canvas(bitmap)
         drawBackground(canvas); drawFieldMarkings(canvas)
-        for (p in 1..totalPeriods) drawHeatmap(canvas, trackPoints.filter { it.period == p }, PERIOD_COLORS[(p-1).coerceIn(0, PERIOD_COLORS.size-1)])
-        drawEventPins(canvas, events); drawLabel(canvas, "Full Match"); return bitmap
+        for (p in 1..totalPeriods) drawHeatmap(canvas, trackPoints.filter { it.period == p }, PERIOD_COLORS[(p - 1).coerceIn(0, PERIOD_COLORS.size - 1)])
+        val keyH = drawEventPins(canvas, events); drawLabel(canvas, "Full Match"); drawCornerLabels(canvas)
+        if (trackPoints.isNotEmpty()) drawPeriodLegend(canvas, totalPeriods, fieldBottom + 40f + keyH + 30f)
+        return bitmap
     }
 
-    private fun drawBackground(canvas: Canvas) { canvas.drawColor(Color.parseColor("#1B5E20")) }
+    private fun drawBackground(canvas: Canvas) {
+        canvas.drawColor(Color.parseColor("#1B5E20"))
+        // Mowing stripes across the field, purely cosmetic
+        val stripe = Paint().apply { color = Color.parseColor("#215F25") }
+        val n = 12; val h = fieldH / n
+        for (i in 0 until n step 2) canvas.drawRect(fieldLeft, fieldTop + i * h, fieldRight, fieldTop + (i + 1) * h, stripe)
+    }
 
     private fun drawFieldMarkings(canvas: Canvas) {
-        val lp = Paint().apply { color = Color.WHITE; strokeWidth = 2f; style = Paint.Style.STROKE; isAntiAlias = true }
+        val lp = Paint().apply { color = Color.WHITE; strokeWidth = 2.5f; style = Paint.Style.STROKE; isAntiAlias = true }
         val sp = Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true }
+        val midX = fieldLeft + fieldW / 2f; val midY = fieldTop + fieldH / 2f
+
         canvas.drawRect(fieldLeft, fieldTop, fieldRight, fieldBottom, lp)
-        val midY = fieldTop + fieldHeight/2f; canvas.drawLine(fieldLeft, midY, fieldRight, midY, lp)
-        val cR = (9.15f/105f) * fieldWidth; canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight/2f, cR, lp)
-        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight/2f, 5f, sp)
-        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-PA_WIDTH)/2f), fieldTop, fieldLeft+fieldWidth*((1+PA_WIDTH)/2f), fieldTop+fieldHeight*PA_LENGTH), lp)
-        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-PA_WIDTH)/2f), fieldBottom-fieldHeight*PA_LENGTH, fieldLeft+fieldWidth*((1+PA_WIDTH)/2f), fieldBottom), lp)
-        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-GA_WIDTH)/2f), fieldTop, fieldLeft+fieldWidth*((1+GA_WIDTH)/2f), fieldTop+fieldHeight*GA_LENGTH), lp)
-        canvas.drawRect(RectF(fieldLeft+fieldWidth*((1-GA_WIDTH)/2f), fieldBottom-fieldHeight*GA_LENGTH, fieldLeft+fieldWidth*((1+GA_WIDTH)/2f), fieldBottom), lp)
-        val psDist = 11f/105f
-        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldTop+fieldHeight*psDist, 4f, sp)
-        canvas.drawCircle(fieldLeft+fieldWidth/2f, fieldBottom-fieldHeight*psDist, 4f, sp)
+        canvas.drawLine(fieldLeft, midY, fieldRight, midY, lp)                       // halfway line
+        canvas.drawCircle(midX, midY, m(9.15f), lp); canvas.drawCircle(midX, midY, 4f, sp)
+
+        // Scale the boxes down on small (youth) fields so they never overlap
+        val boxScale = minOf(1f, (widthM / 68.0).toFloat() + 0.15f).coerceAtLeast(0.5f)
+        val paDepth = m(16.5f * boxScale); val paHalf = m(20.16f * boxScale)
+        val gaDepth = m(5.5f * boxScale);  val gaHalf = m(9.16f * boxScale)
+        val spot = m(11f * boxScale)
+
+        // Top end (corners 1–2)
+        canvas.drawRect(midX - paHalf, fieldTop, midX + paHalf, fieldTop + paDepth, lp)
+        canvas.drawRect(midX - gaHalf, fieldTop, midX + gaHalf, fieldTop + gaDepth, lp)
+        canvas.drawCircle(midX, fieldTop + spot, 4f, sp)
+        // Bottom end (corners 3–4)
+        canvas.drawRect(midX - paHalf, fieldBottom - paDepth, midX + paHalf, fieldBottom, lp)
+        canvas.drawRect(midX - gaHalf, fieldBottom - gaDepth, midX + gaHalf, fieldBottom, lp)
+        canvas.drawCircle(midX, fieldBottom - spot, 4f, sp)
+        // Goals
+        val goalHalf = m(3.66f); val gp = Paint(lp).apply { strokeWidth = 5f }
+        canvas.drawLine(midX - goalHalf, fieldTop - 6f, midX + goalHalf, fieldTop - 6f, gp)
+        canvas.drawLine(midX - goalHalf, fieldBottom + 6f, midX + goalHalf, fieldBottom + 6f, gp)
     }
 
     private fun drawHeatmap(canvas: Canvas, trackPoints: List<GpsReferenceService.GpsTrackPoint>, baseColor: Int) {
         if (trackPoints.isEmpty()) return
-        val gridW = 50; val gridH = 33; val density = Array(gridW) { IntArray(gridH) }; var maxDensity = 1
+        val rows = 42                                                        // down the length
+        val cols = (rows * widthM / lengthM).toInt().coerceIn(12, 40)        // across the width
+        val density = Array(rows) { IntArray(cols) }; var maxDensity = 1
         for (p in trackPoints) {
-            val gx = (p.fieldX*(gridW-1)).toInt().coerceIn(0,gridW-1); val gy = (p.fieldY*(gridH-1)).toInt().coerceIn(0,gridH-1)
-            density[gx][gy]++; if (density[gx][gy] > maxDensity) maxDensity = density[gx][gy]
+            if (p.fieldX < -0.05f || p.fieldX > 1.05f || p.fieldY < -0.05f || p.fieldY > 1.05f) continue
+            val r = (p.fieldX * rows).toInt().coerceIn(0, rows - 1)
+            val c = (p.fieldY * cols).toInt().coerceIn(0, cols - 1)
+            density[r][c]++; if (density[r][c] > maxDensity) maxDensity = density[r][c]
         }
-        val cellW = fieldWidth/gridW; val cellH = fieldHeight/gridH
-        val r = Color.red(baseColor); val g = Color.green(baseColor); val b = Color.blue(baseColor)
+        val cellW = fieldW / cols; val cellH = fieldH / rows
+        val red = Color.red(baseColor); val green = Color.green(baseColor); val blue = Color.blue(baseColor)
         val hp = Paint().apply { style = Paint.Style.FILL; isAntiAlias = true }
-        for (gx in 0 until gridW) for (gy in 0 until gridH) {
-            val d = density[gx][gy]; if (d == 0) continue
-            hp.color = Color.argb((d.toFloat()/maxDensity*180).toInt().coerceIn(20,200), r, g, b)
-            val l = fieldLeft+gx*cellW; val t = fieldTop+gy*cellH
-            canvas.drawRoundRect(RectF(l, t, l+cellW, t+cellH), 4f, 4f, hp)
+        for (r in 0 until rows) for (c in 0 until cols) {
+            val d = density[r][c]; if (d == 0) continue
+            hp.color = Color.argb((d.toFloat() / maxDensity * 190).toInt().coerceIn(35, 200), red, green, blue)
+            val l = fieldLeft + c * cellW; val t = fieldTop + r * cellH
+            canvas.drawRoundRect(RectF(l, t, l + cellW, t + cellH), 4f, 4f, hp)
         }
     }
 
-    private fun drawEventPins(canvas: Canvas, events: List<MatchEvent>) {
-        val tp = Paint().apply { textSize = 22f; isAntiAlias = true; typeface = Typeface.DEFAULT_BOLD; textAlign = Paint.Align.CENTER }
-        val lp = Paint().apply { color = Color.WHITE; textSize = 14f; isAntiAlias = true; textAlign = Paint.Align.CENTER; setShadowLayer(3f,1f,1f,Color.BLACK) }
-        val bp = Paint().apply { isAntiAlias = true; style = Paint.Style.FILL }
-        for (event in events) {
-            val gps = event.gpsLocation ?: continue
-            val px = fieldLeft + gps.fieldX * fieldWidth; val py = fieldTop + gps.fieldY * fieldHeight
-            when (event.type) {
-                EventType.GOAL -> { bp.color = if (event.isOwnGoal) Color.parseColor("#FF5722") else Color.parseColor("#4CAF50"); canvas.drawCircle(px,py,14f,bp); tp.color=Color.WHITE; canvas.drawText("⚽",px,py+8f,tp); canvas.drawText(event.minuteLabel(),px,py+26f,lp) }
-                EventType.FOUL -> { bp.color = if (event.foulType==MatchEvent.FoulType.DFK) Color.parseColor("#FF9800") else Color.parseColor("#9C27B0"); val tri=Path().apply{moveTo(px,py-14f);lineTo(px+12f,py+10f);lineTo(px-12f,py+10f);close()}; canvas.drawPath(tri,bp); canvas.drawText("${event.foulType?.name?:""}",px,py+26f,lp); canvas.drawText(event.minuteLabel(),px,py+40f,lp) }
-                EventType.CARD -> { bp.color = if (event.cardType==CardType.RED) Color.parseColor("#F44336") else Color.parseColor("#FFEB3B"); canvas.drawRoundRect(RectF(px-8f,py-14f,px+8f,py+14f),3f,3f,bp); lp.color=if(event.cardType==CardType.RED)Color.WHITE else Color.BLACK; canvas.drawText("#${event.player.jerseyNumber}",px,py+5f,lp); lp.color=Color.WHITE; canvas.drawText(event.minuteLabel(),px,py+30f,lp) }
-                EventType.SUBSTITUTION -> { /* Do nothing on the map for subs */ }
-                EventType.KFTM_KICK -> {
-                    bp.color = if (event.kftmResult == MatchEvent.KftmResult.SCORED) Color.parseColor("#4CAF50") else Color.parseColor("#F44336")
-                    canvas.drawCircle(px, py, 14f, bp)
-                    tp.color = Color.WHITE
-                    val icon = if (event.kftmResult == MatchEvent.KftmResult.SCORED) "✅" else "❌"
-                    canvas.drawText(icon, px, py + 8f, tp)
-                }
-            }
+    /**
+     * Event symbols (see EventMarkers): circle = home, square = away, colour = event,
+     * player number inside. Draws the key under the field and returns its height.
+     */
+    private fun drawEventPins(canvas: Canvas, events: List<MatchEvent>): Float {
+        val ids = events.map { it.id }.toSet()
+        val markers = EventMarkers.build(allEvents.ifEmpty { events }).filter { it.event.id in ids }
+        val minute = Paint().apply { color = Color.WHITE; textSize = 17f; isAntiAlias = true; textAlign = Paint.Align.CENTER; setShadowLayer(3f, 1f, 1f, Color.BLACK) }
+        markers.forEach { mk ->
+            val g = mk.event.gpsLocation ?: return@forEach
+            if (g.fieldX == 0f && g.fieldY == 0f) return@forEach          // tagged but not placed (no calibration)
+            val x = sx(g.fieldY); val y = sy(g.fieldX)
+            EventMarkers.draw(canvas, mk, x, y, 17f)
+            canvas.drawText(mk.event.minuteLabel(), x, y + 36f, minute)
         }
+        return EventMarkers.drawKey(canvas, SIDE, fieldBottom + 40f, WIDTH - 2 * SIDE, 13f, Color.WHITE,
+            markers.takeIf { it.isNotEmpty() }?.let { EventMarkers.kindsIn(it) })
     }
 
     private fun drawLabel(canvas: Canvas, text: String) {
-        val p = Paint().apply { color=Color.WHITE; textSize=28f; typeface=Typeface.DEFAULT_BOLD; alpha=180; setShadowLayer(4f,2f,2f,Color.BLACK) }
-        canvas.drawText(text, fieldLeft+10f, fieldTop-10f, p)
+        val p = Paint().apply { color = Color.WHITE; textSize = 30f; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true; setShadowLayer(4f, 2f, 2f, Color.BLACK) }
+        canvas.drawText(text, SIDE, TOP - 22f, p)
+        val s = Paint().apply { color = Color.parseColor("#C8E6C9"); textSize = 20f; isAntiAlias = true; textAlign = Paint.Align.RIGHT }
+        canvas.drawText("${lengthM.toInt()} × ${widthM.toInt()} m · top = goal line 1–2", WIDTH - SIDE, TOP - 22f, s)
     }
 
-    fun applyHomography(lat: Double, lng: Double, matrix: FloatArray): Pair<Float,Float> {
-        val x=lat.toFloat(); val y=lng.toFloat()
-        return Pair((matrix[0]*x+matrix[1]*y+matrix[2]).coerceIn(0f,1f), (matrix[3]*x+matrix[4]*y+matrix[5]).coerceIn(0f,1f))
+    /** Which corner flag is which, matching the order walked during field setup. */
+    private fun drawCornerLabels(canvas: Canvas) {
+        val p = Paint().apply { color = Color.parseColor("#C8E6C9"); textSize = 20f; isAntiAlias = true; typeface = Typeface.DEFAULT_BOLD; textAlign = Paint.Align.CENTER }
+        canvas.drawText("1", fieldLeft - 22f, fieldTop + 7f, p)
+        canvas.drawText("2", fieldRight + 22f, fieldTop + 7f, p)
+        canvas.drawText("3", fieldRight + 22f, fieldBottom + 7f, p)
+        canvas.drawText("4", fieldLeft - 22f, fieldBottom + 7f, p)
+    }
+
+    private fun drawPeriodLegend(canvas: Canvas, totalPeriods: Int, y: Float) {
+        val tp = Paint().apply { color = Color.WHITE; textSize = 20f; isAntiAlias = true }
+        val bp = Paint().apply { style = Paint.Style.FILL }
+        var x = SIDE
+        canvas.drawText("Heatmap:", x, y, tp); x += 110f
+        for (p in 1..totalPeriods) {
+            bp.color = PERIOD_COLORS[(p - 1).coerceIn(0, PERIOD_COLORS.size - 1)]
+            canvas.drawRect(x, y - 16f, x + 22f, y + 4f, bp)
+            canvas.drawText("Period $p", x + 30f, y, tp)
+            x += 140f
+        }
     }
 }

@@ -22,6 +22,9 @@ public final class ActivityQuickEventBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final Button btnBackspace;
+
+  @NonNull
   public final Button btnCancel;
 
   @NonNull
@@ -34,13 +37,64 @@ public final class ActivityQuickEventBinding implements ViewBinding {
   public final Button btnCodePrev;
 
   @NonNull
+  public final Button btnDigit0;
+
+  @NonNull
+  public final Button btnDigit1;
+
+  @NonNull
+  public final Button btnDigit2;
+
+  @NonNull
+  public final Button btnDigit3;
+
+  @NonNull
+  public final Button btnDigit4;
+
+  @NonNull
+  public final Button btnDigit5;
+
+  @NonNull
+  public final Button btnDigit6;
+
+  @NonNull
+  public final Button btnDigit7;
+
+  @NonNull
+  public final Button btnDigit8;
+
+  @NonNull
+  public final Button btnDigit9;
+
+  @NonNull
+  public final Button btnFoulDfk;
+
+  @NonNull
+  public final Button btnFoulIfk;
+
+  @NonNull
+  public final Button btnFoulPk;
+
+  @NonNull
+  public final Button btnGoalOg;
+
+  @NonNull
+  public final Button btnGoalOpen;
+
+  @NonNull
+  public final Button btnGoalPk;
+
+  @NonNull
+  public final Button btnNoAssist;
+
+  @NonNull
   public final Button btnNumConfirm;
 
   @NonNull
-  public final Button btnNumDown;
+  public final Button btnTeamOfficial;
 
   @NonNull
-  public final Button btnNumUp;
+  public final Button btnTypeFoul;
 
   @NonNull
   public final Button btnTypeGoal;
@@ -52,7 +106,16 @@ public final class ActivityQuickEventBinding implements ViewBinding {
   public final Button btnTypeYellow;
 
   @NonNull
+  public final LinearLayout keypad;
+
+  @NonNull
   public final LinearLayout layoutCode;
+
+  @NonNull
+  public final LinearLayout layoutFoulType;
+
+  @NonNull
+  public final LinearLayout layoutGoalType;
 
   @NonNull
   public final LinearLayout layoutNumber;
@@ -81,27 +144,56 @@ public final class ActivityQuickEventBinding implements ViewBinding {
   @NonNull
   public final TextView txtTeamLabel;
 
-  private ActivityQuickEventBinding(@NonNull ScrollView rootView, @NonNull Button btnCancel,
-      @NonNull Button btnCodeConfirm, @NonNull Button btnCodeNext, @NonNull Button btnCodePrev,
-      @NonNull Button btnNumConfirm, @NonNull Button btnNumDown, @NonNull Button btnNumUp,
+  private ActivityQuickEventBinding(@NonNull ScrollView rootView, @NonNull Button btnBackspace,
+      @NonNull Button btnCancel, @NonNull Button btnCodeConfirm, @NonNull Button btnCodeNext,
+      @NonNull Button btnCodePrev, @NonNull Button btnDigit0, @NonNull Button btnDigit1,
+      @NonNull Button btnDigit2, @NonNull Button btnDigit3, @NonNull Button btnDigit4,
+      @NonNull Button btnDigit5, @NonNull Button btnDigit6, @NonNull Button btnDigit7,
+      @NonNull Button btnDigit8, @NonNull Button btnDigit9, @NonNull Button btnFoulDfk,
+      @NonNull Button btnFoulIfk, @NonNull Button btnFoulPk, @NonNull Button btnGoalOg,
+      @NonNull Button btnGoalOpen, @NonNull Button btnGoalPk, @NonNull Button btnNoAssist,
+      @NonNull Button btnNumConfirm, @NonNull Button btnTeamOfficial, @NonNull Button btnTypeFoul,
       @NonNull Button btnTypeGoal, @NonNull Button btnTypeRed, @NonNull Button btnTypeYellow,
-      @NonNull LinearLayout layoutCode, @NonNull LinearLayout layoutNumber,
-      @NonNull LinearLayout layoutType, @NonNull ScrollView quickEventScroll,
-      @NonNull TextView txtCodeDescription, @NonNull TextView txtCurrentCode,
-      @NonNull TextView txtPlayerName, @NonNull TextView txtPlayerNumber,
-      @NonNull TextView txtStepTitle, @NonNull TextView txtTeamLabel) {
+      @NonNull LinearLayout keypad, @NonNull LinearLayout layoutCode,
+      @NonNull LinearLayout layoutFoulType, @NonNull LinearLayout layoutGoalType,
+      @NonNull LinearLayout layoutNumber, @NonNull LinearLayout layoutType,
+      @NonNull ScrollView quickEventScroll, @NonNull TextView txtCodeDescription,
+      @NonNull TextView txtCurrentCode, @NonNull TextView txtPlayerName,
+      @NonNull TextView txtPlayerNumber, @NonNull TextView txtStepTitle,
+      @NonNull TextView txtTeamLabel) {
     this.rootView = rootView;
+    this.btnBackspace = btnBackspace;
     this.btnCancel = btnCancel;
     this.btnCodeConfirm = btnCodeConfirm;
     this.btnCodeNext = btnCodeNext;
     this.btnCodePrev = btnCodePrev;
+    this.btnDigit0 = btnDigit0;
+    this.btnDigit1 = btnDigit1;
+    this.btnDigit2 = btnDigit2;
+    this.btnDigit3 = btnDigit3;
+    this.btnDigit4 = btnDigit4;
+    this.btnDigit5 = btnDigit5;
+    this.btnDigit6 = btnDigit6;
+    this.btnDigit7 = btnDigit7;
+    this.btnDigit8 = btnDigit8;
+    this.btnDigit9 = btnDigit9;
+    this.btnFoulDfk = btnFoulDfk;
+    this.btnFoulIfk = btnFoulIfk;
+    this.btnFoulPk = btnFoulPk;
+    this.btnGoalOg = btnGoalOg;
+    this.btnGoalOpen = btnGoalOpen;
+    this.btnGoalPk = btnGoalPk;
+    this.btnNoAssist = btnNoAssist;
     this.btnNumConfirm = btnNumConfirm;
-    this.btnNumDown = btnNumDown;
-    this.btnNumUp = btnNumUp;
+    this.btnTeamOfficial = btnTeamOfficial;
+    this.btnTypeFoul = btnTypeFoul;
     this.btnTypeGoal = btnTypeGoal;
     this.btnTypeRed = btnTypeRed;
     this.btnTypeYellow = btnTypeYellow;
+    this.keypad = keypad;
     this.layoutCode = layoutCode;
+    this.layoutFoulType = layoutFoulType;
+    this.layoutGoalType = layoutGoalType;
     this.layoutNumber = layoutNumber;
     this.layoutType = layoutType;
     this.quickEventScroll = quickEventScroll;
@@ -140,6 +232,12 @@ public final class ActivityQuickEventBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBackspace;
+      Button btnBackspace = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackspace == null) {
+        break missingId;
+      }
+
       id = R.id.btnCancel;
       Button btnCancel = ViewBindings.findChildViewById(rootView, id);
       if (btnCancel == null) {
@@ -164,21 +262,123 @@ public final class ActivityQuickEventBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnDigit0;
+      Button btnDigit0 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit0 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit1;
+      Button btnDigit1 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit1 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit2;
+      Button btnDigit2 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit2 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit3;
+      Button btnDigit3 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit3 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit4;
+      Button btnDigit4 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit4 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit5;
+      Button btnDigit5 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit5 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit6;
+      Button btnDigit6 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit6 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit7;
+      Button btnDigit7 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit7 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit8;
+      Button btnDigit8 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit8 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDigit9;
+      Button btnDigit9 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDigit9 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFoulDfk;
+      Button btnFoulDfk = ViewBindings.findChildViewById(rootView, id);
+      if (btnFoulDfk == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFoulIfk;
+      Button btnFoulIfk = ViewBindings.findChildViewById(rootView, id);
+      if (btnFoulIfk == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFoulPk;
+      Button btnFoulPk = ViewBindings.findChildViewById(rootView, id);
+      if (btnFoulPk == null) {
+        break missingId;
+      }
+
+      id = R.id.btnGoalOg;
+      Button btnGoalOg = ViewBindings.findChildViewById(rootView, id);
+      if (btnGoalOg == null) {
+        break missingId;
+      }
+
+      id = R.id.btnGoalOpen;
+      Button btnGoalOpen = ViewBindings.findChildViewById(rootView, id);
+      if (btnGoalOpen == null) {
+        break missingId;
+      }
+
+      id = R.id.btnGoalPk;
+      Button btnGoalPk = ViewBindings.findChildViewById(rootView, id);
+      if (btnGoalPk == null) {
+        break missingId;
+      }
+
+      id = R.id.btnNoAssist;
+      Button btnNoAssist = ViewBindings.findChildViewById(rootView, id);
+      if (btnNoAssist == null) {
+        break missingId;
+      }
+
       id = R.id.btnNumConfirm;
       Button btnNumConfirm = ViewBindings.findChildViewById(rootView, id);
       if (btnNumConfirm == null) {
         break missingId;
       }
 
-      id = R.id.btnNumDown;
-      Button btnNumDown = ViewBindings.findChildViewById(rootView, id);
-      if (btnNumDown == null) {
+      id = R.id.btnTeamOfficial;
+      Button btnTeamOfficial = ViewBindings.findChildViewById(rootView, id);
+      if (btnTeamOfficial == null) {
         break missingId;
       }
 
-      id = R.id.btnNumUp;
-      Button btnNumUp = ViewBindings.findChildViewById(rootView, id);
-      if (btnNumUp == null) {
+      id = R.id.btnTypeFoul;
+      Button btnTypeFoul = ViewBindings.findChildViewById(rootView, id);
+      if (btnTypeFoul == null) {
         break missingId;
       }
 
@@ -200,9 +400,27 @@ public final class ActivityQuickEventBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.keypad;
+      LinearLayout keypad = ViewBindings.findChildViewById(rootView, id);
+      if (keypad == null) {
+        break missingId;
+      }
+
       id = R.id.layoutCode;
       LinearLayout layoutCode = ViewBindings.findChildViewById(rootView, id);
       if (layoutCode == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutFoulType;
+      LinearLayout layoutFoulType = ViewBindings.findChildViewById(rootView, id);
+      if (layoutFoulType == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutGoalType;
+      LinearLayout layoutGoalType = ViewBindings.findChildViewById(rootView, id);
+      if (layoutGoalType == null) {
         break missingId;
       }
 
@@ -256,9 +474,12 @@ public final class ActivityQuickEventBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityQuickEventBinding((ScrollView) rootView, btnCancel, btnCodeConfirm,
-          btnCodeNext, btnCodePrev, btnNumConfirm, btnNumDown, btnNumUp, btnTypeGoal, btnTypeRed,
-          btnTypeYellow, layoutCode, layoutNumber, layoutType, quickEventScroll, txtCodeDescription,
+      return new ActivityQuickEventBinding((ScrollView) rootView, btnBackspace, btnCancel,
+          btnCodeConfirm, btnCodeNext, btnCodePrev, btnDigit0, btnDigit1, btnDigit2, btnDigit3,
+          btnDigit4, btnDigit5, btnDigit6, btnDigit7, btnDigit8, btnDigit9, btnFoulDfk, btnFoulIfk,
+          btnFoulPk, btnGoalOg, btnGoalOpen, btnGoalPk, btnNoAssist, btnNumConfirm, btnTeamOfficial,
+          btnTypeFoul, btnTypeGoal, btnTypeRed, btnTypeYellow, keypad, layoutCode, layoutFoulType,
+          layoutGoalType, layoutNumber, layoutType, quickEventScroll, txtCodeDescription,
           txtCurrentCode, txtPlayerName, txtPlayerNumber, txtStepTitle, txtTeamLabel);
     }
     String missingId = rootView.getResources().getResourceName(id);

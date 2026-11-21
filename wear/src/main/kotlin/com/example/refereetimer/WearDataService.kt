@@ -9,7 +9,9 @@ import com.google.android.gms.wearable.DataEvent
 import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.MessageEvent
+import com.google.android.gms.wearable.Wearable
 import com.google.android.gms.wearable.WearableListenerService
+import com.example.refereetimer.shared.FieldCalibration
 import org.json.JSONObject
 
 /** Receives rosters, match settings and reset from the phone. */
@@ -31,9 +33,22 @@ class WearDataService : WearableListenerService() {
 
     override fun onDataChanged(dataEvents: DataEventBuffer) {
         val rosters = mutableListOf<Pair<Boolean, String>>() // (isHome, json)
+        val phoneEvents = mutableListOf<Pair<android.net.Uri, String>>()
+        var calibration: String? = null
         for (event in dataEvents) {
             if (event.type != DataEvent.TYPE_CHANGED) continue
             val path = event.dataItem.uri.path ?: continue
+            val map = DataMapItem.fromDataItem(event.dataItem).dataMap
+            // NEW: events entered on the phone
+            if (path.startsWith(DataLayerPaths.PATH_PHONE_EVENT + "/")) {
+                map.getString(DataLayerPaths.KEY_EVENT_JSON)?.let { phoneEvents.add(event.dataItem.uri to it) }
+                continue
+            }
+            // NEW: a field loaded on the phone (e.g. from the Google Sheet)
+            if (path == DataLayerPaths.PATH_PHONE_CALIBRATION) {
+                calibration = map.getString(DataLayerPaths.KEY_CALIBRATION_JSON) ?: calibration
+                continue
+            }
             val isHome = when (path) {
                 DataLayerPaths.DATA_ROSTER_HOME -> true
                 DataLayerPaths.DATA_ROSTER_AWAY -> false
@@ -44,6 +59,25 @@ class WearDataService : WearableListenerService() {
             rosters.add(isHome to json)
         }
         if (rosters.isNotEmpty()) main.post { rosters.forEach { applyRoster(it.second, it.first) } }
+
+        if (phoneEvents.isNotEmpty()) {
+            main.post {
+                val ev = app.eventViewModel
+                val parsed = phoneEvents.mapNotNull { (_, json) ->
+                    runCatching { MatchJson.eventFromJson(JSONObject(json)) { ev.team(it) } }.getOrNull()
+                }
+                ev.addFromPhone(parsed)
+            }
+            // Saved on the watch now; clear them from the sync queue
+            val client = Wearable.getDataClient(this)
+            phoneEvents.forEach { client.deleteDataItems(it.first) }
+        }
+
+        calibration?.let { json ->
+            main.post {
+                FieldCalibration.fromJson(JSONObject(json))?.let { app.saveFieldCalibration(it) }
+            }
+        }
     }
 
     private fun applyRoster(json: String, isHome: Boolean) {

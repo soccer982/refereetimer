@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:35:9-43:20
+INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:56:9-64:20
 	android:grantUriPermissions
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:39:13-47
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:60:13-47
 	android:authorities
 		INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:37:13-64
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:58:13-64
 	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:38:13-37
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:59:13-37
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:36:13-62
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:57:13-62
 manifest
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-64:12
-INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-64:12
-INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-64:12
-INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-64:12
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-85:12
+INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-85:12
+INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-85:12
+INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:2:1-85:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] /Users/curtiskleier/.gradle/caches/transforms-3/239b39118e0e117443eddc8bd7778a36/transformed/jetified-viewbinding-8.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared] /Users/curtiskleier/Documents/RefereeTimer/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] /Users/curtiskleier/.gradle/caches/transforms-3/fcbc5d16c187e197fa242b722ddc8c8e/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
@@ -115,8 +115,8 @@ ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidMani
 	android:name
 		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:10:22-83
 application
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:12:5-62:19
-INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:12:5-62:19
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:12:5-83:19
+INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:12:5-83:19
 MERGED from [com.google.android.material:material:1.11.0] /Users/curtiskleier/.gradle/caches/transforms-3/fcbc5d16c187e197fa242b722ddc8c8e/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /Users/curtiskleier/.gradle/caches/transforms-3/fcbc5d16c187e197fa242b722ddc8c8e/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /Users/curtiskleier/.gradle/caches/transforms-3/c7c1f8a0c0b1a2a84ee45f8441a00cb2/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:8:5-16:19
@@ -160,83 +160,115 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/curtiskleier/.gra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /Users/curtiskleier/.gradle/caches/transforms-3/808f25e33273cf777e1c687f415f5885/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:16:9-38
-	android:icon
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:15:9-38
 	android:allowBackup
 		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:18:9-50
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:17:9-50
 	android:name
 		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:13:9-33
 activity#com.example.refereetimer.phone.MatchConfigActivity
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:20:9-82
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:20:9-39:20
+	android:label
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:23:13-50
 	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:20:55-79
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:20:19-54
-activity#com.example.refereetimer.phone.PhoneMainActivity
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:22:9-29:20
-	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:24:13-36
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:21:13-48
+intent-filter#action:name:android.intent.action.SEND+category:name:android.intent.category.DEFAULT+data:mimeType:image/*
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:24:13-28:29
+action#android.intent.action.SEND
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:23:13-46
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:25:13-28:29
-action#android.intent.action.MAIN
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:26:17-68
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:25:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:26:17-76
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:26:25-66
-category#android.intent.category.LAUNCHER
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:27:17-76
-	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:27:27-74
-activity#com.example.refereetimer.phone.RosterSetupActivity
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:31:9-33:39
-	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:33:13-37
-	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:32:13-48
-service#com.example.refereetimer.phone.PhoneDataService
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:45:9-55:19
-	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:47:13-36
-	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:46:13-45
-intent-filter#action:name:com.google.android.gms.wearable.DATA_CHANGED+action:name:com.google.android.gms.wearable.MESSAGE_RECEIVED+data:host:*+data:host:*+data:host:*+data:pathPrefix:/data+data:pathPrefix:/gps+data:pathPrefix:/match+data:scheme:wear+data:scheme:wear+data:scheme:wear
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:48:13-54:29
-action#com.google.android.gms.wearable.DATA_CHANGED
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:49:17-86
-	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:49:25-84
-action#com.google.android.gms.wearable.MESSAGE_RECEIVED
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:50:17-90
-	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:50:25-88
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:26:27-73
 data
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:51:17-91
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:27:17-52
 	android:host
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:51:45-61
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:72:45-61
 	android:scheme
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:51:23-44
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:72:23-44
+	android:mimeType
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:27:23-49
 	android:pathPrefix
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:51:62-89
-service#com.example.refereetimer.phone.GpsReferenceService
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:57:9-60:55
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:72:62-89
+intent-filter#action:name:android.intent.action.SEND_MULTIPLE+category:name:android.intent.category.DEFAULT+data:mimeType:image/*
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:29:13-33:29
+action#android.intent.action.SEND_MULTIPLE
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:30:17-78
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:30:25-75
+intent-filter#action:name:android.intent.action.SEND+category:name:android.intent.category.DEFAULT+data:mimeType:text/plain
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:34:13-38:29
+activity#com.example.refereetimer.phone.SubstitutionActivity
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:40:9-83
 	android:exported
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:59:13-37
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:40:56-80
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:40:19-55
+activity#com.example.refereetimer.phone.FieldSetupActivity
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:41:9-81
+	android:exported
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:41:54-78
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:41:19-53
+activity#com.example.refereetimer.phone.PhoneMainActivity
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:43:9-50:20
+	android:exported
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:45:13-36
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:44:13-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:46:13-49:29
+action#android.intent.action.MAIN
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:47:17-68
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:47:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:48:17-76
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:48:27-74
+activity#com.example.refereetimer.phone.RosterSetupActivity
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:52:9-54:39
+	android:exported
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:54:13-37
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:53:13-48
+service#com.example.refereetimer.phone.PhoneDataService
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:66:9-76:19
+	android:exported
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:68:13-36
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:67:13-45
+intent-filter#action:name:com.google.android.gms.wearable.DATA_CHANGED+action:name:com.google.android.gms.wearable.MESSAGE_RECEIVED+data:host:*+data:host:*+data:host:*+data:pathPrefix:/data+data:pathPrefix:/gps+data:pathPrefix:/match+data:scheme:wear+data:scheme:wear+data:scheme:wear
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:69:13-75:29
+action#com.google.android.gms.wearable.DATA_CHANGED
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:70:17-86
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:70:25-84
+action#com.google.android.gms.wearable.MESSAGE_RECEIVED
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:71:17-90
+	android:name
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:71:25-88
+service#com.example.refereetimer.phone.GpsReferenceService
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:78:9-81:55
+	android:exported
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:80:13-37
 	android:foregroundServiceType
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:60:13-53
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:81:13-53
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:58:13-48
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:79:13-48
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:40:13-42:53
+ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:61:13-63:53
 	android:resource
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:42:17-51
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:63:17-51
 	android:name
-		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:41:17-67
+		ADDED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml:62:17-67
 uses-sdk
 INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/curtiskleier/Documents/RefereeTimer/phone/src/main/AndroidManifest.xml

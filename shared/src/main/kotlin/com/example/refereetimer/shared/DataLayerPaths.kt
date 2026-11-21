@@ -12,6 +12,12 @@ object DataLayerPaths {
     const val PATH_MATCH_EVENT      = "/match/event"            // Standard event logging
     const val DATA_MATCH_CONFIG     = "/data/config"           // Phone pushes match rules to Watch
     const val PATH_MATCH_CLOCK      = "/match/clock"            // Watch's saved clock (Data Item, latest wins)
+    const val PATH_MATCH_TRACK      = "/match/track"            // + "/<period>": referee movement for heatmaps
+    const val PATH_FIELD_CALIBRATION = "/match/calibration"     // Watch's 4-corner field calibration
+    const val PATH_PHONE_EVENT      = "/match/phone_event"      // + "/<id>": events entered on the PHONE → watch
+    const val PATH_PHONE_CALIBRATION = "/data/calibration"      // Phone loads a saved field → watch
+    const val MSG_GPS_FIX_REQUEST   = "/gps/fix/request"        // Watch asks the phone for its GPS fix
+    const val MSG_GPS_FIX_REPLY     = "/gps/fix/reply"          // Phone answers with its averaged fix
 
     // ── V3 MESSAGE/DATA KEYS ──
     const val KEY_STATE             = "state"
@@ -19,6 +25,8 @@ object DataLayerPaths {
     const val KEY_EVENT_JSON        = "event_json"
     const val KEY_TIMESTAMP         = "timestamp"
     const val KEY_CLOCK_JSON        = "clock_json"
+    const val KEY_TRACK_JSON        = "track_json"
+    const val KEY_CALIBRATION_JSON  = "calibration_json"
 
     // ── LEGACY & GPS CALIBRATION PATHS (Restored for Compilation) ──
     const val MSG_RESET = "/match/reset"
@@ -36,7 +44,6 @@ object DataLayerPaths {
     const val KEY_GPS_ACCURACY      = "gps_accuracy"
     const val KEY_DRIFT_LAT         = "drift_lat"
     const val KEY_DRIFT_LNG         = "drift_lng"
-    const val KEY_CALIBRATION_JSON  = "calibration_json"
     const val KEY_ROSTER_JSON       = "roster_json"
     const val KEY_GPS_BATCH_JSON    = "gps_batch_json"
     const val KEY_PERIOD            = "period"

@@ -1,14 +1,18 @@
 [
     {
-        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_main.xml",
-        "source": "com.example.refereetimer.wear-main-39:/layout/activity_main.xml"
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-43:/layout/activity_injury.xml",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_injury.xml"
     },
     {
-        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_quick_event.xml",
-        "source": "com.example.refereetimer.wear-main-39:/layout/activity_quick_event.xml"
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-43:/layout/activity_field_setup.xml",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_field_setup.xml"
     },
     {
-        "merged": "com.example.refereetimer.wear-mergeDebugResources-36:/layout/activity_gps_calibration.xml",
-        "source": "com.example.refereetimer.wear-main-39:/layout/activity_gps_calibration.xml"
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-43:/layout/activity_quick_event.xml",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_quick_event.xml"
+    },
+    {
+        "merged": "com.example.refereetimer.wear-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.example.refereetimer.wear-main-46:/layout/activity_main.xml"
     }
 ]
