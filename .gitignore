@@ -1,0 +1,42 @@
+# Gradle / build output
+.gradle/
+build/
+**/build/
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Machine-specific
+local.properties
+
+# Android Studio (per-user / per-machine files)
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/libraries/
+.idea/caches/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetSelector.xml
+.idea/deploymentTargetDropDown.xml
+.idea/studiobot.xml
+.idea/other.xml
+
+# Signing keys and secrets
+*.jks
+*.keystore
+keystore.properties
+
+# OS junk
+.DS_Store
+Icon?
+Thumbs.db
+
+# Logs / APKs
+*.log
+*.apk
+*.aab
