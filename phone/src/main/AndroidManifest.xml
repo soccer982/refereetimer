@@ -52,6 +52,10 @@
         <activity
             android:name=".RosterSetupActivity"
             android:exported="false"/>
+        <activity
+            android:name=".RosterCropActivity"
+            android:exported="false"
+            android:label="Crop roster"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

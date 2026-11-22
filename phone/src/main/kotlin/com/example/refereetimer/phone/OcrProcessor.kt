@@ -2,6 +2,13 @@ package com.example.refereetimer.phone
 
 import android.content.Context
 import android.graphics.Bitmap
+import com.example.refereetimer.shared.OcrLine
+import com.example.refereetimer.shared.OcrRows
+import com.example.refereetimer.shared.RosterCard
+import com.example.refereetimer.shared.RosterCardParser
+import com.example.refereetimer.shared.RosterCoach
+import com.example.refereetimer.shared.RosterEntry
+import com.example.refereetimer.shared.RosterSection
 import com.example.refereetimer.shared.models.LeagueType
 import com.example.refereetimer.shared.models.Player
 import com.google.mlkit.vision.common.InputImage
@@ -17,10 +24,45 @@ class OcrProcessor(private val context: Context) {
 
     fun setLeague(league: LeagueType) { currentLeague = league }
 
+    fun close() = recognizer.close()
+
+    /**
+     * NEW: reads a picture and returns its text as printed rows (left to right, top to bottom).
+     * Table columns that text recognition returns separately are put back together, a tilted
+     * photo is straightened, and side-by-side Home/Away tables are read one after the other.
+     */
+    suspend fun readRows(bitmap: Bitmap): List<String> {
+        val visionText = recognizer.process(InputImage.fromBitmap(bitmap, 0)).await()
+        val lines = mutableListOf<OcrLine>()
+        val angles = mutableListOf<Double>()
+        for (block in visionText.textBlocks) for (line in block.lines) {
+            val b = line.boundingBox ?: continue
+            lines += OcrLine(line.text, b.left, b.top, b.right, b.bottom)
+            val pts = line.cornerPoints
+            if (pts != null && pts.size >= 2 && b.width() > b.height() * 2) {
+                angles += Math.toDegrees(Math.atan2((pts[1].y - pts[0].y).toDouble(), (pts[1].x - pts[0].x).toDouble()))
+            }
+        }
+        val skew = angles.sorted().let { if (it.isEmpty()) 0.0 else it[it.size / 2] }
+        return OcrRows.rows(OcrRows.deskew(lines, skew))
+    }
+
+    /** NEW: reads a whole game card, or one cropped team section, into teams + match info. */
+    suspend fun readCard(bitmap: Bitmap, league: LeagueType): RosterCard {
+        val rows = readRows(bitmap)
+        android.util.Log.d("ROSTER", "OCR rows:\n" + rows.joinToString("\n"))
+        if (league == LeagueType.HIGH_SCHOOL) {
+            val r = parseHighSchoolCard(rows.joinToString("\n"))
+            return RosterCard(unassigned = RosterSection(
+                r.teamName, r.coaches.map { RosterCoach(it) },
+                r.players.map { RosterEntry(it.jerseyNumber, it.name, uncertain = it.flagged) }
+            ))
+        }
+        return RosterCardParser.parseLines(rows)
+    }
+
     suspend fun processGameCard(bitmap: Bitmap, league: LeagueType): OcrResult {
-        val image      = InputImage.fromBitmap(bitmap, 0)
-        val visionText = recognizer.process(image).await()
-        val fullText   = visionText.text
+        val fullText = readRows(bitmap).joinToString("\n")
         return when (league) {
             LeagueType.SJSL, LeagueType.EDP, LeagueType.SJGSL -> parseGotSportCard(fullText)
             LeagueType.HIGH_SCHOOL -> parseHighSchoolCard(fullText)
@@ -58,7 +100,7 @@ class OcrProcessor(private val context: Context) {
         } catch (e: Exception) { null }
     }
 
-    private fun parseHighSchoolCard(fullText: String): OcrResult {
+    fun parseHighSchoolCard(fullText: String): OcrResult {
         val lines   = fullText.lines().map { it.trim() }.filter { it.isNotBlank() }
         val players = mutableListOf<Player>(); val coaches = mutableListOf<String>()
         val isMapleShadeType = fullText.contains("Position", ignoreCase = true) && fullText.contains("Grade", ignoreCase = true)

@@ -38,13 +38,13 @@
             app:checkedButton="@id/btnSetHomeTeam">
             <com.google.android.material.button.MaterialButton android:id="@+id/btnSetHomeTeam"
                 android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="📷 Scan HOME" app:backgroundTint="#1565C0"/>
+                android:text="HOME (H)" app:backgroundTint="#1565C0"/>
             <com.google.android.material.button.MaterialButton android:id="@+id/btnSetAwayTeam"
                 android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="📷 Scan AWAY" app:backgroundTint="#B71C1C"/>
+                android:text="AWAY (A)" app:backgroundTint="#B71C1C"/>
         </com.google.android.material.button.MaterialButtonToggleGroup>
         <TextView android:id="@+id/txtCurrentSide" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="Select Home or Away, then scan" android:textColor="#FF9800"
+            android:text="Scan the game card, or paste the roster text" android:textColor="#FF9800"
             android:textSize="12sp" android:gravity="center" android:layout_marginBottom="12dp"/>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_marginBottom="12dp">
@@ -53,22 +53,40 @@
                 android:text="📸 Camera" android:layout_marginEnd="4dp" app:backgroundTint="#424242"/>
             <com.google.android.material.button.MaterialButton android:id="@+id/btnChooseGallery"
                 android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="🖼 Gallery" app:backgroundTint="#424242"/>
+                android:text="🖼 Gallery" android:layout_marginEnd="4dp" app:backgroundTint="#424242"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnPasteRoster"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📋 Paste" app:backgroundTint="#424242"/>
         </LinearLayout>
         <ProgressBar android:id="@+id/progressOcr" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_gravity="center" android:visibility="gone"/>
         <TextView android:id="@+id/txtOcrStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="" android:textColor="#4CAF50" android:textSize="13sp"
             android:gravity="center" android:layout_marginBottom="12dp"/>
+        <LinearLayout android:id="@+id/cardInfoGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#1E1E1E" android:padding="12dp"
+            android:layout_marginBottom="12dp" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="MATCH INFO ON CARD" android:textColor="#9E9E9E" android:textSize="11sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/txtCardInfo" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@android:color/white" android:textSize="13sp" android:layout_marginTop="4dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnApplyCardInfo"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end"
+                android:text="Use in Match Setup" android:textSize="12sp" app:backgroundTint="#1565C0"/>
+        </LinearLayout>
         <LinearLayout android:id="@+id/rosterReviewGroup" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:visibility="gone">
             <TextView android:id="@+id/txtReviewHint" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="" android:textColor="#FF9800" android:textSize="12sp"
                 android:gravity="center" android:layout_marginBottom="8dp" android:visibility="gone"/>
             <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerRosterReview"
-                android:layout_width="match_parent" android:layout_height="280dp"
-                android:background="#1E1E1E" android:layout_marginBottom="12dp"/>
+                android:layout_width="match_parent" android:layout_height="420dp"
+                android:background="#1E1E1E" android:layout_marginBottom="4dp"/>
         </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnAddPlayer"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end"
+            android:text="+ Add player" android:textSize="12sp" android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
         <com.google.android.material.button.MaterialButton android:id="@+id/btnSendToWatch"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="⌚ SEND ROSTERS TO WATCH" android:textSize="14sp"

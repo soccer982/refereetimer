@@ -96,7 +96,7 @@ data class MatchEvent(
         }
         EventType.KFTM_KICK -> buildString {
             val icon = if (kftmResult == KftmResult.SCORED) "✅" else "❌"
-            append("$icon KFTM: ${team.label} #${player.jerseyNumber} - ${kftmResult?.name}")
+            append("$icon KFTM: ${team.label} ${player.tag} - ${kftmResult?.name}")
         }
     }
 }

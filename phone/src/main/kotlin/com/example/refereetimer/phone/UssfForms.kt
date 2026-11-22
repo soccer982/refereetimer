@@ -192,7 +192,8 @@ class UssfForms(
             officials(c, 305.0f, 324.1f, 343.0f, 362.0f)
             fun row(e: MatchEvent, cols: List<Pair<Float, Float>>, r: Pair<Float, Float>, red: Boolean) {
                 inCell(c, "${who(e)} (${e.minuteLabel()})", cols[0].first, cols[0].second, r.first, r.second)
-                // Pass/ID column left blank: player pass numbers aren't on the roster
+                // Pass/ID column: the player ID read from the game card (blank if the roster didn't have one)
+                inCell(c, e.player.playerId, cols[1].first, cols[1].second, r.first, r.second)
                 inCell(c, e.team.label, cols[2].first, cols[2].second, r.first, r.second)
                 inCell(c, MisconductCodes.official(e.misconductCode) ?: "", cols[3].first, cols[3].second, r.first, r.second, 9.5f,
                     if (red) Color.parseColor("#C62828") else ink, center = true)
