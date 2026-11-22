@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NEW: phone Field Setup: GPS helper for the watch + Google Sheet field library -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#1B5E20"
+        app:title="Field Setup"
+        app:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Current field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CURRENT FIELD"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtCurrentField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="Not calibrated"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <!-- GPS helper -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WALK THE CORNERS WITH THE WATCH"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtHelperInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Keep this screen open and the phone with you. On the watch, tap FIELD SETUP and CAPTURE at each corner flag: the phone's GPS is averaged in for better accuracy."
+                android:textColor="#BDBDBD"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtPhoneGps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#1E1E1E"
+                android:padding="12dp"
+                android:text="📱 Phone GPS: starting…"
+                android:textColor="#A5D6A7"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtHelperLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:text=""
+                android:textColor="#90CAF9"
+                android:textSize="13sp" />
+
+            <!-- Google Sheet library -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVED FIELDS (GOOGLE SHEET)"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLoadField"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="6dp"
+                android:backgroundTint="#1565C0"
+                android:text="📂  LOAD A SAVED FIELD"
+                android:textColor="@android:color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveField"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="#2E7D32"
+                android:text="💾  SAVE CURRENT FIELD TO SHEET"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtSheetStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text=""
+                android:textColor="#BDBDBD"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHEET CONNECTION (ONE-TIME SETUP)"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Apps Script web app URL (…/exec)"
+                app:boxBackgroundColor="#1E1E1E">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputScriptUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:textColor="@android:color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="App key (same as APP_KEY in the script)"
+                app:boxBackgroundColor="#1E1E1E"
+                app:endIconMode="password_toggle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputScriptKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveSheetSettings"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SAVE CONNECTION + TEST"
+                android:textColor="#A5D6A7" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
