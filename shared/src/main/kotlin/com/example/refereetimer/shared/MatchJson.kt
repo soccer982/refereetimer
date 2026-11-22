@@ -19,7 +19,12 @@ object MatchJson {
         put("coaches", JSONArray(t.coaches))
         put("players", JSONArray().apply {
             t.players.forEach { p ->
-                put(JSONObject().apply { put("number", p.jerseyNumber); put("name", p.name); put("flagged", p.flagged) })
+                put(JSONObject().apply {
+                    put("number", p.jerseyNumber); put("name", p.name); put("flagged", p.flagged)
+                    if (p.playerId.isNotBlank()) put("playerId", p.playerId)
+                    if (p.dob.isNotBlank()) put("dob", p.dob)
+                    if (p.cpp) put("cpp", true)
+                })
             }
         })
     }
@@ -28,7 +33,8 @@ object MatchJson {
         val pa = j.optJSONArray("players") ?: JSONArray()
         val players = (0 until pa.length()).map { i ->
             val p = pa.getJSONObject(i)
-            Player(p.getInt("number"), p.optString("name", "Unknown"), p.optBoolean("flagged", false))
+            Player(p.getInt("number"), p.optString("name", "Unknown"), p.optBoolean("flagged", false),
+                p.optString("playerId", ""), p.optString("dob", ""), p.optBoolean("cpp", false))
         }
         val ca = j.optJSONArray("coaches") ?: JSONArray()
         val coaches = (0 until ca.length()).map { ca.getString(it) }
